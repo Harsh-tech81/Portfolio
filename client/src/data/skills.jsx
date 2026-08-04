@@ -1,16 +1,16 @@
 import React from 'react';
 import { 
   SiJavascript, SiTypescript, SiPython, SiCplusplus, SiC, 
-  SiReact, SiNextdotjs, SiHtml5, SiCss3, SiTailwindcss, SiBootstrap, SiRedux, SiFramer,
+  SiReact, SiNextdotjs, SiHtml5, SiCss, SiTailwindcss, SiBootstrap, SiRedux, SiFramer,
   SiNodedotjs, SiExpress, SiGraphql, SiSocketdotio,
   SiMongodb, SiPostgresql, SiMysql, SiRedis, SiFirebase,
   SiKubernetes, SiGithubactions, SiNginx,
-  SiAmazon, SiGooglecloud, SiVercel, SiNetlify, SiHeroku,
+  SiGooglecloud, SiVercel, SiNetlify,
   SiPostman, SiFigma, SiJira, SiNotion, SiLinux,
   SiGit, SiGithub, SiGitlab, SiBitbucket,
   SiTensorflow, SiPytorch, SiScikitlearn
 } from 'react-icons/si';
-import { FaJava, FaDocker } from 'react-icons/fa';
+import { FaJava, FaDocker, FaAws, FaCloud, FaDatabase, FaNetworkWired, FaLaptopCode, FaMicrochip } from 'react-icons/fa';
 import { VscVscode } from 'react-icons/vsc';
 
 export const skills = [
@@ -33,7 +33,7 @@ export const skills = [
       { name: 'React.js', icon: <SiReact /> },
       { name: 'Next.js', icon: <SiNextdotjs /> },
       { name: 'HTML5', icon: <SiHtml5 /> },
-      { name: 'CSS3', icon: <SiCss3 /> },
+      { name: 'CSS3', icon: <SiCss /> },
       { name: 'Tailwind CSS', icon: <SiTailwindcss /> },
       { name: 'Bootstrap', icon: <SiBootstrap /> },
       { name: 'Redux', icon: <SiRedux /> },
@@ -75,13 +75,13 @@ export const skills = [
   },
   {
     category: 'Cloud',
-    icon: <SiAmazon />,
+    icon: <FaAws />,
     skills: [
-      { name: 'AWS', icon: <SiAmazon /> },
+      { name: 'AWS', icon: <FaAws /> },
       { name: 'Google Cloud', icon: <SiGooglecloud /> },
       { name: 'Vercel', icon: <SiVercel /> },
       { name: 'Netlify', icon: <SiNetlify /> },
-      { name: 'Heroku', icon: <SiHeroku /> }
+      { name: 'Heroku', icon: <FaCloud /> }
     ]
   },
   {
@@ -115,6 +115,18 @@ export const skills = [
       { name: 'Scikit-learn', icon: <SiScikitlearn /> },
       { name: 'NLP', icon: <SiTensorflow /> }, // Placeholder for NLP
       { name: 'Computer Vision', icon: <SiPytorch /> } // Placeholder for Computer Vision
+    ]
+  },
+  {
+    category: 'CS Fundamentals',
+    icon: <FaLaptopCode />,
+    skills: [
+      { name: 'Data Structures', icon: <FaDatabase /> },
+      { name: 'Algorithms', icon: <FaMicrochip /> },
+      { name: 'OOP', icon: <FaLaptopCode /> },
+      { name: 'DBMS', icon: <FaDatabase /> },
+      { name: 'OS', icon: <SiLinux /> },
+      { name: 'Computer Networks', icon: <FaNetworkWired /> }
     ]
   }
 ];

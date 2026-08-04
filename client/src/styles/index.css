@@ -130,7 +130,8 @@
   }
 
   .focus-ring {
-    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-bg-color;
+    outline: none;
+    box-shadow: 0 0 0 2px var(--bg-color), 0 0 0 4px var(--color-primary);
   }
 
   .card-glow {

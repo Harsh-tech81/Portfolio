@@ -14,7 +14,7 @@ export const personalInfo = {
   phone: '+91-XXXXXXXXXX',
   location: 'India',
   resumeUrl: '/resume.pdf',
-  social: {
+  socials: {
     github: 'https://github.com/Harsh-tech81',
     linkedin: '#',
     twitter: '#',

@@ -6,7 +6,8 @@ import { personalInfo } from '../../data/personalInfo';
 import { FiSun, FiMoon, FiMenu, FiX } from 'react-icons/fi';
 
 const Navbar = ({ activeSection }) => {
-  const { isDarkMode, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
+  const isDarkMode = theme === 'dark';
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isNavHidden, setIsNavHidden] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);

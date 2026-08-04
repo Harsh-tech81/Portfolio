@@ -1,10 +1,10 @@
 export const navLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Coding Profiles', href: '#coding-profiles' },
-  { label: 'Certifications', href: '#certifications' },
-  { label: 'Contact', href: '#contact' },
+  { id: 'home', name: 'Home', path: '#home' },
+  { id: 'about', name: 'About', path: '#about' },
+  { id: 'skills', name: 'Skills', path: '#skills' },
+  { id: 'experience', name: 'Experience', path: '#experience' },
+  { id: 'projects', name: 'Projects', path: '#projects' },
+  { id: 'coding-profiles', name: 'Coding Profiles', path: '#coding-profiles' },
+  { id: 'certifications', name: 'Certifications', path: '#certifications' },
+  { id: 'contact', name: 'Contact', path: '#contact' },
 ];
