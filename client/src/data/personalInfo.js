@@ -11,12 +11,12 @@ export const personalInfo = {
   email: 'harshkr.221104@gmail.com',
   phone: '+91-8986371311',
   location: 'India',
-  resumeUrl: 'https://drive.google.com/file/d/1EyYxzG9nVlCUnXTghb7OQvloDoTQOzRV/view?usp=drivesdk',
+  resumeUrl: 'https://drive.google.com/file/d/1EyYxzG9nVlCUnXTghb7OQvloDoTQOzRV/view?usp=drive_link',
   socials: {
     github: 'https://github.com/Harsh-tech81',
     linkedin: 'https://www.linkedin.com/in/harsh-kumar-1ba21731a',
-    twitter: '',
-    instagram: ''
+    twitter: 'https://x.com/HarshKumar55518',
+    instagram: 'https://instagram.com/harshkr.56'
   },
   about: {
     education: 'B.Tech in Computer Science',

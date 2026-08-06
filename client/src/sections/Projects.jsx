@@ -177,6 +177,8 @@ const Projects = () => {
             </div>
           </AnimatedSection>
         )}
+
+        
       </div>
     </section>
   );
