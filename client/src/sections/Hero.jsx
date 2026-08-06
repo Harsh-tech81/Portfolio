@@ -9,7 +9,7 @@ import Button from '../components/common/Button';
 import HeroBackground from '../components/three/HeroBackground';
 
 const Hero = () => {
-  const titles = personalInfo.titles || ['Full Stack Developer', 'UI/UX Enthusiast', 'Problem Solver'];
+  const titles = personalInfo.titles || ['Full Stack Developer', 'MERN Stack Developer', 'Problem Solver'];
   const sequence = titles.flatMap(title => [title, 2000]);
 
   return (
@@ -68,7 +68,7 @@ const Hero = () => {
             >
               <Button 
                 variant="primary" 
-                href={personalInfo.resumeUrl || '#'} 
+                href={personalInfo.resumeUrl || 'https://drive.google.com/file/d/1EyYxzG9nVlCUnXTghb7OQvloDoTQOzRV/view?usp=drive_link'} 
                 icon={<FiDownload className="text-lg" />}
                 download
               >
@@ -88,9 +88,9 @@ const Hero = () => {
               className="flex items-center justify-center lg:justify-start gap-4 pt-6"
             >
               {[
-                { icon: FaGithub, url: personalInfo.socials?.github || '#' },
-                { icon: FaLinkedinIn, url: personalInfo.socials?.linkedin || '#' },
-                { icon: FaTwitter, url: personalInfo.socials?.twitter || '#' },
+                { icon: FaGithub, url: personalInfo.socials?.github || 'https://github.com/Harsh-tech81' },
+                { icon: FaLinkedinIn, url: personalInfo.socials?.linkedin || 'https://www.linkedin.com/in/harsh-kumar-1ba21731a' },
+                { icon: FaTwitter, url: personalInfo.socials?.twitter || 'https://x.com/HarshKumar55518' },
               ].map((social, index) => (
                 <a
                   key={index}
@@ -133,7 +133,7 @@ const Hero = () => {
               <div className="relative w-full h-full rounded-2xl p-2 bg-gradient-to-br from-primary-500 to-indigo-600 shadow-xl shadow-primary-500/20 dark:shadow-primary-500/10 z-10">
                 <div className="w-full h-full rounded-xl overflow-hidden bg-white dark:bg-gray-900 relative group flex items-center justify-center">
                   <img 
-                    src={personalInfo.profileImage || "/profile.png"} 
+                    src="/profile.png"
                     alt={personalInfo.name}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     onError={(e) => {

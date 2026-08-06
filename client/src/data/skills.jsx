@@ -4,6 +4,7 @@ import {
   SiTypescript,
   SiPython,
   SiCplusplus,
+  // SiJsonwebtokens,
   SiC,
   SiReact,
   SiNextdotjs,
@@ -40,6 +41,7 @@ import {
   SiTensorflow,
   SiPytorch,
   SiScikitlearn,
+  SiJsonwebtokens,
 } from "react-icons/si";
 import {
   FaJava,
@@ -59,7 +61,6 @@ export const skills = [
     icon: <SiJavascript />,
     skills: [
       { name: "JavaScript", icon: <SiJavascript /> },
-      { name: "TypeScript", icon: <SiTypescript /> },
       { name: "Python", icon: <SiPython /> },
       { name: "Java", icon: <FaJava /> },
       { name: "C++", icon: <SiCplusplus /> },
@@ -75,6 +76,7 @@ export const skills = [
       { name: "HTML5", icon: <SiHtml5 /> },
       { name: "CSS3", icon: <SiCss /> },
       { name: "Tailwind CSS", icon: <SiTailwindcss /> },
+      // { name: "React Router", icon: <SiReact /> },
       { name: "Bootstrap", icon: <SiBootstrap /> },
       { name: "Redux", icon: <SiRedux /> },
       { name: "Framer Motion", icon: <SiFramer /> },
@@ -87,6 +89,7 @@ export const skills = [
       { name: "Node.js", icon: <SiNodedotjs /> },
       { name: "Express.js", icon: <SiExpress /> },
       { name: "REST APIs", icon: <SiNodedotjs /> }, // Generic icon for REST APIs
+      { name: "JWT", icon: <SiJsonwebtokens /> },
       { name: "Socket.io", icon: <SiSocketdotio /> },
     ],
   },
@@ -97,7 +100,7 @@ export const skills = [
       { name: "MongoDB", icon: <SiMongodb /> },
       { name: "MySQL", icon: <SiMysql /> },
       { name: "Redis", icon: <SiRedis /> },
-      { name: "Vector DB (Qdrant)", icon: <FaDatabase /> },
+      // { name: "Qdrant Vector DB", icon: <FaDatabase /> },
     ],
   },
   {
@@ -115,8 +118,8 @@ export const skills = [
     icon: <FaAws />,
     skills: [
       { name: "AWS", icon: <FaAws /> },
-      { name: "Google Cloud", icon: <SiGooglecloud /> },
-      { name: "Vercel", icon: <SiVercel /> },
+      // { name: "Google Cloud", icon: <SiGooglecloud /> },
+      // { name: "Vercel", icon: <SiVercel /> },
     ],
   },
   {
@@ -148,7 +151,17 @@ export const skills = [
       { name: "LangChain", icon: <SiGit /> },
       { name: "LangGraph", icon: <SiGithub /> },
       { name: "RAG", icon: <SiGit /> },
-      { name: "Groq-LLM", icon: <SiGithub /> },
+      { name: "Groq", icon: <SiGithub /> },
+      { name: "Vector Search", icon: <SiGithub /> },
+    ],
+  },
+  {
+    category: "Architecture",
+    icon: <FaCloud />,
+    skills: [
+      { name: "Microservices", icon: <FaCloud /> },
+      { name: "API Gateway", icon: <FaCloud /> },
+      { name: "System Design", icon: <FaCloud /> },
     ],
   },
   {
@@ -157,10 +170,10 @@ export const skills = [
     skills: [
       { name: "Data Structures", icon: <FaDatabase /> },
       { name: "Algorithms", icon: <FaMicrochip /> },
-      { name: "OOPS", icon: <FaLaptopCode /> },
+      { name: "OOP", icon: <FaLaptopCode /> },
       { name: "DBMS", icon: <FaDatabase /> },
-      { name: "OS", icon: <SiLinux /> },
-      { name: "CN", icon: <FaNetworkWired /> },
+      { name: "Operating Systems", icon: <SiLinux /> },
+      { name: "Computer Networks", icon: <FaNetworkWired /> },
     ],
   },
 ];
