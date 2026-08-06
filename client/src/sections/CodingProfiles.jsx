@@ -41,7 +41,7 @@ const CodingProfiles = () => {
                       {Icon && <Icon size={48} />}
                     </div>
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-1 relative z-10">
-                      {profile.name}
+                      {profile.platform}
                     </h3>
                     <p className="text-gray-500 dark:text-gray-400 mb-6 relative z-10">
                       @{profile.username}

@@ -29,7 +29,7 @@ const Footer = () => {
               </span>
             </a>
             <p className="text-gray-600 dark:text-gray-400 max-w-sm">
-              {personalInfo.role} based in {personalInfo.location}. Building modern, performant web applications with passion.
+              {personalInfo.title} based in {personalInfo.location}. Building modern, performant web applications with passion.
             </p>
             <div className="flex space-x-4 pt-2">
               <a href={personalInfo.socials.github} target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-gray-200 dark:bg-white/10 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">

@@ -7,6 +7,7 @@ import Card from '../components/common/Card';
 import Button from '../components/common/Button';
 import { fadeInUp, staggerContainer } from '../utils/animations';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaCheckCircle, FaExclamationCircle } from 'react-icons/fa';
+import { FaGithub, FaLinkedinIn, FaXTwitter, FaInstagram } from 'react-icons/fa6';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -152,21 +153,23 @@ const Contact = () => {
               </div>
               
               <motion.div variants={fadeInUp} className="flex items-center gap-4">
-                {personalInfo?.socials && personalInfo?.socials?.map((social) => {
-                  const Icon = social.icon;
-                  return (
-                    <a 
-                      key={social.id}
-                      href={social.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-12 h-12 rounded-full flex items-center justify-center bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:text-white hover:bg-blue-600 dark:hover:bg-blue-500 hover:border-transparent transition-all duration-300"
-                      aria-label={social.name}
-                    >
-                      {Icon && <Icon size={20} />}
-                    </a>
-                  );
-                })}
+                {[
+                  { icon: FaGithub, url: personalInfo.socials?.github, label: 'GitHub' },
+                  { icon: FaLinkedinIn, url: personalInfo.socials?.linkedin, label: 'LinkedIn' },
+                  { icon: FaXTwitter, url: personalInfo.socials?.twitter, label: 'Twitter' },
+                  { icon: FaInstagram, url: personalInfo.socials?.instagram, label: 'Instagram' },
+                ].filter(s => s.url).map((social, index) => (
+                  <a 
+                    key={index}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 rounded-full flex items-center justify-center bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:text-white hover:bg-blue-600 dark:hover:bg-blue-500 hover:border-transparent transition-all duration-300"
+                    aria-label={social.label}
+                  >
+                    <social.icon size={20} />
+                  </a>
+                ))}
               </motion.div>
             </motion.div>
             
