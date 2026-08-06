@@ -28,27 +28,11 @@ export const codingProfiles = [
     icon: <SiCodechef />
   },
   {
-    platform: 'GitHub',
-    username: 'Harsh-tech81',
-    url: 'https://github.com/Harsh-tech81',
-    color: '#333',
-    bgColor: 'rgba(51,51,51,0.1)',
-    icon: <FaGithub />
-  },
-  {
     platform: 'GeeksforGeeks',
     username: 'harsh_tech',
     url: 'https://geeksforgeeks.org/user/harsh_tech',
     color: '#2F8D46',
     bgColor: 'rgba(47,141,70,0.1)',
     icon: <SiGeeksforgeeks />
-  },
-  {
-    platform: 'HackerRank',
-    username: 'harsh_tech',
-    url: 'https://hackerrank.com/harsh_tech',
-    color: '#00EA64',
-    bgColor: 'rgba(0,234,100,0.1)',
-    icon: <SiHackerrank />
   }
 ];

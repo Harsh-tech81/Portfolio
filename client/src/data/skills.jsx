@@ -47,7 +47,6 @@ export const skills = [
       { name: 'Node.js', icon: <SiNodedotjs /> },
       { name: 'Express.js', icon: <SiExpress /> },
       { name: 'REST APIs', icon: <SiNodedotjs /> }, // Generic icon for REST APIs
-      { name: 'GraphQL', icon: <SiGraphql /> },
       { name: 'Socket.io', icon: <SiSocketdotio /> }
     ]
   },
@@ -56,10 +55,8 @@ export const skills = [
     icon: <SiMongodb />,
     skills: [
       { name: 'MongoDB', icon: <SiMongodb /> },
-      { name: 'PostgreSQL', icon: <SiPostgresql /> },
       { name: 'MySQL', icon: <SiMysql /> },
       { name: 'Redis', icon: <SiRedis /> },
-      { name: 'Firebase', icon: <SiFirebase /> }
     ]
   },
   {
@@ -67,7 +64,6 @@ export const skills = [
     icon: <FaDocker />,
     skills: [
       { name: 'Docker', icon: <FaDocker /> },
-      { name: 'Kubernetes', icon: <SiKubernetes /> },
       { name: 'CI/CD', icon: <SiGithubactions /> }, // Using GitHub actions as a proxy for CI/CD
       { name: 'GitHub Actions', icon: <SiGithubactions /> },
       { name: 'Nginx', icon: <SiNginx /> }
@@ -80,8 +76,6 @@ export const skills = [
       { name: 'AWS', icon: <FaAws /> },
       { name: 'Google Cloud', icon: <SiGooglecloud /> },
       { name: 'Vercel', icon: <SiVercel /> },
-      { name: 'Netlify', icon: <SiNetlify /> },
-      { name: 'Heroku', icon: <FaCloud /> }
     ]
   },
   {
@@ -90,10 +84,6 @@ export const skills = [
     skills: [
       { name: 'VS Code', icon: <VscVscode /> },
       { name: 'Postman', icon: <SiPostman /> },
-      { name: 'Figma', icon: <SiFigma /> },
-      { name: 'Jira', icon: <SiJira /> },
-      { name: 'Notion', icon: <SiNotion /> },
-      { name: 'Linux', icon: <SiLinux /> }
     ]
   },
   {
@@ -102,31 +92,29 @@ export const skills = [
     skills: [
       { name: 'Git', icon: <SiGit /> },
       { name: 'GitHub', icon: <SiGithub /> },
-      { name: 'GitLab', icon: <SiGitlab /> },
-      { name: 'Bitbucket', icon: <SiBitbucket /> }
     ]
   },
-  {
-    category: 'AI / ML',
-    icon: <SiTensorflow />,
-    skills: [
-      { name: 'TensorFlow', icon: <SiTensorflow /> },
-      { name: 'PyTorch', icon: <SiPytorch /> },
-      { name: 'Scikit-learn', icon: <SiScikitlearn /> },
-      { name: 'NLP', icon: <SiTensorflow /> }, // Placeholder for NLP
-      { name: 'Computer Vision', icon: <SiPytorch /> } // Placeholder for Computer Vision
-    ]
-  },
+  // {
+  //   category: 'AI / ML',
+  //   icon: <SiTensorflow />,
+  //   skills: [
+  //     { name: 'TensorFlow', icon: <SiTensorflow /> },
+  //     { name: 'PyTorch', icon: <SiPytorch /> },
+  //     { name: 'Scikit-learn', icon: <SiScikitlearn /> },
+  //     { name: 'NLP', icon: <SiTensorflow /> }, // Placeholder for NLP
+  //     { name: 'Computer Vision', icon: <SiPytorch /> } // Placeholder for Computer Vision
+  //   ]
+  // },
   {
     category: 'CS Fundamentals',
     icon: <FaLaptopCode />,
     skills: [
       { name: 'Data Structures', icon: <FaDatabase /> },
       { name: 'Algorithms', icon: <FaMicrochip /> },
-      { name: 'OOP', icon: <FaLaptopCode /> },
+      { name: 'OOPS', icon: <FaLaptopCode /> },
       { name: 'DBMS', icon: <FaDatabase /> },
       { name: 'OS', icon: <SiLinux /> },
-      { name: 'Computer Networks', icon: <FaNetworkWired /> }
+      { name: 'CN', icon: <FaNetworkWired /> }
     ]
   }
 ];
