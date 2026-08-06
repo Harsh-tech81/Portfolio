@@ -11,7 +11,7 @@ import useScrollspy from './hooks/useScrollspy';
 const Hero = lazy(() => import('./sections/Hero'));
 const About = lazy(() => import('./sections/About'));
 const Skills = lazy(() => import('./sections/Skills'));
-const Experience = lazy(() => import('./sections/Experience'));
+// const Experience = lazy(() => import('./sections/Experience'));
 const Projects = lazy(() => import('./sections/Projects'));
 const CodingProfiles = lazy(() => import('./sections/CodingProfiles'));
 const Certifications = lazy(() => import('./sections/Certifications'));
@@ -22,7 +22,7 @@ const sectionIds = [
   'home',
   'about',
   'skills',
-  'experience',
+  // 'experience',
   'projects',
   'coding-profiles',
   'certifications',
@@ -73,9 +73,9 @@ function App() {
           <Skills />
         </Suspense>
 
-        <Suspense fallback={<SectionFallback />}>
+        {/* <Suspense fallback={<SectionFallback />}>
           <Experience />
-        </Suspense>
+        </Suspense> */}
 
         <Suspense fallback={<SectionFallback />}>
           <Projects />

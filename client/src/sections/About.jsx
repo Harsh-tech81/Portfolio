@@ -33,7 +33,7 @@ const About = () => {
               >
                 <div className="w-full h-full bg-white dark:bg-[#121212] rounded-2xl overflow-hidden p-1 relative">
                   <img 
-                    src="/profile.png" 
+                    src="/profile1.jpeg" 
                     alt={personalInfo.name} 
                     className="w-full h-full object-cover rounded-xl"
                   />

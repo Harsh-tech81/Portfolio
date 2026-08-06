@@ -4,8 +4,7 @@ export const certifications = [
     title: "The Joy of Computing using Python",
     organization: "NPTEL",
     date: "April 2026",
-    image:
-      "https://drive.google.com/file/d/1K6aDyjAKwlNrC1_IIbCLFgREex_2o8H-/view",
+    image: "/joyofcomputing.png",
     credentialUrl:
       "https://drive.google.com/file/d/1K6aDyjAKwlNrC1_IIbCLFgREex_2o8H-/view",
   },
@@ -14,8 +13,7 @@ export const certifications = [
     title: "CODE THE UNCODED",
     organization: "National Institute of Technology, Patna",
     date: "April 2026",
-    image:
-      "https://drive.google.com/file/d/14N9tWixD_UtdXh7siSgcK3QQnIstW-kT/view",
+    image: "/codeuncoded.png",
     credentialUrl:
       "https://drive.google.com/file/d/14N9tWixD_UtdXh7siSgcK3QQnIstW-kT/view",
   },
@@ -24,8 +22,7 @@ export const certifications = [
     title: "Java Basic (English)",
     organization: "LearnTube.ai",
     date: "Dec 2025",
-    image:
-      "https://drive.google.com/file/d/1_VhOJv2WpIf_wQvmHJgceNV6MLe21fqV/view?usp=drive_link",
+    image: "/java.png",
     credentialUrl:
       "https://drive.google.com/file/d/1_VhOJv2WpIf_wQvmHJgceNV6MLe21fqV/view?usp=drive_link",
   },
@@ -34,7 +31,7 @@ export const certifications = [
     title: "Google Cloud Study Jams Campaign 2025",
     organization: "Google Cloud Community India",
     date: "Oct 2025",
-    image: "https://www.credly.com/users/harsh-kumar.1bf992d3",
+    image: "/googleCloud.png",
     credentialUrl: "https://www.credly.com/users/harsh-kumar.1bf992d3",
   },
   {
@@ -42,8 +39,7 @@ export const certifications = [
     title: "Hack4Delhi Hackathon",
     organization: "Netaji Subhas University of Technology (NSUT), Delhi",
     date: "Dec 2025",
-    image:
-      "https://drive.google.com/file/d/1qF2OJEGWcnfO0K2IlsSeiP4i3H86XZlm/view",
+    image: "/delhi.png",
     credentialUrl:
       "https://drive.google.com/file/d/1qF2OJEGWcnfO0K2IlsSeiP4i3H86XZlm/view",
   },
@@ -52,8 +48,7 @@ export const certifications = [
     title: "ByteVerse 7.0 Hackathon",
     organization: "National Institute of Technology Patna (NITP)",
     date: "Apr 2025",
-    image:
-      "https://drive.google.com/file/d/1cKaaFl6vbrW4GZNGl6TxscG5gQy0k_eM/view",
+    image: "/byteverse.png",
     credentialUrl:
       "https://drive.google.com/file/d/1cKaaFl6vbrW4GZNGl6TxscG5gQy0k_eM/view",
   },
