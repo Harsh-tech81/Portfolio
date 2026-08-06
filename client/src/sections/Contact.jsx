@@ -152,7 +152,7 @@ const Contact = () => {
               </div>
               
               <motion.div variants={fadeInUp} className="flex items-center gap-4">
-                {personalInfo.socials && personalInfo.socials.map((social) => {
+                {personalInfo?.socials && personalInfo?.socials?.map((social) => {
                   const Icon = social.icon;
                   return (
                     <a 
