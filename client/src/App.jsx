@@ -10,6 +10,7 @@ import useScrollspy from './hooks/useScrollspy';
 // Lazy load sections for better performance
 const Hero = lazy(() => import('./sections/Hero'));
 const About = lazy(() => import('./sections/About'));
+const Education = lazy(() => import('./sections/Education'));
 const Skills = lazy(() => import('./sections/Skills'));
 // const Experience = lazy(() => import('./sections/Experience'));
 const Projects = lazy(() => import('./sections/Projects'));
@@ -21,6 +22,7 @@ const Contact = lazy(() => import('./sections/Contact'));
 const sectionIds = [
   'home',
   'about',
+  'education',
   'skills',
   // 'experience',
   'projects',
@@ -39,6 +41,17 @@ function App() {
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
+    
+    // After loading screen disappears, scroll to the hash if it exists
+    setTimeout(() => {
+      if (window.location.hash) {
+        const id = window.location.hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }, 100);
   };
 
   // Simple fallback for lazy-loaded sections
@@ -67,6 +80,10 @@ function App() {
 
         <Suspense fallback={<SectionFallback />}>
           <About />
+        </Suspense>
+
+        <Suspense fallback={<SectionFallback />}>
+          <Education />
         </Suspense>
 
         <Suspense fallback={<SectionFallback />}>

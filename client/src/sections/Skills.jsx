@@ -25,8 +25,9 @@ const Skills = () => {
         
         <div className="container mx-auto px-4 max-w-6xl">
           {/* Category filter tabs */}
-          <div className="flex overflow-x-auto justify-start md:justify-center mb-12 py-2 gap-2 scrollbar-hide">
-            {categories.map((category) => (
+          <div className="flex justify-center w-full mb-12">
+            <div className="flex overflow-x-auto py-2 px-2 gap-2 scrollbar-hide max-w-full snap-x">
+              {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
@@ -46,6 +47,7 @@ const Skills = () => {
                 {category}
               </button>
             ))}
+            </div>
           </div>
 
           {/* Skills grid */}

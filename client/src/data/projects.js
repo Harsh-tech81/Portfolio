@@ -2,6 +2,7 @@ export const projects = [
   {
     id: 1,
     title: "AgentFlow-AI",
+    duration: "Jan 2025 - Apr 2025",
     description:
       "A scalable Multi-Agent AI Platform built on a microservices architecture that intelligently routes user requests to specialized AI agents for coding, document generation, image analysis, web search, and conversational AI. It integrates RAG, vector search, and cloud deployment to deliver fast, context-aware responses.",
     features: [
@@ -38,6 +39,7 @@ export const projects = [
   {
     id: 2,
     title: "Ecommerce Shopping Website",
+    duration: "Sep 2024 - Dec 2024",
     description:
       "A full-stack MERN e-commerce platform featuring secure authentication, online payments, product management, and a dedicated admin dashboard for managing users, products, and customer orders.",
     features: [
@@ -59,13 +61,15 @@ export const projects = [
       "Cloudinary",
     ],
     image: "/ecommerce.png",
-    liveUrl: "#",
+    liveClientUrl: "#",
+    liveAdminUrl: "#",
     githubUrl: "https://github.com/Harsh-tech81/Ecommerce-Shopping-Website",
     featured: true,
   },
   {
     id: 3,
     title: "NovaChat - AI Chatbot & Image Generator",
+    duration: "Jul 2024 - Sep 2024",
     description:
       "A full-stack AI-powered chatbot and image generation platform inspired by ChatGPT, featuring conversational AI, AI image generation, secure authentication, subscription-based credits, and persistent chat history.",
     features: [
@@ -97,6 +101,7 @@ export const projects = [
   {
     id: 4,
     title: "Get Me A Chai",
+    duration: "May 2024 - Jun 2024",
     description:
       "A premium crowdfunding platform that enables developers, designers, and content creators to receive direct support from their audience through secure online payments. The platform provides personalized creator pages, OAuth authentication, Razorpay integration, and a real-time supporter leaderboard.",
     features: [

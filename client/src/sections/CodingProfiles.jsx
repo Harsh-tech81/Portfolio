@@ -43,10 +43,16 @@ const CodingProfiles = () => {
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-1 relative z-10">
                       {profile.platform}
                     </h3>
-                    <p className="text-gray-500 dark:text-gray-400 mb-6 relative z-10">
+                    <p className="text-gray-500 dark:text-gray-400 mb-2 relative z-10">
                       @{profile.username}
                     </p>
+                    {profile.maxRating && (
+                      <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-6 relative z-10 bg-white/50 dark:bg-black/20 px-3 py-1 rounded-full border border-gray-200 dark:border-gray-700/50">
+                        Max Rating: <span style={{ color: profile.color }}>{profile.maxRating}</span>
+                      </p>
+                    )}
                     
+
                     <div className="mt-auto w-full relative z-10">
                       <a 
                         href={profile.url} 

@@ -13,6 +13,7 @@ export const codingProfiles = [
     color: "#FFA116",
     bgColor: "rgba(255,161,22,0.1)",
     icon: SiLeetcode,
+    maxRating:"1617",
   },
   {
     platform: "Codeforces",
@@ -21,6 +22,7 @@ export const codingProfiles = [
     color: "#1F8ACB",
     bgColor: "rgba(31,138,203,0.1)",
     icon: SiCodeforces,
+    maxRating: "1010",
   },
   {
     platform: "CodeChef",
@@ -29,11 +31,12 @@ export const codingProfiles = [
     color: "#5B4638",
     bgColor: "rgba(91,70,56,0.1)",
     icon: SiCodechef,
+    maxRating: "1416",
   },
   {
     platform: "GeeksforGeeks",
     username: "harshkrrrpu",
-    url: "https://www.geeksforgeeks.org/profile/harshkrrrpu",
+    url: "https://www.geeksforgeeks.org/profile/harshkrrrpu?tab=activity",
     color: "#2F8D46",
     bgColor: "rgba(47,141,70,0.1)",
     icon: SiGeeksforgeeks,

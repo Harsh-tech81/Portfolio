@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { TypeAnimation } from 'react-type-animation';
-import { FaGithub, FaLinkedinIn, FaTwitter } from 'react-icons/fa6';
+import { FaGithub, FaLinkedinIn, FaTwitter,FaInstagram } from 'react-icons/fa6';
 import { FiDownload, FiMail, FiChevronDown } from 'react-icons/fi';
 import { personalInfo } from '../data/personalInfo';
 import { fadeInUp, staggerContainer } from '../utils/animations';
@@ -91,7 +91,8 @@ const Hero = () => {
                 { icon: FaGithub, url: personalInfo.socials?.github || 'https://github.com/Harsh-tech81' },
                 { icon: FaLinkedinIn, url: personalInfo.socials?.linkedin || 'https://www.linkedin.com/in/harsh-kumar-1ba21731a' },
                 { icon: FaTwitter, url: personalInfo.socials?.twitter || 'https://x.com/HarshKumar55518' },
-              ].map((social, index) => (
+                { icon: FaInstagram, url: personalInfo.socials?.instagram || 'https://www.instagram.com/harsh_kumar.555/' },
+              ].map((social, index) => (  
                 <a
                   key={index}
                   href={social.url}
@@ -133,7 +134,7 @@ const Hero = () => {
               <div className="relative w-full h-full rounded-2xl p-2 bg-gradient-to-br from-primary-500 to-indigo-600 shadow-xl shadow-primary-500/20 dark:shadow-primary-500/10 z-10">
                 <div className="w-full h-full rounded-xl overflow-hidden bg-white dark:bg-gray-900 relative group flex items-center justify-center">
                   <img 
-                    src="/profile.png"
+                    src="/profile2.jpeg"
                     alt={personalInfo.name}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     onError={(e) => {
