@@ -5,7 +5,7 @@ const rateLimit = require('express-rate-limit');
 const contactRoutes = require('./routes/contactRoutes');
 const errorHandler = require('./middleware/errorHandler');
 
-// Load environment variables
+// Load environment variables (.env file)
 dotenv.config();
 
 const app = express();
