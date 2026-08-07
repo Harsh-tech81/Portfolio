@@ -2,7 +2,7 @@ export const projects = [
   {
     id: 1,
     title: "AgentFlow-AI",
-    duration: "Jan 2025 - Apr 2025",
+    duration: "July 2026 - Aug 2026",
     description:
       "A scalable Multi-Agent AI Platform built on a microservices architecture that intelligently routes user requests to specialized AI agents for coding, document generation, image analysis, web search, and conversational AI. It integrates RAG, vector search, and cloud deployment to deliver fast, context-aware responses.",
     features: [
@@ -39,7 +39,7 @@ export const projects = [
   {
     id: 2,
     title: "Ecommerce Shopping Website",
-    duration: "Sep 2024 - Dec 2024",
+    duration: "Dec 2025 - March 2026",
     description:
       "A full-stack MERN e-commerce platform featuring secure authentication, online payments, product management, and a dedicated admin dashboard for managing users, products, and customer orders.",
     features: [
@@ -61,15 +61,15 @@ export const projects = [
       "Cloudinary",
     ],
     image: "/ecommerce.png",
-    liveClientUrl: "#",
-    liveAdminUrl: "#",
+    liveClientUrl: "https://splendorous-marzipan-2ace59.netlify.app",
+    liveAdminUrl: "https://bejewelled-sunshine-44d5ba.netlify.app",
     githubUrl: "https://github.com/Harsh-tech81/Ecommerce-Shopping-Website",
     featured: true,
   },
   {
     id: 3,
     title: "NovaChat - AI Chatbot & Image Generator",
-    duration: "Jul 2024 - Sep 2024",
+    duration: "June 2026",
     description:
       "A full-stack AI-powered chatbot and image generation platform inspired by ChatGPT, featuring conversational AI, AI image generation, secure authentication, subscription-based credits, and persistent chat history.",
     features: [
@@ -101,7 +101,7 @@ export const projects = [
   {
     id: 4,
     title: "Get Me A Chai",
-    duration: "May 2024 - Jun 2024",
+    duration: "May 2026",
     description:
       "A premium crowdfunding platform that enables developers, designers, and content creators to receive direct support from their audience through secure online payments. The platform provides personalized creator pages, OAuth authentication, Razorpay integration, and a real-time supporter leaderboard.",
     features: [
@@ -127,5 +127,33 @@ export const projects = [
     image: "/get-me-a-chai.png",
     githubUrl: "https://github.com/Harsh-tech81/Get-Me-A-Chai",
     featured: false,
+  },
+  {
+    id: 5,
+    title: "Personal Portfolio Website",
+    duration: "Oct 2026",
+    description:
+      "A modern, highly interactive personal portfolio website showcasing my skills, experience, and projects. Built with cutting-edge web technologies and a focus on sleek animations, full responsiveness, and seamless user experience.",
+    features: [
+      "Modern UI/UX design with glassmorphism and animated gradients",
+      "Dynamic light and dark mode support with Tailwind CSS",
+      "Interactive 3D background elements using Three.js and React Three Fiber",
+      "Smooth scroll animations and page transitions powered by Framer Motion",
+      "Fully functional contact form integrated with Nodemailer",
+      "Responsive layout ensuring compatibility across all devices",
+      "Modular and reusable React component architecture",
+    ],
+    techStack: [
+      "React",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Node.js",
+      "Express.js",
+      "Three.js",
+    ],
+    image: "/personalPortfolio.png",
+    githubUrl: "https://github.com/Harsh-tech81/Portfolio",
+    liveUrl: "#", 
+    featured: true,
   },
 ];

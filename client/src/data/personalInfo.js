@@ -3,9 +3,9 @@ export const personalInfo = {
   title: "Full Stack MERN Developer",
   titles: [
     "Full Stack Developer",
-    "AI Application Developer",
+    // "AI Application Developer",
     "MERN Stack Developer",
-    "Cloud Enthusiast",
+    // "Cloud Enthusiast",
     "Problem Solver",
   ],
   tagline: "Building Scalable Full Stack & AI-Powered Applications",
