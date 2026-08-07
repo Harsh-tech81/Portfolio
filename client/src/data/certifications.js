@@ -52,4 +52,13 @@ export const certifications = [
     credentialUrl:
       "https://drive.google.com/file/d/1cKaaFl6vbrW4GZNGl6TxscG5gQy0k_eM/view",
   },
+  {
+    id: 7,
+    title: "Semi-Finalist - Flipkart GRiD 8.0",
+    organization: "Flipkart",
+    date: "Aug 2026",
+    image: "/grid.png",
+    credentialUrl:
+      "https://drive.google.com/file/d/1vpCVyGWUqU_58d3YtqTsJpCmPvnu1DN3/view?usp=drive_link",
+  },
 ];
