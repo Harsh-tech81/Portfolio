@@ -42,6 +42,8 @@ import {
   SiPytorch,
   SiScikitlearn,
   SiJsonwebtokens,
+  SiLangchain,
+  SiLanggraph,
 } from "react-icons/si";
 import {
   FaJava,
@@ -52,6 +54,10 @@ import {
   FaNetworkWired,
   FaLaptopCode,
   FaMicrochip,
+  FaSearch,
+  FaProjectDiagram,
+  FaCubes,
+  FaSitemap,
 } from "react-icons/fa";
 import { VscVscode } from "react-icons/vsc";
 
@@ -142,26 +148,20 @@ export const skills = [
     category: "AI / ML",
     icon: <SiTensorflow />,
     skills: [
-      // { name: 'TensorFlow', icon: <SiTensorflow /> },
-      // { name: 'PyTorch', icon: <SiPytorch /> },
-      // { name: 'Scikit-learn', icon: <SiScikitlearn /> },
-      // { name: 'NLP', icon: <SiTensorflow /> }, // Placeholder for NLP
-      // { name: 'Computer Vision', icon: <SiPytorch /> } // Placeholder for Computer Vision
-
-      { name: "LangChain", icon: <SiGit /> },
-      { name: "LangGraph", icon: <SiGithub /> },
-      { name: "RAG", icon: <SiGit /> },
-      { name: "Groq", icon: <SiGithub /> },
-      { name: "Vector Search", icon: <SiGithub /> },
+      { name: "LangChain", icon: <SiLangchain /> },
+      { name: "LangGraph", icon: <SiLanggraph /> },
+      { name: "RAG", icon: <FaDatabase /> },
+      { name: "Groq", icon: <FaMicrochip /> },
+      { name: "Vector Search", icon: <FaSearch /> },
     ],
   },
   {
     category: "Architecture",
-    icon: <FaCloud />,
+    icon: <FaProjectDiagram />,
     skills: [
-      { name: "Microservices", icon: <FaCloud /> },
-      { name: "API Gateway", icon: <FaCloud /> },
-      { name: "System Design", icon: <FaCloud /> },
+      { name: "Microservices", icon: <FaCubes /> },
+      { name: "API Gateway", icon: <FaNetworkWired /> },
+      { name: "System Design", icon: <FaSitemap /> },
     ],
   },
   {
