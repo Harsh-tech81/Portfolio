@@ -7,6 +7,7 @@ import { personalInfo } from '../data/personalInfo';
 import { fadeInUp, staggerContainer } from '../utils/animations';
 import Button from '../components/common/Button';
 import HeroBackground from '../components/three/HeroBackground';
+import { SplineScene } from '@/components/ui/splite';
 
 const Hero = () => {
   const titles = personalInfo.titles || ['Full Stack Developer', 'MERN Stack Developer', 'Problem Solver'];
@@ -106,54 +107,20 @@ const Hero = () => {
             </motion.div>
           </div>
 
-          {/* Right Column - Visual */}
+          {/* Right Column - Interactive 3D Spline Scene */}
           <motion.div 
             variants={fadeInUp} 
-            className="relative flex justify-center items-center order-1 lg:order-2"
+            className="relative flex justify-center items-center order-1 lg:order-2 w-full h-[350px] md:h-[450px] lg:h-[500px]"
           >
-            <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-[400px] lg:h-[400px]">
-              {/* Decorative floating elements */}
-              <motion.div 
-                className="absolute -top-6 -left-6 w-20 h-20 rounded-full bg-gradient-to-br from-primary-400/30 to-indigo-500/30 blur-2xl z-0"
-                animate={{ 
-                  y: [0, 20, 0],
-                  scale: [1, 1.1, 1],
-                }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            {/* Ambient Background Glow */}
+            <div className="absolute w-[80%] h-[80%] rounded-full bg-gradient-to-br from-primary-500/10 to-indigo-600/10 blur-3xl z-0" />
+            
+            {/* Interactive Spline 3D Scene */}
+            <div className="relative w-full h-full z-10 flex items-center justify-center">
+              <SplineScene 
+                scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                className="w-full h-full"
               />
-              <motion.div 
-                className="absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-gradient-to-br from-indigo-400/30 to-purple-500/30 blur-2xl z-0"
-                animate={{ 
-                  y: [0, -30, 0],
-                  x: [0, -20, 0],
-                }}
-                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              />
-
-              {/* Profile Image Container */}
-              <div className="relative w-full h-full rounded-2xl p-2 bg-gradient-to-br from-primary-500 to-indigo-600 shadow-xl shadow-primary-500/20 dark:shadow-primary-500/10 z-10">
-                <div className="w-full h-full rounded-xl overflow-hidden bg-white dark:bg-gray-900 relative group flex items-center justify-center">
-                  <img 
-                    src="/profile2.jpeg"
-                    alt={personalInfo.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.style.display = 'none';
-                      if (e.target.nextSibling) {
-                        e.target.nextSibling.style.display = 'flex';
-                      }
-                    }}
-                  />
-                  {/* Fallback if image fails to load */}
-                  <div 
-                    className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 hidden items-center justify-center text-5xl font-bold text-gray-400 dark:text-gray-600"
-                    style={{ display: 'none' }}
-                  >
-                    {personalInfo.name.split(' ').map(n => n[0]).join('')}
-                  </div>
-                </div>
-              </div>
             </div>
           </motion.div>
         </motion.div>
