@@ -51,7 +51,7 @@ const TechTile = ({ tech, size = 'md' }) => {
 
   return (
     <div
-      className={`flex flex-col items-center gap-1.5 rounded-lg bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:border-blue-500/50 transition-all group cursor-default ${
+      className={`flex flex-col items-center gap-1.5 rounded-lg bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-500/10 hover:-translate-y-1 hover:shadow-md hover:shadow-blue-500/20 transition-all duration-300 group cursor-pointer ${
         isMd ? 'p-2.5' : 'p-2'
       }`}
       title={tech}
@@ -59,16 +59,16 @@ const TechTile = ({ tech, size = 'md' }) => {
       {Icon ? (
         <Icon
           size={isMd ? 20 : 16}
-          className="text-gray-500 dark:text-gray-400 group-hover:text-blue-400 transition-colors"
+          className="text-gray-500 dark:text-gray-400 group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors duration-300"
         />
       ) : (
         <FiCode
           size={isMd ? 20 : 16}
-          className="text-gray-500 dark:text-gray-400 group-hover:text-blue-400 transition-colors"
+          className="text-gray-500 dark:text-gray-400 group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors duration-300"
         />
       )}
       <span
-        className={`font-medium text-gray-600 dark:text-gray-400 text-center leading-tight ${
+        className={`font-medium text-gray-600 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors duration-300 text-center leading-tight ${
           isMd ? 'text-[10px]' : 'text-[8px] truncate w-full'
         }`}
       >

@@ -83,7 +83,7 @@ export const skills = [
       { name: "CSS3", icon: <SiCss /> },
       { name: "Tailwind CSS", icon: <SiTailwindcss /> },
       // { name: "React Router", icon: <SiReact /> },
-      { name: "Bootstrap", icon: <SiBootstrap /> },
+      // { name: "Bootstrap", icon: <SiBootstrap /> },
       { name: "Redux", icon: <SiRedux /> },
       { name: "Framer Motion", icon: <SiFramer /> },
     ],
@@ -96,7 +96,7 @@ export const skills = [
       { name: "Express.js", icon: <SiExpress /> },
       { name: "REST APIs", icon: <SiNodedotjs /> }, // Generic icon for REST APIs
       { name: "JWT", icon: <SiJsonwebtokens /> },
-      { name: "Socket.io", icon: <SiSocketdotio /> },
+      // { name: "Socket.io", icon: <SiSocketdotio /> },
     ],
   },
   {
@@ -106,6 +106,7 @@ export const skills = [
       { name: "MongoDB", icon: <SiMongodb /> },
       { name: "MySQL", icon: <SiMysql /> },
       { name: "Redis", icon: <SiRedis /> },
+      {name:"Vector Database",icon:<FaDatabase/>}
       // { name: "Qdrant Vector DB", icon: <FaDatabase /> },
     ],
   },
@@ -151,7 +152,7 @@ export const skills = [
       { name: "LangChain", icon: <SiLangchain /> },
       { name: "LangGraph", icon: <SiLanggraph /> },
       { name: "RAG", icon: <FaDatabase /> },
-      { name: "Groq", icon: <FaMicrochip /> },
+      // { name: "Groq", icon: <FaMicrochip /> },
       { name: "Vector Search", icon: <FaSearch /> },
     ],
   },
@@ -161,15 +162,14 @@ export const skills = [
     skills: [
       { name: "Microservices", icon: <FaCubes /> },
       { name: "API Gateway", icon: <FaNetworkWired /> },
-      { name: "System Design", icon: <FaSitemap /> },
+      // { name: "System Design", icon: <FaSitemap /> },
     ],
   },
   {
     category: "CS Fundamentals",
     icon: <FaLaptopCode />,
     skills: [
-      { name: "Data Structures", icon: <FaDatabase /> },
-      { name: "Algorithms", icon: <FaMicrochip /> },
+      { name: "Data Structures & Algorithms", icon: <FaMicrochip /> },
       { name: "OOP", icon: <FaLaptopCode /> },
       { name: "DBMS", icon: <FaDatabase /> },
       { name: "Operating Systems", icon: <SiLinux /> },

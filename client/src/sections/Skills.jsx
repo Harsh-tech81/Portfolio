@@ -5,16 +5,13 @@ import SectionHeading from '../components/common/SectionHeading';
 import AnimatedSection from '../components/common/AnimatedSection';
 
 const Skills = () => {
-  const [activeCategory, setActiveCategory] = useState('All');
+  const [activeCategory, setActiveCategory] = useState('Programming Languages');
 
   // Extract all unique categories
-  const categories = ['All', ...skills.map(s => s.category)];
+  const categories = skills.map(s => s.category);
 
   // Filter skills based on active category
   const displayedSkills = useMemo(() => {
-    if (activeCategory === 'All') {
-      return skills.flatMap(s => s.skills);
-    }
     return skills.find(s => s.category === activeCategory)?.skills || [];
   }, [activeCategory]);
 
@@ -26,12 +23,12 @@ const Skills = () => {
         <div className="container mx-auto px-4 max-w-6xl">
           {/* Category filter tabs */}
           <div className="flex justify-center w-full mb-12">
-            <div className="flex overflow-x-auto py-2 px-2 gap-2 scrollbar-hide max-w-full snap-x">
+            <div className="flex overflow-x-auto py-2 px-2 gap-2 scrollbar-hide max-w-full snap-x ">
               {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`relative px-5 py-2.5 rounded-full text-sm font-medium transition-colors whitespace-nowrap z-10 ${
+                className={`relative px-5 cursor-pointer py-2.5 rounded-full text-sm font-medium transition-colors whitespace-nowrap z-10 ${
                   activeCategory === category 
                     ? 'text-white' 
                     : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'

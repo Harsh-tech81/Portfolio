@@ -17,7 +17,7 @@ const Certifications = () => {
         />
         
         <AnimatedSection variants={staggerContainer} className="mt-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {certifications.map((cert, index) => (
               <motion.div key={cert.id || index} variants={fadeInUp} className="h-full">
                 <Card className="h-full flex flex-col overflow-hidden p-0 group">
@@ -29,24 +29,24 @@ const Certifications = () => {
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                     ) : (
-                      <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-blue-500/20 to-purple-500/20 p-6 text-center transition-transform duration-500 group-hover:scale-105">
-                        <FaCertificate className="text-5xl text-blue-500/50 mb-4" />
-                        <h4 className="text-lg font-bold text-gray-800 dark:text-gray-200 line-clamp-2">
+                      <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-blue-500/20 to-purple-500/20 p-5 text-center transition-transform duration-500 group-hover:scale-105">
+                        <FaCertificate className="text-4xl text-blue-500/50 mb-3" />
+                        <h4 className="text-base font-bold text-gray-800 dark:text-gray-200 line-clamp-2">
                           {cert.title}
                         </h4>
                       </div>
                     )}
                   </div>
                   
-                  <div className="p-6 flex flex-col flex-grow">
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 line-clamp-2">
+                  <div className="p-5 flex flex-col flex-grow">
+                    <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-3 line-clamp-2">
                       {cert.title}
                     </h3>
                     
-                    <div className="flex flex-col gap-2 mb-6 text-sm text-gray-600 dark:text-gray-400">
+                    <div className="flex flex-col gap-2 mb-5 text-sm text-gray-600 dark:text-gray-400">
                       <div className="flex items-center gap-2">
                         <FaBuilding className="text-blue-500 shrink-0" />
-                        <span>{cert.organization}</span>
+                        <span className="truncate">{cert.organization}</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <FaCalendarAlt className="text-blue-500 shrink-0" />
@@ -59,7 +59,7 @@ const Certifications = () => {
                         href={cert.credentialUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center w-full px-4 py-2.5 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-900 dark:text-white rounded-lg font-medium transition-colors"
+                        className="inline-flex items-center justify-center w-full px-4 py-2 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-900 dark:text-white rounded-lg text-sm font-medium transition-colors"
                       >
                         View Credential
                       </a>
