@@ -10,12 +10,20 @@ dotenv.config();
 
 const app = express();
 
-// Define allowed client URL
-const clientUrl = process.env.CLIENT_URL || 'http://localhost:5173';
+// Define allowed client URL(s)
+const allowedOrigins = process.env.CLIENT_URL 
+  ? process.env.CLIENT_URL.split(',').map(u => u.trim()) 
+  : ['http://localhost:5173'];
 
 // CORS Middleware
 app.use(cors({
-  origin: clientUrl,
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps, curl, server-to-server)
+    if (!origin || allowedOrigins.includes('*') || allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    return callback(null, true);
+  },
   credentials: true
 }));
 
@@ -46,6 +54,10 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-  console.log(`Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
-});
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
+  });
+}
+
+module.exports = app;
