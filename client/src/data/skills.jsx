@@ -170,7 +170,7 @@ export const skills = [
     icon: <FaLaptopCode />,
     skills: [
       { name: "Data Structures & Algorithms", icon: <FaMicrochip /> },
-      { name: "OOP", icon: <FaLaptopCode /> },
+      { name: "OOPS", icon: <FaLaptopCode /> },
       { name: "DBMS", icon: <FaDatabase /> },
       { name: "Operating Systems", icon: <SiLinux /> },
       { name: "Computer Networks", icon: <FaNetworkWired /> },
