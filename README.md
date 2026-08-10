@@ -1,4 +1,4 @@
-<![CDATA[<div align="center">
+
 
 # 🚀 Harsh Kumar — Full Stack Developer Portfolio
 
