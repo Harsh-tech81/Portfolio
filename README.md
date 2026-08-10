@@ -5,7 +5,7 @@
 A premium, modern, and highly interactive personal portfolio website built with the **MERN stack**.  
 Designed to showcase projects, skills, education, coding profiles, certifications, and achievements with sleek animations and a stunning UI.
 
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Visit_Site-0ea5e9?style=for-the-badge)](https://your-portfolio-url.vercel.app)
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Visit_Site-0ea5e9?style=for-the-badge)](https://portfolio-client-swart-phi.vercel.app)
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github)](https://github.com/Harsh-tech81/Portfolio)
 [![License](https://img.shields.io/badge/License-MIT-22c55e?style=for-the-badge)](LICENSE)
 
@@ -15,11 +15,8 @@ Designed to showcase projects, skills, education, coding profiles, certification
 
 ## 🌐 Live URL
 
-> **🔗 [https://portfolio-client-swart-phi.vercel.app](https://your-portfolio-url.vercel.app)**
+> **🔗 [https://portfolio-client-swart-phi.vercel.app](https://portfolio-client-swart-phi.vercel.app)**
 
-*(Replace with the actual deployed URL after hosting on Vercel, Netlify, or your preferred platform.)*
-
----
 
 ## ✨ Features
 
