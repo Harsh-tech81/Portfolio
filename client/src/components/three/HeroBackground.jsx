@@ -2,6 +2,7 @@ import React, { useRef, useMemo, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { useTheme } from '../../context/ThemeContext';
+import useIsMobile from '../../hooks/useIsMobile';
 
 const Particles = () => {
   const mesh = useRef();
@@ -73,14 +74,51 @@ const Particles = () => {
   );
 };
 
+/** Lightweight CSS-only gradient background for mobile (no GPU-heavy WebGL) */
+const MobileBackground = () => {
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
+
+  return (
+    <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+      {/* Animated gradient orbs — pure CSS, GPU-friendly via transform */}
+      <div
+        className="absolute -top-1/4 -left-1/4 w-[60vw] h-[60vw] rounded-full opacity-20 blur-3xl"
+        style={{
+          background: isDark
+            ? 'radial-gradient(circle, #818cf8 0%, transparent 70%)'
+            : 'radial-gradient(circle, #4f46e5 0%, transparent 70%)',
+          animation: 'mobileOrb1 8s ease-in-out infinite alternate',
+        }}
+      />
+      <div
+        className="absolute -bottom-1/4 -right-1/4 w-[50vw] h-[50vw] rounded-full opacity-15 blur-3xl"
+        style={{
+          background: isDark
+            ? 'radial-gradient(circle, #a78bfa 0%, transparent 70%)'
+            : 'radial-gradient(circle, #7c3aed 0%, transparent 70%)',
+          animation: 'mobileOrb2 10s ease-in-out infinite alternate',
+        }}
+      />
+    </div>
+  );
+};
+
 const HeroBackground = () => {
+  const isMobile = useIsMobile();
+
+  // On mobile, skip the entire Three.js Canvas to avoid GPU lag
+  if (isMobile) {
+    return <MobileBackground />;
+  }
+
   return (
     <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
       <Suspense fallback={null}>
         <Canvas 
           camera={{ position: [0, 0, 10], fov: 75 }}
           frameloop="always"
-          dpr={[1, 2]}
+          dpr={[1, 1.5]}
         >
           <ambientLight intensity={0.5} />
           <directionalLight position={[10, 10, 10]} intensity={1} />

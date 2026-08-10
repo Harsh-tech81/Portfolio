@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'motion/react';
+import useIsMobile from '../../hooks/useIsMobile';
 
 const Card = ({
   children,
@@ -12,9 +13,13 @@ const Card = ({
   const divRef = useRef(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [opacity, setOpacity] = useState(0);
+  const isMobile = useIsMobile();
+
+  // Disable spotlight on mobile — no mouse cursor on touch devices
+  const enableSpotlight = spotlight && !isMobile;
 
   const handleMouseMove = (e) => {
-    if (!divRef.current || !spotlight) return;
+    if (!divRef.current || !enableSpotlight) return;
     
     const rect = divRef.current.getBoundingClientRect();
     setPosition({
@@ -23,7 +28,7 @@ const Card = ({
     });
   };
 
-  const handleMouseEnter = () => setOpacity(1);
+  const handleMouseEnter = () => { if (enableSpotlight) setOpacity(1); };
   const handleMouseLeave = () => setOpacity(0);
 
   const baseClasses = "relative bg-white dark:bg-[#1a1a1a] rounded-2xl border border-gray-200 dark:border-white/10 p-6 overflow-hidden transition-all duration-300 ease-in-out";

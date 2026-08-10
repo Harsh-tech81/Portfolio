@@ -2,14 +2,20 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { TypeAnimation } from 'react-type-animation';
 import { FaGithub, FaLinkedinIn, FaTwitter,FaInstagram } from 'react-icons/fa6';
-import { FiDownload, FiMail, FiChevronDown } from 'react-icons/fi';
+import { FiDownload, FiMail, FiChevronDown, FiCode } from 'react-icons/fi';
 import { personalInfo } from '../data/personalInfo';
 import { fadeInUp, staggerContainer } from '../utils/animations';
 import Button from '../components/common/Button';
 import HeroBackground from '../components/three/HeroBackground';
-import { SplineScene } from '@/components/ui/splite';
+import useIsMobile from '../hooks/useIsMobile';
+
+// Only import Spline lazily — will not be used on mobile
+const LazySplineScene = React.lazy(() =>
+  import('@/components/ui/splite').then((mod) => ({ default: mod.SplineScene }))
+);
 
 const Hero = () => {
+  const isMobile = useIsMobile();
   const titles = personalInfo.titles || ['Full Stack Developer', 'MERN Stack Developer', 'Problem Solver'];
   const sequence = titles.flatMap(title => [title, 2000]);
 
@@ -21,51 +27,51 @@ const Hero = () => {
       {/* Three.js Background Component */}
       <HeroBackground />
 
-      <div className="container mx-auto px-6 max-w-7xl relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
         <motion.div 
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
           {/* Left Column - Content */}
-          <div className="flex flex-col space-y-6 text-center lg:text-left order-2 lg:order-1">
+          <div className="flex flex-col space-y-5 sm:space-y-6 text-center lg:text-left order-2 lg:order-1">
             <motion.div variants={fadeInUp} className="flex items-center justify-center lg:justify-start space-x-2">
-              <span className="text-xl md:text-2xl text-gray-500 dark:text-gray-400 font-medium">Hello, I'm</span>
-              <span className="text-2xl md:text-3xl origin-bottom-right inline-block hover:animate-pulse cursor-default">👋</span>
+              <span className="text-lg sm:text-xl md:text-2xl text-gray-500 dark:text-gray-400 font-medium">Hello, I'm</span>
+              <span className="text-xl sm:text-2xl md:text-3xl origin-bottom-right inline-block hover:animate-pulse cursor-default">👋</span>
             </motion.div>
             
             <motion.div variants={fadeInUp} className="space-y-2">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900 dark:text-white">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-indigo-600 dark:from-primary-400 dark:to-indigo-400">
                   {personalInfo.name.split(' ')[0]}
                 </span>{' '}
                 {personalInfo.name.split(' ').slice(1).join(' ')}
               </h1>
               
-              <div className="h-12 md:h-16 flex items-center justify-center lg:justify-start">
+              <div className="h-10 sm:h-12 md:h-16 flex items-center justify-center lg:justify-start">
                 <TypeAnimation
                   sequence={sequence}
                   speed={50}
                   deletionSpeed={30}
                   wrapper="span"
                   repeat={Infinity}
-                  className="text-xl md:text-2xl lg:text-3xl font-semibold text-primary-600 dark:text-primary-400"
+                  className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-primary-600 dark:text-primary-400"
                 />
               </div>
             </motion.div>
 
             <motion.p 
               variants={fadeInUp} 
-              className="text-lg text-gray-600 dark:text-gray-400 max-w-xl mx-auto lg:mx-0 leading-relaxed"
+              className="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-xl mx-auto lg:mx-0 leading-relaxed"
             >
               {personalInfo.bio || "I build pixel-perfect, engaging, and accessible digital experiences."}
             </motion.p>
 
             <motion.div 
               variants={fadeInUp} 
-              className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4"
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2 sm:pt-4"
             >
               <Button 
                 variant="primary" 
@@ -86,7 +92,7 @@ const Hero = () => {
 
             <motion.div 
               variants={fadeInUp} 
-              className="flex items-center justify-center lg:justify-start gap-4 pt-6"
+              className="flex items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-4 sm:pt-6"
             >
               {[
                 { icon: FaGithub, url: personalInfo.socials?.github || 'https://github.com/Harsh-tech81' },
@@ -99,9 +105,9 @@ const Hero = () => {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-primary-50 hover:text-primary-600 dark:hover:bg-primary-900/30 dark:hover:text-primary-400 transition-all duration-300 hover:scale-110 shadow-sm hover:shadow-md"
+                  className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-primary-50 hover:text-primary-600 dark:hover:bg-primary-900/30 dark:hover:text-primary-400 transition-all duration-300 hover:scale-110 shadow-sm hover:shadow-md"
                 >
-                  <social.icon className="text-xl" />
+                  <social.icon className="text-lg sm:text-xl" />
                 </a>
               ))}
             </motion.div>
@@ -115,12 +121,19 @@ const Hero = () => {
             {/* Ambient Background Glow */}
             <div className="absolute w-[80%] h-[80%] rounded-full bg-gradient-to-br from-primary-500/10 to-indigo-600/10 blur-3xl z-0" />
             
-            {/* Interactive Spline 3D Scene */}
             <div className="relative w-full h-full z-10 flex items-center justify-center">
-              <SplineScene 
-                scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-                className="w-full h-full"
-              />
+              <React.Suspense
+                fallback={
+                  <div className="w-full h-full flex items-center justify-center">
+                    <span className="loader"></span>
+                  </div>
+                }
+              >
+                <LazySplineScene 
+                  scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                  className="w-full h-full"
+                />
+              </React.Suspense>
             </div>
           </motion.div>
         </motion.div>
@@ -128,7 +141,7 @@ const Hero = () => {
 
       {/* Scroll Down Indicator */}
       <motion.div 
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
+        className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-20"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
       >
@@ -142,3 +155,4 @@ const Hero = () => {
 };
 
 export default Hero;
+

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useTheme } from '../../context/ThemeContext';
 import { navLinks } from '../../data/navLinks';
@@ -29,13 +29,23 @@ const Navbar = ({ activeSection }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [isMobileMenuOpen]);
 
-  const closeMobileMenu = () => {
+  const toggleMobileMenu = useCallback(() => {
+    setIsMobileMenuOpen(prev => !prev);
+  }, []);
+
+  const closeMobileMenu = useCallback(() => {
     setIsMobileMenuOpen(false);
-  };
+  }, []);
 
   return (
     <motion.nav
@@ -58,8 +68,8 @@ const Navbar = ({ activeSection }) => {
             </a>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          {/* Desktop Navigation — visible only on lg (1024px+) */}
+          <div className="hidden lg:flex items-center space-x-8">
             {navLinks.map((link) => (
               <a
                 key={link.id}
@@ -79,10 +89,10 @@ const Navbar = ({ activeSection }) => {
           </div>
 
           {/* Right Actions */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-3 sm:space-x-4">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full bg-gray-100 dark:bg-white/10 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-white/20 transition-colors focus:outline-none"
+              className="p-2 rounded-full bg-gray-100 dark:bg-white/10 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-white/20 transition-colors focus:outline-none touch-manipulation"
               aria-label="Toggle theme"
             >
               <motion.div
@@ -94,13 +104,14 @@ const Navbar = ({ activeSection }) => {
               </motion.div>
             </button>
 
-            {/* Mobile Menu Button */}
-            <div className="md:hidden flex items-center">
+            {/* Mobile Menu Button — visible on screens below lg (< 1024px) */}
+            <div className="lg:hidden flex items-center">
               <button
                 onClick={toggleMobileMenu}
-                className="p-2 text-gray-800 dark:text-gray-200 hover:text-gray-600 dark:hover:text-white focus:outline-none"
+                className="p-2.5 text-gray-800 dark:text-gray-200 hover:text-gray-600 dark:hover:text-white focus:outline-none touch-manipulation"
+                aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
               >
-                {isMobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+                {isMobileMenuOpen ? <FiX size={26} /> : <FiMenu size={26} />}
               </button>
             </div>
           </div>
@@ -115,7 +126,7 @@ const Navbar = ({ activeSection }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 top-20 z-40 bg-black/50 backdrop-blur-sm md:hidden"
+            className="fixed inset-0 top-20 z-40 bg-black/50 backdrop-blur-sm lg:hidden"
             onClick={closeMobileMenu}
           >
             <motion.div
@@ -135,7 +146,7 @@ const Navbar = ({ activeSection }) => {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.1 }}
-                    className={`text-lg font-medium ${
+                    className={`text-lg font-medium touch-manipulation ${
                       activeSection === link.id
                         ? 'text-blue-600 dark:text-blue-400'
                         : 'text-gray-700 dark:text-gray-300'
@@ -154,3 +165,4 @@ const Navbar = ({ activeSection }) => {
 };
 
 export default Navbar;
+
