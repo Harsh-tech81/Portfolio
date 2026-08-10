@@ -1,58 +1,72 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { projects } from '../data/projects';
-import SectionHeading from '../components/common/SectionHeading';
-import AnimatedSection from '../components/common/AnimatedSection';
-import Card from '../components/common/Card';
-import Button from '../components/common/Button';
-import { FiExternalLink, FiGithub, FiCalendar, FiCode } from 'react-icons/fi';
+import React from "react";
+import { motion } from "motion/react";
+import { projects } from "../data/projects";
+import SectionHeading from "../components/common/SectionHeading";
+import AnimatedSection from "../components/common/AnimatedSection";
+import Card from "../components/common/Card";
+import Button from "../components/common/Button";
+import { FiExternalLink, FiGithub, FiCalendar, FiCode } from "react-icons/fi";
 import {
-  SiReact, SiNodedotjs, SiExpress, SiMongodb, SiRedux, SiDocker,
-  SiRedis, SiStripe, SiTailwindcss, SiNextdotjs,
-  SiGithubactions, SiJsonwebtokens, SiRazorpay, SiQdrant, SiLanggraph, SiLangchain, SiGooglegemini
-} from 'react-icons/si';
-import { FaAws, FaCloud } from 'react-icons/fa';
-import { FiImage } from 'react-icons/fi';
-import { fadeInUp, staggerContainer } from '../utils/animations';
+  SiReact,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+  SiRedux,
+  SiDocker,
+  SiRedis,
+  SiStripe,
+  SiTailwindcss,
+  SiNextdotjs,
+  SiGithubactions,
+  SiJsonwebtokens,
+  SiRazorpay,
+  SiQdrant,
+  SiLanggraph,
+  SiLangchain,
+  SiGooglegemini,
+} from "react-icons/si";
+import { FaAws, FaCloud } from "react-icons/fa";
+import { FiImage } from "react-icons/fi";
+import { fadeInUp, staggerContainer } from "../utils/animations";
 
 /**
  * Maps tech stack name strings to their react-icons components.
  * Falls back to FiCode for unknown tech.
  */
 const techIconMap = {
-  'React': SiReact,
-  'Redux Toolkit': SiRedux,
-  'Node.js': SiNodedotjs,
-  'Express.js': SiExpress,
-  'MongoDB': SiMongodb,
-  'Docker': SiDocker,
-  'AWS': FaAws,
-  'Redis': SiRedis,
-  'GitHub Actions': SiGithubactions,
-  'Stripe': SiStripe,
-  'Tailwind CSS': SiTailwindcss,
-  'Next.js': SiNextdotjs,
-  'JWT': SiJsonwebtokens,
-  'Mongoose': SiMongodb,
-  'NextAuth.js': SiNextdotjs,
-  'Cloudinary': FaCloud,
-  'LangChain': SiLangchain,
-  'LangGraph': SiLanggraph,
-  'Qdrant': SiQdrant,
-  'Razorpay': SiRazorpay,
-  'Google Gemini API': SiGooglegemini,
-  'ImageKit': FiImage,
+  React: SiReact,
+  "Redux Toolkit": SiRedux,
+  "Node.js": SiNodedotjs,
+  "Express.js": SiExpress,
+  MongoDB: SiMongodb,
+  Docker: SiDocker,
+  AWS: FaAws,
+  Redis: SiRedis,
+  "GitHub Actions": SiGithubactions,
+  Stripe: SiStripe,
+  "Tailwind CSS": SiTailwindcss,
+  "Next.js": SiNextdotjs,
+  JWT: SiJsonwebtokens,
+  Mongoose: SiMongodb,
+  "NextAuth.js": SiNextdotjs,
+  Cloudinary: FaCloud,
+  LangChain: SiLangchain,
+  LangGraph: SiLanggraph,
+  Qdrant: SiQdrant,
+  Razorpay: SiRazorpay,
+  "Google Gemini API": SiGooglegemini,
+  ImageKit: FiImage,
 };
 
 /** Render a single tech icon + name tile */
-const TechTile = ({ tech, size = 'md' }) => {
+const TechTile = ({ tech, size = "md" }) => {
   const Icon = techIconMap[tech] || null;
-  const isMd = size === 'md';
+  const isMd = size === "md";
 
   return (
     <div
       className={`flex flex-col items-center gap-1.5 rounded-lg bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-500/10 hover:-translate-y-1 hover:shadow-md hover:shadow-blue-500/20 transition-all duration-300 group cursor-pointer ${
-        isMd ? 'p-2.5' : 'p-2'
+        isMd ? "p-2.5" : "p-2"
       }`}
       title={tech}
     >
@@ -69,7 +83,7 @@ const TechTile = ({ tech, size = 'md' }) => {
       )}
       <span
         className={`font-medium text-gray-600 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors duration-300 text-center leading-tight ${
-          isMd ? 'text-[10px]' : 'text-[8px] truncate w-full'
+          isMd ? "text-[10px]" : "text-[8px] truncate w-full"
         }`}
       >
         {tech}
@@ -87,16 +101,13 @@ const DurationBadge = ({ duration }) => (
 );
 
 const Projects = () => {
-  const featuredProjects = projects?.filter(p => p.featured) || [];
-  const regularProjects = projects?.filter(p => !p.featured) || [];
+  const featuredProjects = projects?.filter((p) => p.featured) || [];
+  const regularProjects = projects?.filter((p) => !p.featured) || [];
 
   return (
     <section id="projects" className="py-20">
       <div className="container mx-auto px-4 md:px-6">
-        <SectionHeading
-          title="Projects"
-          subtitle="Some of my recent work"
-        />
+        <SectionHeading title="Projects" subtitle="Some of my recent work" />
 
         {/* Featured Projects */}
         {featuredProjects.length > 0 && (
@@ -106,9 +117,9 @@ const Projects = () => {
                 key={project.id || index}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, margin: '-100px' }}
+                viewport={{ once: true, margin: "-100px" }}
                 variants={fadeInUp}
-                className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 lg:gap-12 items-center`}
+                className={`flex flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"} gap-8 lg:gap-12 items-center`}
               >
                 {/* Image Side */}
                 <div className="w-full lg:w-1/2">
@@ -121,7 +132,9 @@ const Projects = () => {
                       />
                     ) : (
                       <div className="w-full h-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
-                        <span className="text-2xl font-bold text-gray-300/50">{project.title}</span>
+                        <span className="text-2xl font-bold text-gray-300/50">
+                          {project.title}
+                        </span>
                       </div>
                     )}
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300" />
@@ -134,10 +147,14 @@ const Projects = () => {
                     <span className="inline-block px-3 py-1 bg-purple-500/10 text-purple-500 dark:text-purple-400 text-xs font-semibold rounded-full border border-purple-500/20">
                       Featured Project
                     </span>
-                    {project.duration && <DurationBadge duration={project.duration} />}
+                    {project.duration && (
+                      <DurationBadge duration={project.duration} />
+                    )}
                   </div>
 
-                  <h3 className="text-3xl font-bold text-gray-900 dark:text-white">{project.title}</h3>
+                  <h3 className="text-3xl font-bold text-gray-900 dark:text-white">
+                    {project.title}
+                  </h3>
 
                   <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                     {project.description}
@@ -146,7 +163,10 @@ const Projects = () => {
                   {project.features && project.features.length > 0 && (
                     <ul className="space-y-1.5">
                       {project.features.slice(0, 5).map((feature, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
+                        <li
+                          key={i}
+                          className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400"
+                        >
                           <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-purple-500 shrink-0" />
                           <span>{feature}</span>
                         </li>
@@ -157,7 +177,9 @@ const Projects = () => {
                   {/* Tech Stack Grid with Icons */}
                   {project.techStack && project.techStack.length > 0 && (
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-500 mb-2">Tech Stack</p>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-500 mb-2">
+                        Tech Stack
+                      </p>
                       <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2">
                         {project.techStack.map((tech, i) => (
                           <TechTile key={i} tech={tech} size="md" />
@@ -168,22 +190,46 @@ const Projects = () => {
 
                   <div className="flex gap-4 pt-2">
                     {project.liveUrl && (
-                      <Button href={project.liveUrl} target="_blank" rel="noopener noreferrer" variant="primary" icon={<FiExternalLink />}>
+                      <Button
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        variant="primary"
+                        icon={<FiExternalLink />}
+                      >
                         Live Demo
                       </Button>
                     )}
                     {project.liveClientUrl && (
-                      <Button href={project.liveClientUrl} target="_blank" rel="noopener noreferrer" variant="primary" icon={<FiExternalLink />}>
+                      <Button
+                        href={project.liveClientUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        variant="primary"
+                        icon={<FiExternalLink />}
+                      >
                         Live Client
                       </Button>
                     )}
                     {project.liveAdminUrl && (
-                      <Button href={project.liveAdminUrl} target="_blank" rel="noopener noreferrer" variant="primary" icon={<FiExternalLink />}>
+                      <Button
+                        href={project.liveAdminUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        variant="primary"
+                        icon={<FiExternalLink />}
+                      >
                         Live Admin
                       </Button>
                     )}
                     {project.githubUrl && (
-                      <Button href={project.githubUrl} target="_blank" rel="noopener noreferrer" variant="secondary" icon={<FiGithub />}>
+                      <Button
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        variant="secondary"
+                        icon={<FiGithub />}
+                      >
                         GitHub
                       </Button>
                     )}
@@ -197,7 +243,9 @@ const Projects = () => {
         {/* Regular Projects Grid */}
         {regularProjects.length > 0 && (
           <AnimatedSection variants={staggerContainer} className="mt-24">
-            <h3 className="text-2xl font-bold mb-8 text-center text-gray-900 dark:text-white">Other Noteworthy Projects</h3>
+            <h3 className="text-2xl font-bold mb-8 text-center text-gray-900 dark:text-white">
+              Other Noteworthy Projects
+            </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {regularProjects.map((project, index) => (
                 <motion.div
@@ -215,7 +263,9 @@ const Projects = () => {
                         />
                       ) : (
                         <div className="w-full h-full bg-gradient-to-br from-blue-500/10 to-purple-500/10 flex items-center justify-center">
-                          <span className="text-xl font-bold text-gray-500/50">{project.title}</span>
+                          <span className="text-xl font-bold text-gray-500/50">
+                            {project.title}
+                          </span>
                         </div>
                       )}
 
