@@ -15,7 +15,7 @@ Designed to showcase projects, skills, education, coding profiles, certification
 
 ## 🌐 Live URL
 
-> **🔗 [https://your-portfolio-url.vercel.app](https://your-portfolio-url.vercel.app)**
+> **🔗 [https://portfolio-client-swart-phi.vercel.app](https://your-portfolio-url.vercel.app)**
 
 *(Replace with the actual deployed URL after hosting on Vercel, Netlify, or your preferred platform.)*
 

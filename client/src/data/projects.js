@@ -153,7 +153,7 @@ export const projects = [
     ],
     image: "/personalPortfolio.png",
     githubUrl: "https://github.com/Harsh-tech81/Portfolio",
-    liveUrl: "#", 
+    liveUrl: "https://portfolio-client-swart-phi.vercel.app",
     featured: true,
   },
 ];
