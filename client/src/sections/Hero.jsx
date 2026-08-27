@@ -49,6 +49,7 @@ const Hero = () => {
   // --- Viewport gating for Spline scene ---
   const splineContainerRef = useRef(null);
   const [isSplineVisible, setIsSplineVisible] = useState(false);
+  const splineAppRef = useRef(null);
 
   useEffect(() => {
     // On mobile we never mount Spline, so skip observer
@@ -65,6 +66,38 @@ const Hero = () => {
     observer.observe(el);
     return () => observer.disconnect();
   }, [isMobile]);
+
+  // --- Pause Spline render loop during scroll for smooth scrolling ---
+  useEffect(() => {
+    if (isMobile) return;
+
+    let scrollTimeout = null;
+
+    const handleScrollStart = () => {
+      // Pause Spline's render loop while scrolling
+      if (splineAppRef.current?.stop) {
+        splineAppRef.current.stop();
+      }
+
+      // Resume after scrolling stops (debounced 150ms)
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        if (splineAppRef.current?.play) {
+          splineAppRef.current.play();
+        }
+      }, 150);
+    };
+
+    window.addEventListener('scroll', handleScrollStart, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScrollStart);
+      clearTimeout(scrollTimeout);
+    };
+  }, [isMobile]);
+
+  const handleSplineLoad = (splineApp) => {
+    splineAppRef.current = splineApp;
+  };
 
   return (
     <section 
@@ -169,7 +202,7 @@ const Hero = () => {
             {/* Ambient Background Glow */}
             <div className="absolute w-[80%] h-[80%] rounded-full bg-gradient-to-br from-primary-500/10 to-indigo-600/10 blur-3xl z-0" />
             
-            <div className="relative w-full h-full z-10 flex items-center justify-center">
+            <div className="relative w-full h-full z-10 flex items-center justify-center" style={{ contain: 'layout style paint' }}>
               {isMobile ? (
                 <MobileSplineFallback />
               ) : isSplineVisible ? (
@@ -183,6 +216,7 @@ const Hero = () => {
                   <LazySplineScene 
                     scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
                     className="w-full h-full"
+                    onLoad={handleSplineLoad}
                   />
                 </React.Suspense>
               ) : (
