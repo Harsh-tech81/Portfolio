@@ -31,7 +31,7 @@ export const projects = [
       "GitHub Actions",
     ],
     image: "/agentflow-ai.png",
-    liveUrl: "https://d207y6mo1zz6xc.cloudfront.net",
+    // liveUrl: "https://d207y6mo1zz6xc.cloudfront.net",
     githubUrl: "https://github.com/Harsh-tech81/Multi-Agent-AI-Platform",
     featured: true,
   },
