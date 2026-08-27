@@ -256,7 +256,7 @@ The output will be generated in the `dist/` directory, ready to be deployed to p
 
 | Platform | Username | Max Rating |
 |---|---|---|
-| [LeetCode](https://leetcode.com/u/Harsh_kr-123) | Harsh_kr-123 | 1617 |
+| [LeetCode](https://leetcode.com/u/Harsh_kr-123) | Harsh_kr-123 | 1649 |
 | [CodeChef](https://www.codechef.com/users/harshkumar12) | harshkumar12 | 1416 |
 | [Codeforces](https://codeforces.com/profile/harshkr.221104) | harshkr.221104 | 1010 |
 | [GeeksforGeeks](https://www.geeksforgeeks.org/profile/harshkrrrpu) | harshkrrrpu | — |

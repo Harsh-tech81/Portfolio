@@ -13,7 +13,7 @@ export const codingProfiles = [
     color: "#FFA116",
     bgColor: "rgba(255,161,22,0.1)",
     icon: SiLeetcode,
-    maxRating:"1617",
+    maxRating:"1649",
   },
   {
     platform: "Codeforces",
