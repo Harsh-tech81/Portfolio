@@ -29,7 +29,7 @@ const MobileSplineFallback = () => (
       }}
     />
     {/* Profile image with gradient border */}
-    <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-indigo-600 p-[3px] animate-float shadow-2xl shadow-purple-500/20">
+    <div className="relative w-[36vw] h-[36vw] max-w-48 max-h-48 sm:max-w-56 sm:max-h-56 sm:w-56 sm:h-56 rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-indigo-600 p-[3px] animate-float shadow-2xl shadow-purple-500/20">
       <div className="w-full h-full rounded-full overflow-hidden bg-[#0a0a0a]">
         <img
           src="/profile2.jpeg"
@@ -164,7 +164,7 @@ const Hero = () => {
           <motion.div 
             ref={splineContainerRef}
             variants={fadeInUp} 
-            className="relative flex justify-center items-center order-1 lg:order-2 w-full h-[350px] md:h-[450px] lg:h-[500px]"
+            className="relative flex justify-center items-center order-1 lg:order-2 w-full h-[250px] sm:h-[350px] md:h-[450px] lg:h-[500px]"
           >
             {/* Ambient Background Glow */}
             <div className="absolute w-[80%] h-[80%] rounded-full bg-gradient-to-br from-primary-500/10 to-indigo-600/10 blur-3xl z-0" />
