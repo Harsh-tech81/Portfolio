@@ -1,5 +1,5 @@
 import React, { useRef, useMemo, Suspense } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 import { useTheme } from '../../context/ThemeContext';
 import useIsMobile from '../../hooks/useIsMobile';
@@ -7,6 +7,7 @@ import useIsMobile from '../../hooks/useIsMobile';
 const Particles = () => {
   const mesh = useRef();
   const { theme } = useTheme();
+  const { invalidate } = useThree();
 
   const isDark = theme === 'dark';
   const particleColor = isDark ? '#818cf8' : '#4f46e5'; // Indigo-400 / Indigo-600
@@ -59,6 +60,9 @@ const Particles = () => {
       });
       mesh.current.instanceMatrix.needsUpdate = true;
     }
+
+    // With frameloop="demand", we must explicitly request the next frame
+    invalidate();
   });
 
   return (
@@ -117,7 +121,7 @@ const HeroBackground = () => {
       <Suspense fallback={null}>
         <Canvas 
           camera={{ position: [0, 0, 10], fov: 75 }}
-          frameloop="always"
+          frameloop="demand"
           dpr={[1, 1.5]}
         >
           <ambientLight intensity={0.5} />

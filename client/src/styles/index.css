@@ -178,7 +178,18 @@
   }
   
   .animate-float {
-    animation: float 3s ease-in-out infinite;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Mobile gradient orb animations — used by HeroBackground and Hero fallback */
+  @keyframes mobileOrb1 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(5%, 5%) scale(1.1); }
+  }
+
+  @keyframes mobileOrb2 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-5%, -5%) scale(1.15); }
   }
 
   /* Hide scrollbar for Chrome, Safari */

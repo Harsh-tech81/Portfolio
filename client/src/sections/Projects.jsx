@@ -128,6 +128,7 @@ const Projects = () => {
                       <img
                         src={project.image}
                         alt={project.title}
+                        loading="lazy"
                         className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                       />
                     ) : (
@@ -259,6 +260,7 @@ const Projects = () => {
                         <img
                           src={project.image}
                           alt={project.title}
+                          loading="lazy"
                           className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
                         />
                       ) : (

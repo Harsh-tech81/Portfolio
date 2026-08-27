@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { TypeAnimation } from 'react-type-animation';
 import { FaGithub, FaLinkedinIn, FaTwitter,FaInstagram } from 'react-icons/fa6';
@@ -14,10 +14,57 @@ const LazySplineScene = React.lazy(() =>
   import('@/components/ui/splite').then((mod) => ({ default: mod.SplineScene }))
 );
 
+/**
+ * Mobile fallback — show profile image instead of the heavy Spline robot.
+ * Styled with a gradient ring + ambient glow for a premium feel.
+ */
+const MobileSplineFallback = () => (
+  <div className="w-full h-full flex items-center justify-center relative">
+    {/* Ambient glow behind the image */}
+    <div
+      className="absolute w-[65%] h-[65%] rounded-full opacity-30 blur-3xl"
+      style={{
+        background: 'radial-gradient(circle, #818cf8 0%, #6366f1 40%, transparent 70%)',
+        animation: 'mobileOrb1 6s ease-in-out infinite alternate',
+      }}
+    />
+    {/* Profile image with gradient border */}
+    <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-indigo-600 p-[3px] animate-float shadow-2xl shadow-purple-500/20">
+      <div className="w-full h-full rounded-full overflow-hidden bg-[#0a0a0a]">
+        <img
+          src="/profile2.jpeg"
+          alt={personalInfo.name}
+          className="w-full h-full object-cover rounded-full"
+        />
+      </div>
+    </div>
+  </div>
+);
+
 const Hero = () => {
   const isMobile = useIsMobile();
   const titles = personalInfo.titles || ['Full Stack Developer', 'MERN Stack Developer', 'Problem Solver'];
   const sequence = titles.flatMap(title => [title, 2000]);
+
+  // --- Viewport gating for Spline scene ---
+  const splineContainerRef = useRef(null);
+  const [isSplineVisible, setIsSplineVisible] = useState(false);
+
+  useEffect(() => {
+    // On mobile we never mount Spline, so skip observer
+    if (isMobile) return;
+
+    const el = splineContainerRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsSplineVisible(entry.isIntersecting),
+      { rootMargin: '200px' } // preload slightly before entering viewport
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [isMobile]);
 
   return (
     <section 
@@ -115,6 +162,7 @@ const Hero = () => {
 
           {/* Right Column - Interactive 3D Spline Scene */}
           <motion.div 
+            ref={splineContainerRef}
             variants={fadeInUp} 
             className="relative flex justify-center items-center order-1 lg:order-2 w-full h-[350px] md:h-[450px] lg:h-[500px]"
           >
@@ -122,18 +170,27 @@ const Hero = () => {
             <div className="absolute w-[80%] h-[80%] rounded-full bg-gradient-to-br from-primary-500/10 to-indigo-600/10 blur-3xl z-0" />
             
             <div className="relative w-full h-full z-10 flex items-center justify-center">
-              <React.Suspense
-                fallback={
-                  <div className="w-full h-full flex items-center justify-center">
-                    <span className="loader"></span>
-                  </div>
-                }
-              >
-                <LazySplineScene 
-                  scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-                  className="w-full h-full"
-                />
-              </React.Suspense>
+              {isMobile ? (
+                <MobileSplineFallback />
+              ) : isSplineVisible ? (
+                <React.Suspense
+                  fallback={
+                    <div className="w-full h-full flex items-center justify-center">
+                      <span className="loader"></span>
+                    </div>
+                  }
+                >
+                  <LazySplineScene 
+                    scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                    className="w-full h-full"
+                  />
+                </React.Suspense>
+              ) : (
+                /* Placeholder while waiting for viewport intersection */
+                <div className="w-full h-full flex items-center justify-center">
+                  <span className="loader"></span>
+                </div>
+              )}
             </div>
           </motion.div>
         </motion.div>

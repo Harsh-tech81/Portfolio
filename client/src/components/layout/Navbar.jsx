@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useTheme } from '../../context/ThemeContext';
 import { navLinks } from '../../data/navLinks';
@@ -10,24 +10,39 @@ const Navbar = ({ activeSection }) => {
   const isDarkMode = theme === 'dark';
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isNavHidden, setIsNavHidden] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
+
+  // Use a ref for lastScrollY to avoid re-attaching the scroll listener on every scroll
+  const lastScrollYRef = useRef(0);
+  const rafIdRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setIsNavHidden(true);
-      } else {
-        setIsNavHidden(false);
-      }
-      
-      setLastScrollY(currentScrollY);
+      // Throttle with rAF — at most one state update per animation frame
+      if (rafIdRef.current) return;
+
+      rafIdRef.current = requestAnimationFrame(() => {
+        const currentScrollY = window.scrollY;
+        const lastY = lastScrollYRef.current;
+
+        if (currentScrollY > lastY && currentScrollY > 100) {
+          setIsNavHidden(true);
+        } else {
+          setIsNavHidden(false);
+        }
+
+        lastScrollYRef.current = currentScrollY;
+        rafIdRef.current = null;
+      });
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (rafIdRef.current) {
+        cancelAnimationFrame(rafIdRef.current);
+      }
+    };
+  }, []);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {

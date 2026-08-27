@@ -26,10 +26,8 @@ const About = () => {
               {/* Decorative gradient blur blob */}
               <div className="absolute inset-0 -mx-4 -my-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-3xl opacity-30 z-0"></div>
               
-              <motion.div 
-                className="relative z-10 w-full h-full rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 p-1"
-                animate={{ y: [-10, 10, -10] }}
-                transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+              <div 
+                className="relative z-10 w-full h-full rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 p-1 animate-float"
               >
                 <div className="w-full h-full bg-white dark:bg-[#121212] rounded-2xl overflow-hidden p-1 relative">
                   <img 
@@ -38,7 +36,7 @@ const About = () => {
                     className="w-full h-full object-cover rounded-xl"
                   />
                 </div>
-              </motion.div>
+              </div>
             </motion.div>
 
             {/* Right column (info) */}

@@ -45,7 +45,7 @@ const AnimatedSection = ({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, margin: "-50px" }}
       variants={selectedVariant}
       transition={transition}
       className={className}
