@@ -1,4 +1,4 @@
-import React, { useState, lazy, Suspense } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MotionConfig } from 'motion/react';
 import { ThemeProvider } from './context/ThemeContext';
 import Navbar from './components/layout/Navbar';
@@ -9,16 +9,16 @@ import LoadingScreen from './components/layout/LoadingScreen';
 import CustomCursor from './components/layout/CustomCursor';
 import useScrollspy from './hooks/useScrollspy';
 
-// Lazy load sections for better performance
-const Hero = lazy(() => import('./sections/Hero'));
-const About = lazy(() => import('./sections/About'));
-const Education = lazy(() => import('./sections/Education'));
-const Skills = lazy(() => import('./sections/Skills'));
-// const Experience = lazy(() => import('./sections/Experience'));
-const Projects = lazy(() => import('./sections/Projects'));
-const CodingProfiles = lazy(() => import('./sections/CodingProfiles'));
-const Certifications = lazy(() => import('./sections/Certifications'));
-const Contact = lazy(() => import('./sections/Contact'));
+// Section components
+import Hero from './sections/Hero';
+import About from './sections/About';
+import Education from './sections/Education';
+import Skills from './sections/Skills';
+// import Experience from './sections/Experience';
+import Projects from './sections/Projects';
+import CodingProfiles from './sections/CodingProfiles';
+import Certifications from './sections/Certifications';
+import Contact from './sections/Contact';
 
 // Section IDs for scroll spy
 const sectionIds = [
@@ -41,27 +41,56 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const activeSection = useScrollspy(sectionIds);
 
+  useEffect(() => {
+    // Disable browser's automatic scroll restoration on refresh
+    if (typeof window !== 'undefined' && 'scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+
+    // Always reset URL to Home (remove any hash) and scroll to top on refresh/load
+    if (window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+
+    document.documentElement.style.scrollBehavior = 'auto';
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+
+    try {
+      sessionStorage.removeItem('portfolio_active_section');
+    } catch {
+      // ignore
+    }
+
+    // Also reset before unload so next reload starts at top of Home page
+    const handleBeforeUnload = () => {
+      if (window.location.hash) {
+        window.history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+      window.scrollTo(0, 0);
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    return () => window.removeEventListener('beforeunload', handleBeforeUnload);
+  }, []);
+
   const handleLoadingComplete = () => {
     setIsLoading(false);
-    
-    // After loading screen disappears, scroll to the hash if it exists
+
+    if (window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+
+    // Restore smooth scroll behavior for user clicks after loading completes
     setTimeout(() => {
-      if (window.location.hash) {
-        const id = window.location.hash.replace('#', '');
-        const element = document.getElementById(id);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
+      document.documentElement.style.scrollBehavior = '';
     }, 100);
   };
-
-  // Simple fallback for lazy-loaded sections
-  const SectionFallback = () => (
-    <div className="min-h-[50vh] flex items-center justify-center">
-      <div className="w-8 h-8 border-2 border-blue-500 border-t-transparent rounded-full animate-spin" />
-    </div>
-  );
 
   return (
     <MotionConfig reducedMotion="user">
@@ -80,41 +109,15 @@ function App() {
 
         {/* Main Content */}
         <main className="bg-white dark:bg-[#0a0a0a] text-gray-900 dark:text-gray-100 transition-colors duration-300">
-          <Suspense fallback={<SectionFallback />}>
-            <Hero />
-          </Suspense>
-
-          <Suspense fallback={<SectionFallback />}>
-            <About />
-          </Suspense>
-
-          <Suspense fallback={<SectionFallback />}>
-            <Education />
-          </Suspense>
-
-          <Suspense fallback={<SectionFallback />}>
-            <Skills />
-          </Suspense>
-
-          {/* <Suspense fallback={<SectionFallback />}>
-            <Experience />
-          </Suspense> */}
-
-          <Suspense fallback={<SectionFallback />}>
-            <Projects />
-          </Suspense>
-
-          <Suspense fallback={<SectionFallback />}>
-            <CodingProfiles />
-          </Suspense>
-
-          <Suspense fallback={<SectionFallback />}>
-            <Certifications />
-          </Suspense>
-
-          <Suspense fallback={<SectionFallback />}>
-            <Contact />
-          </Suspense>
+          <Hero />
+          <About />
+          <Education />
+          <Skills />
+          {/* <Experience /> */}
+          <Projects />
+          <CodingProfiles />
+          <Certifications />
+          <Contact />
         </main>
 
         {/* Footer */}

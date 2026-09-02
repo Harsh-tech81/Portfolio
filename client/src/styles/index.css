@@ -58,6 +58,10 @@
     scroll-behavior: smooth;
   }
 
+  section {
+    scroll-margin-top: 5rem;
+  }
+
   /* Light mode body - pure white background */
   body {
     background-color: var(--bg-color);
