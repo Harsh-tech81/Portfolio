@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useTheme } from '../../context/ThemeContext';
 import { navLinks } from '../../data/navLinks';
-import { personalInfo } from '../../data/personalInfo';
 import { FiSun, FiMoon, FiMenu, FiX } from 'react-icons/fi';
 
 const Navbar = ({ activeSection }) => {
@@ -56,6 +55,10 @@ const Navbar = ({ activeSection }) => {
 
   const toggleMobileMenu = useCallback(() => {
     setIsMobileMenuOpen(prev => !prev);
+  }, []);
+
+  const closeMobileMenu = useCallback(() => {
+    setIsMobileMenuOpen(false);
   }, []);
 
   const handleNavClick = (e, path) => {

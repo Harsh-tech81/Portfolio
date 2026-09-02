@@ -6,7 +6,6 @@ import AnimatedSection from '../components/common/AnimatedSection';
 import { FaTrophy } from 'react-icons/fa';
 import { HiAcademicCap } from 'react-icons/hi2';
 import { FiCalendar } from 'react-icons/fi';
-import { fadeInUp } from '../utils/animations';
 
 const Education = () => {
   const timelineRef = useRef(null);
