@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { skills } from '../data/skills';
 import SectionHeading from '../components/common/SectionHeading';
 import AnimatedSection from '../components/common/AnimatedSection';
+import Marquee from '../components/ui/Marquee';
 
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState('Programming Languages');
@@ -14,6 +15,9 @@ const Skills = () => {
   const displayedSkills = useMemo(() => {
     return skills.find(s => s.category === activeCategory)?.skills || [];
   }, [activeCategory]);
+
+  // Flat list of every skill for the infinite marquee
+  const allSkills = useMemo(() => skills.flatMap(s => s.skills), []);
 
   return (
     <section id="skills" className="py-20 relative">
@@ -64,7 +68,7 @@ const Skills = () => {
                   whileHover={{ scale: 1.05, y: -2 }}
                   className="bg-white dark:bg-[#1a1a1a] rounded-xl p-4 border border-gray-200 dark:border-white/10 flex flex-col items-center justify-center gap-3 hover:border-blue-500/50 hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all cursor-pointer group"
                 >
-                  <div className="text-gray-600 dark:text-gray-400 group-hover:text-blue-500 transition-colors flex items-center justify-center h-12 w-12">
+                  <div className="text-gray-600 dark:text-gray-400 group-hover:text-blue-500 transition-all duration-300 group-hover:scale-110 group-hover:-rotate-6 flex items-center justify-center h-12 w-12">
                     {/* Safely clone the element to pass the size prop if applicable */}
                     {React.isValidElement(skill.icon) ? React.cloneElement(skill.icon, { size: 36 }) : skill.icon}
                   </div>
@@ -74,6 +78,29 @@ const Skills = () => {
                 </motion.div>
               ))}
             </AnimatePresence>
+          </motion.div>
+
+          {/* Infinite tech marquee — every skill, seamless loop, pauses on hover */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="mt-16"
+          >
+            <Marquee duration={40}>
+              {allSkills.map((skill, index) => (
+                <div
+                  key={`marquee-${skill.name}-${index}`}
+                  className="flex items-center gap-2 mx-3 px-4 py-2.5 rounded-full bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 hover:border-blue-500/50 transition-colors whitespace-nowrap"
+                >
+                  <span className="flex items-center justify-center">
+                    {React.isValidElement(skill.icon) ? React.cloneElement(skill.icon, { size: 18 }) : skill.icon}
+                  </span>
+                  <span className="text-sm font-medium">{skill.name}</span>
+                </div>
+              ))}
+            </Marquee>
           </motion.div>
         </div>
       </AnimatedSection>

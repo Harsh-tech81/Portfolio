@@ -28,6 +28,7 @@ import {
 import { FaAws, FaCloud } from "react-icons/fa";
 import { FiImage } from "react-icons/fi";
 import { fadeInUp, staggerContainer } from "../utils/animations";
+import Tilt from "../components/ui/Tilt";
 
 /**
  * Maps tech stack name strings to their react-icons components.
@@ -121,25 +122,27 @@ const Projects = () => {
                 variants={fadeInUp}
                 className={`flex flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"} gap-8 lg:gap-12 items-center`}
               >
-                {/* Image Side */}
+                {/* Image Side — subtle 3D tilt + shine sweep on hover */}
                 <div className="w-full lg:w-1/2">
-                  <div className="relative aspect-video rounded-xl overflow-hidden group shadow-2xl">
-                    {project.image ? (
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        loading="lazy"
-                        className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
-                      />
-                    ) : (
-                      <div className="w-full h-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
-                        <span className="text-2xl font-bold text-gray-300/50">
-                          {project.title}
-                        </span>
-                      </div>
-                    )}
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300" />
-                  </div>
+                  <Tilt maxTilt={5}>
+                    <div className="relative aspect-video rounded-xl overflow-hidden group shadow-2xl shine-sweep">
+                      {project.image ? (
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          loading="lazy"
+                          className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
+                          <span className="text-2xl font-bold text-gray-300/50">
+                            {project.title}
+                          </span>
+                        </div>
+                      )}
+                      <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300" />
+                    </div>
+                  </Tilt>
                 </div>
 
                 {/* Content Side */}
@@ -254,7 +257,10 @@ const Projects = () => {
                   variants={fadeInUp}
                   className="h-full"
                 >
-                  <Card className="h-full flex flex-col overflow-hidden group hover:-translate-y-2 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300">
+                  <Card
+                    tilt
+                    className="h-full flex flex-col overflow-hidden group hover:-translate-y-2 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300"
+                  >
                     <div className="relative aspect-video overflow-hidden">
                       {project.image ? (
                         <img

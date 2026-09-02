@@ -89,8 +89,14 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-20 relative overflow-hidden bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/20 rounded-full blur-[100px] -z-10 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/20 rounded-full blur-[100px] -z-10 pointer-events-none" />
+      <div
+        className="absolute top-0 right-0 w-96 h-96 bg-blue-500/20 rounded-full blur-[100px] -z-10 pointer-events-none"
+        style={{ animation: 'orbDrift1 14s ease-in-out infinite' }}
+      />
+      <div
+        className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/20 rounded-full blur-[100px] -z-10 pointer-events-none"
+        style={{ animation: 'orbDrift2 18s ease-in-out infinite' }}
+      />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
         <SectionHeading 
@@ -118,7 +124,7 @@ const Contact = () => {
               
               <div className="space-y-6 mb-10">
                 <motion.div variants={fadeInUp} className="flex items-center gap-5">
-                  <div className="w-14 h-14 rounded-full flex items-center justify-center bg-gradient-to-br from-blue-500/20 to-cyan-500/20 text-blue-600 dark:text-blue-400 shrink-0">
+                  <div className="w-14 h-14 rounded-full flex items-center justify-center bg-gradient-to-br transition-transform duration-300 hover:scale-110 hover:-rotate-6 from-blue-500/20 to-cyan-500/20 text-blue-600 dark:text-blue-400 shrink-0">
                     <FaEnvelope className="text-xl" />
                   </div>
                   <div>
@@ -130,7 +136,7 @@ const Contact = () => {
                 </motion.div>
                 
                 <motion.div variants={fadeInUp} className="flex items-center gap-5">
-                  <div className="w-14 h-14 rounded-full flex items-center justify-center bg-gradient-to-br from-purple-500/20 to-pink-500/20 text-purple-600 dark:text-purple-400 shrink-0">
+                  <div className="w-14 h-14 rounded-full flex items-center justify-center bg-gradient-to-br transition-transform duration-300 hover:scale-110 hover:-rotate-6 from-purple-500/20 to-pink-500/20 text-purple-600 dark:text-purple-400 shrink-0">
                     <FaPhone className="text-xl" />
                   </div>
                   <div>
@@ -142,7 +148,7 @@ const Contact = () => {
                 </motion.div>
                 
                 <motion.div variants={fadeInUp} className="flex items-center gap-5">
-                  <div className="w-14 h-14 rounded-full flex items-center justify-center bg-gradient-to-br from-green-500/20 to-emerald-500/20 text-green-600 dark:text-green-400 shrink-0">
+                  <div className="w-14 h-14 rounded-full flex items-center justify-center bg-gradient-to-br transition-transform duration-300 hover:scale-110 hover:-rotate-6 from-green-500/20 to-emerald-500/20 text-green-600 dark:text-green-400 shrink-0">
                     <FaMapMarkerAlt className="text-xl" />
                   </div>
                   <div>
@@ -161,16 +167,19 @@ const Contact = () => {
                   { icon: FaXTwitter, url: personalInfo.socials?.twitter, label: 'Twitter' },
                   { icon: FaInstagram, url: personalInfo.socials?.instagram, label: 'Instagram' },
                 ].filter(s => s.url).map((social, index) => (
-                  <a 
+                  <motion.a
                     key={index}
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-full flex items-center justify-center bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:text-white hover:bg-blue-600 dark:hover:bg-blue-500 hover:border-transparent transition-all duration-300"
+                    whileHover={{ y: -5, scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    transition={{ type: 'spring', stiffness: 350, damping: 15 }}
+                    className="w-12 h-12 rounded-full flex items-center justify-center bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:text-white hover:bg-blue-600 dark:hover:bg-blue-500 hover:border-transparent transition-colors duration-300 hover:shadow-lg hover:shadow-blue-500/30"
                     aria-label={social.label}
                   >
                     <social.icon size={20} />
-                  </a>
+                  </motion.a>
                 ))}
               </motion.div>
             </motion.div>

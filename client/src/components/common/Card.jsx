@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'motion/react';
 import useIsMobile from '../../hooks/useIsMobile';
+import Tilt from '../ui/Tilt';
 
 const Card = ({
   children,
@@ -20,7 +21,7 @@ const Card = ({
 
   const handleMouseMove = (e) => {
     if (!divRef.current || !enableSpotlight) return;
-    
+
     const rect = divRef.current.getBoundingClientRect();
     setPosition({
       x: e.clientX - rect.left,
@@ -32,9 +33,11 @@ const Card = ({
   const handleMouseLeave = () => setOpacity(0);
 
   const baseClasses = "relative bg-white dark:bg-[#1a1a1a] rounded-2xl border border-gray-200 dark:border-white/10 p-6 overflow-hidden transition-all duration-300 ease-in-out";
-  const hoverClasses = hover ? "hover:-translate-y-1 hover:shadow-xl dark:shadow-none shadow-sm" : "shadow-sm dark:shadow-none";
-  
-  return (
+  const hoverClasses = hover
+    ? "hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/10 dark:hover:border-blue-500/40 hover:border-blue-300 shadow-sm dark:shadow-none"
+    : "shadow-sm dark:shadow-none";
+
+  const card = (
     <motion.div
       ref={divRef}
       onMouseMove={handleMouseMove}
@@ -57,6 +60,16 @@ const Card = ({
       </div>
     </motion.div>
   );
+
+  if (tilt && !isMobile) {
+    return (
+      <Tilt className="h-full">
+        {card}
+      </Tilt>
+    );
+  }
+
+  return card;
 };
 
 export default Card;

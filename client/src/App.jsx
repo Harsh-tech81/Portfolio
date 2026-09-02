@@ -1,10 +1,12 @@
 import React, { useState, lazy, Suspense } from 'react';
+import { MotionConfig } from 'motion/react';
 import { ThemeProvider } from './context/ThemeContext';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import ScrollProgress from './components/layout/ScrollProgress';
 import ScrollToTop from './components/layout/ScrollToTop';
 import LoadingScreen from './components/layout/LoadingScreen';
+import CustomCursor from './components/layout/CustomCursor';
 import useScrollspy from './hooks/useScrollspy';
 
 // Lazy load sections for better performance
@@ -62,61 +64,66 @@ function App() {
   );
 
   return (
-    <ThemeProvider>
-      {/* Loading Screen */}
-      {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
+    <MotionConfig reducedMotion="user">
+      <ThemeProvider>
+        {/* Custom cursor (mouse devices only) */}
+        <CustomCursor />
 
-      {/* Scroll Progress Bar */}
-      <ScrollProgress />
+        {/* Loading Screen */}
+        {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
 
-      {/* Navigation */}
-      <Navbar activeSection={activeSection} />
+        {/* Scroll Progress Bar */}
+        <ScrollProgress />
 
-      {/* Main Content */}
-      <main className="bg-white dark:bg-[#0a0a0a] text-gray-900 dark:text-gray-100 transition-colors duration-300">
-        <Suspense fallback={<SectionFallback />}>
-          <Hero />
-        </Suspense>
+        {/* Navigation */}
+        <Navbar activeSection={activeSection} />
 
-        <Suspense fallback={<SectionFallback />}>
-          <About />
-        </Suspense>
+        {/* Main Content */}
+        <main className="bg-white dark:bg-[#0a0a0a] text-gray-900 dark:text-gray-100 transition-colors duration-300">
+          <Suspense fallback={<SectionFallback />}>
+            <Hero />
+          </Suspense>
 
-        <Suspense fallback={<SectionFallback />}>
-          <Education />
-        </Suspense>
+          <Suspense fallback={<SectionFallback />}>
+            <About />
+          </Suspense>
 
-        <Suspense fallback={<SectionFallback />}>
-          <Skills />
-        </Suspense>
+          <Suspense fallback={<SectionFallback />}>
+            <Education />
+          </Suspense>
 
-        {/* <Suspense fallback={<SectionFallback />}>
-          <Experience />
-        </Suspense> */}
+          <Suspense fallback={<SectionFallback />}>
+            <Skills />
+          </Suspense>
 
-        <Suspense fallback={<SectionFallback />}>
-          <Projects />
-        </Suspense>
+          {/* <Suspense fallback={<SectionFallback />}>
+            <Experience />
+          </Suspense> */}
 
-        <Suspense fallback={<SectionFallback />}>
-          <CodingProfiles />
-        </Suspense>
+          <Suspense fallback={<SectionFallback />}>
+            <Projects />
+          </Suspense>
 
-        <Suspense fallback={<SectionFallback />}>
-          <Certifications />
-        </Suspense>
+          <Suspense fallback={<SectionFallback />}>
+            <CodingProfiles />
+          </Suspense>
 
-        <Suspense fallback={<SectionFallback />}>
-          <Contact />
-        </Suspense>
-      </main>
+          <Suspense fallback={<SectionFallback />}>
+            <Certifications />
+          </Suspense>
 
-      {/* Footer */}
-      <Footer />
+          <Suspense fallback={<SectionFallback />}>
+            <Contact />
+          </Suspense>
+        </main>
 
-      {/* Scroll to Top Button */}
-      <ScrollToTop />
-    </ThemeProvider>
+        {/* Footer */}
+        <Footer />
+
+        {/* Scroll to Top Button */}
+        <ScrollToTop />
+      </ThemeProvider>
+    </MotionConfig>
   );
 }
 

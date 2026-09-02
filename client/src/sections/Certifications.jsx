@@ -21,7 +21,7 @@ const Certifications = () => {
             {certifications.map((cert, index) => (
               <motion.div key={cert.id || index} variants={fadeInUp} className="h-full">
                 <Card className="h-full flex flex-col overflow-hidden p-0 group">
-                  <div className="relative aspect-video w-full overflow-hidden bg-gray-100 dark:bg-gray-800 rounded-t-xl">
+                  <div className="relative aspect-video w-full overflow-hidden bg-gray-100 dark:bg-gray-800 rounded-t-xl shine-sweep">
                     {cert.image ? (
                       <img 
                         src={cert.image} 

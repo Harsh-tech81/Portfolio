@@ -216,4 +216,175 @@
       transform: rotate(360deg);
     }
   }
+
+  /* ===== Premium animation utilities ===== */
+
+  /* Animated gradient text (shimmering name / headings) */
+  .text-shimmer {
+    background: linear-gradient(
+      90deg,
+      var(--color-primary) 0%,
+      var(--color-secondary) 25%,
+      var(--color-accent) 50%,
+      var(--color-secondary) 75%,
+      var(--color-primary) 100%
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 6s linear infinite;
+  }
+
+  @keyframes shimmer {
+    to { background-position: 200% center; }
+  }
+
+  /* Diagonal shine sweep for buttons / images (uses ::after overlay) */
+  .shine-sweep {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shine-sweep::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -80%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      100deg,
+      transparent,
+      rgba(255, 255, 255, 0.35),
+      transparent
+    );
+    transform: skewX(-20deg);
+    transition: left 0.7s ease;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .shine-sweep:hover::after {
+    left: 130%;
+  }
+
+  /* Infinite marquee */
+  .marquee {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 32s linear infinite;
+  }
+
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  .marquee-reverse .marquee-track {
+    animation-direction: reverse;
+  }
+
+  @keyframes marquee {
+    to { transform: translateX(-50%); }
+  }
+
+  /* Scroll indicator: mouse body with animated wheel dot */
+  .mouse-scroll {
+    width: 26px;
+    height: 40px;
+    border: 2px solid currentColor;
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    padding-top: 7px;
+    opacity: 0.7;
+  }
+
+  .mouse-scroll-wheel {
+    width: 3px;
+    height: 8px;
+    border-radius: 3px;
+    background: currentColor;
+    animation: mouseWheel 1.8s ease-in-out infinite;
+  }
+
+  @keyframes mouseWheel {
+    0% { transform: translateY(0); opacity: 1; }
+    60% { transform: translateY(10px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 0; }
+  }
+
+  /* Slow floating orbs for global ambient background */
+  @keyframes orbDrift1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(6vw, -4vh) scale(1.15); }
+    66% { transform: translate(-4vw, 5vh) scale(0.9); }
+  }
+
+  @keyframes orbDrift2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(-5vw, 6vh) scale(0.95); }
+    66% { transform: translate(5vw, -3vh) scale(1.1); }
+  }
+
+  /* Soft glow pulse for status dots */
+  @keyframes glowPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); }
+    50% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  }
+
+  .animate-glow-pulse {
+    animation: glowPulse 2s ease-in-out infinite;
+  }
+
+  /* Custom cursor — hidden by default, enabled only on fine pointers */
+  .custom-cursor-dot,
+  .custom-cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9998;
+    border-radius: 9999px;
+  }
+
+  .custom-cursor-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--color-primary);
+  }
+
+  .custom-cursor-ring {
+    width: 36px;
+    height: 36px;
+    border: 1.5px solid rgba(99, 102, 241, 0.55);
+  }
+
+  @media (pointer: fine) {
+    .custom-cursor-enabled,
+    .custom-cursor-enabled a,
+    .custom-cursor-enabled button {
+      cursor: none;
+    }
+  }
+
+  /* Respect users who prefer reduced motion for CSS animations */
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track,
+    .text-shimmer,
+    .animate-float,
+    .animate-glow-pulse,
+    .mouse-scroll-wheel {
+      animation: none !important;
+    }
+    html {
+      scroll-behavior: auto;
+    }
+  }
 }

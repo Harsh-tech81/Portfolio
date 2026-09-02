@@ -4,6 +4,7 @@ import { personalInfo } from '../data/personalInfo';
 import SectionHeading from '../components/common/SectionHeading';
 import AnimatedSection from '../components/common/AnimatedSection';
 import Card from '../components/common/Card';
+import Tilt from '../components/ui/Tilt';
 import { FaGraduationCap, FaBullseye, FaCode, FaMapMarkerAlt } from 'react-icons/fa';
 import { fadeInUp, staggerContainer } from '../utils/animations';
 
@@ -15,29 +16,23 @@ const About = () => {
         
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Left column (image) */}
-            <motion.div 
-              className="relative mx-auto max-w-md w-full aspect-square"
-              variants={fadeInUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-            >
+            {/* Left column (image) — 3D tilt on hover */}
+            <Tilt maxTilt={6} className="relative mx-auto max-w-md w-full aspect-square">
               {/* Decorative gradient blur blob */}
               <div className="absolute inset-0 -mx-4 -my-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-3xl opacity-30 z-0"></div>
-              
-              <div 
+
+              <div
                 className="relative z-10 w-full h-full rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 p-1 animate-float"
               >
                 <div className="w-full h-full bg-white dark:bg-[#121212] rounded-2xl overflow-hidden p-1 relative">
-                  <img 
-                    src="/profile.jpeg" 
-                    alt={personalInfo.name} 
+                  <img
+                    src="/profile.jpeg"
+                    alt={personalInfo.name}
                     className="w-full h-full object-cover rounded-xl"
                   />
                 </div>
               </div>
-            </motion.div>
+            </Tilt>
 
             {/* Right column (info) */}
             <motion.div 
@@ -116,12 +111,22 @@ const About = () => {
                 <h4 className="font-semibold text-gray-900 dark:text-white mb-4">Interests</h4>
                 <div className="flex flex-wrap gap-3">
                   {personalInfo.about.interests.map((interest, index) => (
-                    <span 
-                      key={index} 
-                      className="px-4 py-2 rounded-full text-sm bg-blue-500/10 text-blue-500 dark:bg-blue-400/10 dark:text-blue-400 font-medium"
+                    <motion.span
+                      key={index}
+                      initial={{ opacity: 0, scale: 0.6, y: 10 }}
+                      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                      viewport={{ once: true, margin: '-50px' }}
+                      whileHover={{ scale: 1.08, y: -3 }}
+                      transition={{
+                        type: 'spring',
+                        stiffness: 320,
+                        damping: 18,
+                        delay: 0.1 + index * 0.06,
+                      }}
+                      className="px-4 py-2 rounded-full text-sm bg-blue-500/10 text-blue-500 dark:bg-blue-400/10 dark:text-blue-400 font-medium cursor-default hover:bg-blue-500/20 dark:hover:bg-blue-400/20 hover:shadow-md hover:shadow-blue-500/20 transition-colors"
                     >
                       {interest}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
               </motion.div>

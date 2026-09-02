@@ -53,8 +53,9 @@ const Footer = () => {
             <ul className="space-y-2">
               {navLinks.map((link) => (
                 <li key={link.id}>
-                  <a href={link.path} className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                    {link.name}
+                  <a href={link.path} className="group inline-flex items-center gap-1.5 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    <span className="w-0 group-hover:w-3 overflow-hidden transition-all duration-300 text-blue-500">→</span>
+                    <span className="inline-block transition-transform duration-300 group-hover:translate-x-0.5">{link.name}</span>
                   </a>
                 </li>
               ))}
@@ -85,7 +86,7 @@ const Footer = () => {
         <div className="pt-8 border-t border-gray-200/50 dark:border-white/5 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 dark:text-gray-400">
           <p>&copy; {currentYear} Harsh. All rights reserved.</p>
           <p className="mt-2 md:mt-0 flex items-center">
-            Made with <span className="text-red-500 mx-1">❤️</span> by Harsh
+            Made with <span className="inline-block text-red-500 mx-1 hover:scale-150 transition-transform duration-300 cursor-default">❤️</span> by Harsh
           </p>
         </div>
       </div>

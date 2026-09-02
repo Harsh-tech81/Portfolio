@@ -37,7 +37,7 @@ const CodingProfiles = () => {
                       className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-2xl pointer-events-none"
                       style={{ backgroundColor: profile.bgColor || profile.color }}
                     />
-                    <div className="mb-4 flex items-center justify-center p-3 lg:p-2.5 xl:p-4 rounded-full bg-gray-100 dark:bg-gray-800 transition-colors" style={{ color: profile.color }}>
+                    <div className="mb-4 flex items-center justify-center p-3 lg:p-2.5 xl:p-4 rounded-full bg-gray-100 dark:bg-gray-800 transition-all duration-300 group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-lg" style={{ color: profile.color }}>
                       {Icon && <Icon className="w-10 h-10 lg:w-8 lg:h-8 xl:w-12 xl:h-12" />}
                     </div>
                     <h3 className="text-lg xl:text-xl font-semibold text-gray-900 dark:text-white mb-1 relative z-10 w-full truncate" title={profile.platform}>
