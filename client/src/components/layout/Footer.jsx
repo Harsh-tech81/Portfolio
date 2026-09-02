@@ -7,6 +7,15 @@ import { FaGithub, FaLinkedinIn, FaXTwitter, FaInstagram } from 'react-icons/fa6
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  const handleNavClick = (e, path) => {
+    e.preventDefault();
+    const id = path.replace('#', '');
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <motion.footer
       initial={{ opacity: 0, y: 20 }}
@@ -20,7 +29,7 @@ const Footer = () => {
           
           {/* Left Column: Brand & Tagline */}
           <div className="flex flex-col space-y-4">
-            <a href="#home" className="flex items-center gap-2">
+            <a href="#home" onClick={(e) => handleNavClick(e, '#home')} className="flex items-center gap-2">
               <span className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-500 bg-clip-text text-transparent">
                 H
               </span>
@@ -53,7 +62,7 @@ const Footer = () => {
             <ul className="space-y-2">
               {navLinks.map((link) => (
                 <li key={link.id}>
-                  <a href={link.path} className="group inline-flex items-center gap-1.5 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  <a href={link.path} onClick={(e) => handleNavClick(e, link.path)} className="group inline-flex items-center gap-1.5 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                     <span className="w-0 group-hover:w-3 overflow-hidden transition-all duration-300 text-blue-500">→</span>
                     <span className="inline-block transition-transform duration-300 group-hover:translate-x-0.5">{link.name}</span>
                   </a>

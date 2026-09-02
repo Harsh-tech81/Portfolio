@@ -33,10 +33,10 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/logo.png" />
 
-    <!-- Reset scroll and hash to Home on reload -->
+    <!-- Reset scroll and redirect to Home on reload if hash exists -->
     <script>
       if (window.location.hash) {
-        history.replaceState(null, '', window.location.pathname);
+        window.location.replace(window.location.origin + window.location.pathname);
       }
       if ('scrollRestoration' in history) {
         history.scrollRestoration = 'manual';

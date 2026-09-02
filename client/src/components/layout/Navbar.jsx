@@ -58,9 +58,15 @@ const Navbar = ({ activeSection }) => {
     setIsMobileMenuOpen(prev => !prev);
   }, []);
 
-  const closeMobileMenu = useCallback(() => {
-    setIsMobileMenuOpen(false);
-  }, []);
+  const handleNavClick = (e, path) => {
+    e.preventDefault();
+    closeMobileMenu();
+    const id = path.replace('#', '');
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <motion.nav
@@ -73,7 +79,7 @@ const Navbar = ({ activeSection }) => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0 cursor-pointer">
-            <a href="#home" onClick={closeMobileMenu} className="flex items-center gap-2">
+            <a href="#home" onClick={(e) => handleNavClick(e, '#home')} className="flex items-center gap-2">
               <span className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-500 bg-clip-text text-transparent">
                 H
               </span>
@@ -89,6 +95,7 @@ const Navbar = ({ activeSection }) => {
               <a
                 key={link.id}
                 href={link.path}
+                onClick={(e) => handleNavClick(e, link.path)}
                 className="relative group py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
               >
                 {link.name}
@@ -157,7 +164,7 @@ const Navbar = ({ activeSection }) => {
                   <motion.a
                     key={link.id}
                     href={link.path}
-                    onClick={closeMobileMenu}
+                    onClick={(e) => handleNavClick(e, link.path)}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.1 }}

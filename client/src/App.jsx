@@ -47,9 +47,10 @@ function App() {
       window.history.scrollRestoration = 'manual';
     }
 
-    // Always reset URL to Home (remove any hash) and scroll to top on refresh/load
+    // Always redirect to Home (remove any hash) and scroll to top on refresh/load
     if (window.location.hash) {
-      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+      window.location.replace(window.location.origin + window.location.pathname);
+      return;
     }
 
     document.documentElement.style.scrollBehavior = 'auto';

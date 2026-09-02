@@ -222,7 +222,7 @@ const Hero = () => {
                 <Magnetic>
                   <Button
                     variant="secondary"
-                    href="#contact"
+                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                     icon={<FiMail className="text-lg" />}
                   >
                     Contact Me
@@ -302,7 +302,14 @@ const Hero = () => {
         transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
         style={{ opacity: contentOpacity }}
       >
-        <a href="#about" className="flex flex-col items-center text-gray-400 hover:text-primary-500 transition-colors">
+        <a
+          href="#about"
+          onClick={(e) => {
+            e.preventDefault();
+            document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+          }}
+          className="flex flex-col items-center text-gray-400 hover:text-primary-500 transition-colors"
+        >
           <span className="text-[10px] font-medium mb-2 uppercase tracking-widest hidden md:block">Scroll</span>
           <span className="mouse-scroll">
             <span className="mouse-scroll-wheel" />
