@@ -3,7 +3,7 @@
 # 🚀 Harsh Kumar — Full Stack Developer Portfolio
 
 A premium, modern, and highly interactive personal portfolio website built with the **MERN stack**.  
-Designed to showcase projects, skills, education, coding profiles, certifications, and achievements with sleek animations and a stunning UI.
+Designed to showcase projects, skills, education, coding profiles, certifications, and achievements with **60+ custom animations**, 3D elements, and a stunning UI.
 
 [![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Visit_Site-0ea5e9?style=for-the-badge)](https://portfolio-client-swart-phi.vercel.app)
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github)](https://github.com/Harsh-tech81/Portfolio)
@@ -24,14 +24,16 @@ Designed to showcase projects, skills, education, coding profiles, certification
 |---|---|
 | 🎨 **Modern UI/UX** | Glassmorphism, animated gradients, floating elements, and a premium loading screen |
 | 🌓 **Dynamic Theming** | Flawless Light & Dark mode support built for Tailwind CSS v4 |
-| 🌌 **3D Backgrounds** | Interactive Three.js particles powered by React Three Fiber in the Hero section |
-| 🎞️ **Fluid Animations** | Smooth scrolling, page transitions, and micro-interactions via Framer Motion |
-| 📬 **Contact Form** | Fully functional backend form integrated with Node.js, Express, and Nodemailer (SMTP) |
-| ⚡ **Lazy Loading** | Optimized performance using React `lazy` and `Suspense` for all sections |
-| 📱 **Responsive Design** | Pixel-perfect layouts across desktop, tablet, and mobile devices |
+| 🌌 **3D & Interactive** | Three.js particles + Spline 3D robot in Hero, custom cursor with spring physics |
+| 🎞️ **60+ Animations** | Blur-in reveals, clip-path wipes, rotating gradient borders, spring physics, staggered entrances, animated counters, floating labels, SVG draw animations, and more |
+| 🧲 **Micro-Interactions** | Magnetic buttons, 3D tilt cards, icon rotation on hover, pulse glow effects, heartbeat animations |
+| 📬 **Contact Form** | Floating label inputs, glowing focus states, animated SVG checkmark on success, SMTP backend |
+| ⚡ **Performance** | Lazy loading via React `Suspense`, viewport-gated Spline, CSS `will-change`, GPU-friendly transforms |
+| 📱 **Responsive Design** | Pixel-perfect layouts across desktop, tablet, and mobile with mobile-specific fallbacks |
 | 🔍 **Scroll Spy Navigation** | Active section highlighting in the navbar as the user scrolls |
-| 🔝 **Scroll to Top** | Floating button for seamless navigation back to the top |
-| 📊 **Scroll Progress Bar** | Visual progress indicator at the top of the page |
+| 🔝 **Scroll to Top** | Floating button with gradient glow for seamless navigation |
+| 📊 **Scroll Progress Bar** | Spring-physics progress indicator at the top of the page |
+| ♿ **Accessibility** | Full `prefers-reduced-motion` support — all animations gracefully disabled |
 
 ---
 
@@ -39,14 +41,14 @@ Designed to showcase projects, skills, education, coding profiles, certification
 
 The portfolio is divided into the following interactive sections:
 
-1. **🏠 Home (Hero)** — Animated intro with typing effect, 3D particle background, and CTA buttons
-2. **👤 About** — Bio, interests, and objectives
-3. **🎓 Education** — Academic history (NIT Patna B.Tech CSE, Higher Secondary, Secondary)
-4. **🛠️ Skills** — Categorized skill grid (Languages, Frontend, Backend, Databases, DevOps, Cloud, AI/ML, Architecture, CS Fundamentals, Tools, Version Control)
-5. **💼 Projects** — Featured project showcase with tech stacks, descriptions, and GitHub/Live links
-6. **💻 Coding Profiles** — Competitive programming stats (LeetCode, Codeforces, CodeChef, GeeksforGeeks) with ratings
-7. **🏆 Certifications** — Hackathon achievements, NPTEL certifications, and Google Cloud badges
-8. **📧 Contact** — SMTP-powered contact form with rate limiting
+1. **🏠 Home (Hero)** — Letter-by-letter name reveal, shimmer gradient text, typing effect, 3D Spline robot (desktop) / profile image fallback (mobile), Three.js particle background, scroll parallax, magnetic CTA buttons
+2. **👤 About** — 3D tilt profile image, spring bounce-in icons, pulse-glow info cards, staggered interest tags with blur reveal
+3. **🎓 Education** — Scroll-drawing timeline with gradient progress line, pulsing glow dot tracker, spring-animated graduation cap icons, hover-lift cards
+4. **🛠️ Skills** — Animated `layoutId` category tabs, blur-to-clear card transitions, 360° icon rotation on hover, pulse-glow cards, infinite skill marquee with pause-on-hover
+5. **💼 Projects** — Rotating conic-gradient borders on featured images, staggered feature list reveals, 3D tilt + shine-sweep on images, tech stack icon grid with hover effects
+6. **💻 Coding Profiles** — Animated number counters (count up from 0), platform-colored glow rings, spring-animated visit buttons with colored box shadows
+7. **🏆 Certifications** — Clip-path left-to-right image reveal, glassmorphism Quick View overlay on hover, hover-lift with spring physics
+8. **📧 Contact** — Floating label inputs, glowing focus ring, animated SVG checkmark draw on success, drifting gradient orb backgrounds
 
 ---
 
@@ -58,8 +60,9 @@ The portfolio is divided into the following interactive sections:
 |---|---|
 | [React 19](https://react.dev/) + [Vite 8](https://vitejs.dev/) | Fast, modern UI framework with optimized builds |
 | [Tailwind CSS v4](https://tailwindcss.com/) | Utility-first styling with custom dark mode variants |
-| [Framer Motion](https://www.framer.com/motion/) | Complex animations, page transitions, and scroll-based effects |
-| [React Three Fiber](https://docs.pmnd.rs/react-three-fiber) + [Drei](https://github.com/pmndrs/drei) | 3D graphics and interactive particle backgrounds |
+| [Framer Motion / Motion](https://motion.dev/) | 60+ animations — scroll-triggered reveals, spring physics, staggered entrances, layout animations |
+| [React Three Fiber](https://docs.pmnd.rs/react-three-fiber) + [Drei](https://github.com/pmndrs/drei) | 3D instanced particles with mouse parallax in Hero |
+| [Spline](https://spline.design/) | Interactive 3D robot model in Hero (lazy-loaded, viewport-gated) |
 | [React Router v7](https://reactrouter.com/) | Client-side routing and navigation |
 | [React Icons](https://react-icons.github.io/react-icons/) | Extensive icon library for UI elements |
 | [React Type Animation](https://www.npmjs.com/package/react-type-animation) | Typing effect in the Hero section |
@@ -78,6 +81,51 @@ The portfolio is divided into the following interactive sections:
 
 ---
 
+## 🎬 Animation System
+
+The portfolio uses a layered animation architecture for maximum visual impact while maintaining 60fps performance:
+
+| Layer | Technology | Examples |
+|---|---|---|
+| **CSS Keyframes** | Vanilla CSS | Shimmer text, floating elements, heartbeat, gradient rotation, mouse scroll indicator, marquee |
+| **Motion Variants** | Framer Motion | `fadeInUp`, `blurIn`, `rotateIn`, `clipRevealLeft`, `slideInWithBounce`, `scaleIn` |
+| **Scroll-Linked** | `useScroll` + `useTransform` | Hero parallax, education timeline progress, scroll progress bar |
+| **Spring Physics** | `useSpring` + `useMotionValue` | Custom cursor, magnetic buttons, 3D tilt cards, scroll-to-top |
+| **Interactive** | `whileHover` / `whileTap` | Icon 360° rotation, card lift, button scale, social link bounce |
+| **Viewport-Gated** | `whileInView` + `IntersectionObserver` | Section reveals, animated counters, gradient underlines, clip-path wipes |
+| **Layout Animations** | `layoutId` + `AnimatePresence` | Skill tab slider, form status messages |
+| **3D / WebGL** | Three.js + Spline | Particle system with mouse tracking, interactive 3D robot model |
+
+### Custom Animation Utilities (`utils/animations.js`)
+
+| Variant | Effect |
+|---|---|
+| `fadeInUp` / `fadeInDown` | Vertical slide + fade |
+| `blurIn` | Blur-to-clear with vertical slide |
+| `rotateIn` | Rotation + scale spring entry |
+| `clipRevealLeft` | Left-to-right clip-path wipe |
+| `slideInWithBounce` | Horizontal slide with spring overshoot |
+| `staggerContainer` / `staggerContainerFast` | Parent container for staggered children |
+| `countUp()` | Animated number counter with ease-out cubic |
+
+### Custom CSS Animations (`styles/index.css`)
+
+| Class | Effect |
+|---|---|
+| `.text-shimmer` | Animated gradient text |
+| `.shine-sweep` | Diagonal light sweep on hover |
+| `.animated-border` | Rotating conic-gradient border |
+| `.section-underline` | Gradient underline that draws on scroll |
+| `.hover-pulse-glow` | Soft pulsing indigo glow on hover |
+| `.heartbeat` | Continuous heartbeat animation |
+| `.input-focus-glow` | Glowing blue ring on form focus |
+| `.float-label` | CSS-only floating label system |
+| `.draw-check-path` | SVG checkmark stroke animation |
+
+> All animations respect `prefers-reduced-motion` and are disabled for users who prefer reduced motion.
+
+---
+
 ## 📂 Project Structure
 
 ```
@@ -89,24 +137,24 @@ Portfolio/
 │   │   ├── main.jsx                # React entry point
 │   │   ├── assets/                 # Images, fonts, and other assets
 │   │   ├── components/
-│   │   │   ├── common/             # Reusable shared components
-│   │   │   ├── layout/             # Navbar, Footer, ScrollProgress, ScrollToTop, LoadingScreen
-│   │   │   ├── three/              # HeroBackground (3D particles)
-│   │   │   └── ui/                 # Card, Spotlight, and other UI primitives
+│   │   │   ├── common/             # AnimatedSection, Button, Card, SectionHeading
+│   │   │   ├── layout/             # Navbar, Footer, ScrollProgress, ScrollToTop, LoadingScreen, CustomCursor
+│   │   │   ├── three/              # HeroBackground (3D instanced particles)
+│   │   │   └── ui/                 # Tilt, Magnetic, Marquee, Spotlight, AnimatedText, Spline wrapper
 │   │   ├── context/                # ThemeContext (Light/Dark mode)
 │   │   ├── data/                   # ⬇️ All portfolio content (see below)
-│   │   ├── hooks/                  # Custom hooks (useScrollspy, etc.)
+│   │   ├── hooks/                  # useScrollspy, useIsMobile, useMediaQuery
 │   │   ├── lib/                    # Utility libraries
-│   │   ├── sections/               # Page sections (Hero, About, Education, Skills, Projects, etc.)
-│   │   ├── styles/                 # Global styles and Tailwind config
-│   │   └── utils/                  # Helper utilities
+│   │   ├── sections/               # Hero, About, Education, Skills, Projects, CodingProfiles, Certifications, Contact
+│   │   ├── styles/                 # Global styles, CSS animations, Tailwind config
+│   │   └── utils/                  # Animation variants & countUp utility
 │   ├── package.json
 │   └── vite.config.js
 │
 ├── server/                         # Backend (Node.js + Express)
 │   ├── server.js                   # Express app entry point
 │   ├── controllers/                # Route handlers (contact form logic)
-│   ├── middleware/                  # Rate limiting and other middleware
+│   ├── middleware/                  # Rate limiting and error handling
 │   ├── routes/                     # API route definitions
 │   ├── .env.example                # Environment variable template
 │   └── package.json
@@ -256,7 +304,7 @@ The output will be generated in the `dist/` directory, ready to be deployed to p
 
 | Platform | Username | Max Rating |
 |---|---|---|
-| [LeetCode](https://leetcode.com/u/Harsh_kr-123) | Harsh_kr-123 | 1649 |
+| [LeetCode](https://leetcode.com/u/Harsh_kr-123) | Harsh_kr-123 | 1656 |
 | [CodeChef](https://www.codechef.com/users/harshkumar12) | harshkumar12 | 1416 |
 | [Codeforces](https://codeforces.com/profile/harshkr.221104) | harshkr.221104 | 1010 |
 | [GeeksforGeeks](https://www.geeksforgeeks.org/profile/harshkrrrpu) | harshkrrrpu | — |
