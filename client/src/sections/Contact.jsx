@@ -6,8 +6,32 @@ import AnimatedSection from '../components/common/AnimatedSection';
 import Card from '../components/common/Card';
 import Button from '../components/common/Button';
 import { fadeInUp, staggerContainer } from '../utils/animations';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaCheckCircle, FaExclamationCircle } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaExclamationCircle } from 'react-icons/fa';
 import { FaGithub, FaLinkedinIn, FaXTwitter, FaInstagram } from 'react-icons/fa6';
+
+/**
+ * Animated SVG checkmark — draws itself on mount
+ */
+const AnimatedCheckmark = () => (
+  <motion.div
+    initial={{ scale: 0 }}
+    animate={{ scale: 1 }}
+    transition={{ type: 'spring', stiffness: 200, damping: 15, delay: 0.1 }}
+    className="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center mx-auto mb-3"
+  >
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <circle cx="14" cy="14" r="13" stroke="#22c55e" strokeWidth="2" opacity="0.3" />
+      <path
+        d="M8 14.5L12 18.5L20 10.5"
+        stroke="#22c55e"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="draw-check-path"
+      />
+    </svg>
+  </motion.div>
+);
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -87,6 +111,8 @@ const Contact = () => {
     }
   };
 
+  const inputClasses = "w-full px-4 py-3 rounded-xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 input-focus-glow outline-none transition-all text-gray-900 dark:text-white placeholder-transparent";
+
   return (
     <section id="contact" className="py-20 relative overflow-hidden bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       <div
@@ -124,9 +150,13 @@ const Contact = () => {
               
               <div className="space-y-6 mb-10">
                 <motion.div variants={fadeInUp} className="flex items-center gap-5">
-                  <div className="w-14 h-14 rounded-full flex items-center justify-center bg-gradient-to-br transition-transform duration-300 hover:scale-110 hover:-rotate-6 from-blue-500/20 to-cyan-500/20 text-blue-600 dark:text-blue-400 shrink-0">
+                  <motion.div
+                    className="w-14 h-14 rounded-full flex items-center justify-center bg-gradient-to-br from-blue-500/20 to-cyan-500/20 text-blue-600 dark:text-blue-400 shrink-0"
+                    whileHover={{ scale: 1.1, rotate: -6 }}
+                    transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+                  >
                     <FaEnvelope className="text-xl" />
-                  </div>
+                  </motion.div>
                   <div>
                     <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Email</p>
                     <a href={`mailto:${personalInfo.email}`} className="text-lg font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
@@ -136,9 +166,13 @@ const Contact = () => {
                 </motion.div>
                 
                 <motion.div variants={fadeInUp} className="flex items-center gap-5">
-                  <div className="w-14 h-14 rounded-full flex items-center justify-center bg-gradient-to-br transition-transform duration-300 hover:scale-110 hover:-rotate-6 from-purple-500/20 to-pink-500/20 text-purple-600 dark:text-purple-400 shrink-0">
+                  <motion.div
+                    className="w-14 h-14 rounded-full flex items-center justify-center bg-gradient-to-br from-purple-500/20 to-pink-500/20 text-purple-600 dark:text-purple-400 shrink-0"
+                    whileHover={{ scale: 1.1, rotate: -6 }}
+                    transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+                  >
                     <FaPhone className="text-xl" />
-                  </div>
+                  </motion.div>
                   <div>
                     <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Phone</p>
                     <a href={`tel:${personalInfo.phone}`} className="text-lg font-medium text-gray-900 dark:text-white hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
@@ -148,9 +182,13 @@ const Contact = () => {
                 </motion.div>
                 
                 <motion.div variants={fadeInUp} className="flex items-center gap-5">
-                  <div className="w-14 h-14 rounded-full flex items-center justify-center bg-gradient-to-br transition-transform duration-300 hover:scale-110 hover:-rotate-6 from-green-500/20 to-emerald-500/20 text-green-600 dark:text-green-400 shrink-0">
+                  <motion.div
+                    className="w-14 h-14 rounded-full flex items-center justify-center bg-gradient-to-br from-green-500/20 to-emerald-500/20 text-green-600 dark:text-green-400 shrink-0"
+                    whileHover={{ scale: 1.1, rotate: -6 }}
+                    transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+                  >
                     <FaMapMarkerAlt className="text-xl" />
-                  </div>
+                  </motion.div>
                   <div>
                     <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Location</p>
                     <p className="text-lg font-medium text-gray-900 dark:text-white">
@@ -195,13 +233,15 @@ const Contact = () => {
                 <AnimatePresence mode="wait">
                   {status.success && (
                     <motion.div 
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      className="mb-6 p-4 rounded-xl bg-green-50 dark:bg-green-500/10 border border-green-200 dark:border-green-500/20 flex items-center gap-3 text-green-700 dark:text-green-400"
+                      initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                      className="mb-6 p-5 rounded-xl bg-green-50 dark:bg-green-500/10 border border-green-200 dark:border-green-500/20 text-center"
                     >
-                      <FaCheckCircle className="shrink-0" />
-                      <p className="text-sm font-medium">Message sent successfully! I'll get back to you soon.</p>
+                      <AnimatedCheckmark />
+                      <p className="text-sm font-medium text-green-700 dark:text-green-400">
+                        Message sent successfully! I'll get back to you soon.
+                      </p>
                     </motion.div>
                   )}
                   
@@ -219,64 +259,64 @@ const Contact = () => {
                 </AnimatePresence>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <motion.div variants={fadeInUp} className="space-y-2">
-                    <label htmlFor="name" className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                      Your Name
-                    </label>
+                  <motion.div variants={fadeInUp} className="input-float-wrapper">
                     <input
                       type="text"
                       id="name"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="Enter your name"
-                      className="w-full px-4 py-3 rounded-xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-gray-900 dark:text-white placeholder-gray-500"
+                      placeholder="Your Name"
+                      className={inputClasses}
                     />
+                    <label htmlFor="name" className="float-label">
+                      Your Name
+                    </label>
                   </motion.div>
                   
-                  <motion.div variants={fadeInUp} className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                      Your Email
-                    </label>
+                  <motion.div variants={fadeInUp} className="input-float-wrapper">
                     <input
                       type="email"
                       id="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="Enter your email"
-                      className="w-full px-4 py-3 rounded-xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-gray-900 dark:text-white placeholder-gray-500"
+                      placeholder="Your Email"
+                      className={inputClasses}
                     />
+                    <label htmlFor="email" className="float-label">
+                      Your Email
+                    </label>
                   </motion.div>
                   
-                  <motion.div variants={fadeInUp} className="space-y-2">
-                    <label htmlFor="subject" className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                      Subject
-                    </label>
+                  <motion.div variants={fadeInUp} className="input-float-wrapper">
                     <input
                       type="text"
                       id="subject"
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
-                      placeholder="How can I help you?"
-                      className="w-full px-4 py-3 rounded-xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-gray-900 dark:text-white placeholder-gray-500"
+                      placeholder="Subject"
+                      className={inputClasses}
                     />
+                    <label htmlFor="subject" className="float-label">
+                      Subject
+                    </label>
                   </motion.div>
                   
-                  <motion.div variants={fadeInUp} className="space-y-2">
-                    <label htmlFor="message" className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                      Message
-                    </label>
+                  <motion.div variants={fadeInUp} className="input-float-wrapper">
                     <textarea
                       id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
                       rows="5"
-                      placeholder="Your message..."
-                      className="w-full px-4 py-3 rounded-xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-gray-900 dark:text-white placeholder-gray-500 resize-none"
+                      placeholder="Your Message"
+                      className={`${inputClasses} resize-none`}
                     ></textarea>
+                    <label htmlFor="message" className="float-label">
+                      Message
+                    </label>
                   </motion.div>
                   
                   <motion.div variants={fadeInUp}>
@@ -285,7 +325,15 @@ const Contact = () => {
                       disabled={status.loading}
                       className="w-full justify-center py-3.5 mt-2"
                     >
-                      {status.loading ? 'Sending...' : 'Send Message'}
+                      {status.loading ? (
+                        <span className="flex items-center gap-2">
+                          <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24" fill="none">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                          </svg>
+                          Sending...
+                        </span>
+                      ) : 'Send Message'}
                     </Button>
                   </motion.div>
                 </form>

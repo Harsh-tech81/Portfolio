@@ -41,18 +41,28 @@ const Footer = () => {
               {personalInfo.title} based in {personalInfo.location}. Building modern, performant web applications with passion.
             </p>
             <div className="flex space-x-4 pt-2">
-              <a href={personalInfo.socials.github} target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-gray-200 dark:bg-white/10 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                <FaGithub size={20} />
-              </a>
-              <a href={personalInfo.socials.linkedin} target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-gray-200 dark:bg-white/10 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                <FaLinkedinIn size={20} />
-              </a>
-              <a href={personalInfo.socials.twitter} target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-gray-200 dark:bg-white/10 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                <FaXTwitter size={20} />
-              </a>
-              <a href={personalInfo.socials.instagram} target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-gray-200 dark:bg-white/10 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                <FaInstagram size={20} />
-              </a>
+              {[
+                { icon: FaGithub, url: personalInfo.socials.github, label: 'GitHub' },
+                { icon: FaLinkedinIn, url: personalInfo.socials.linkedin, label: 'LinkedIn' },
+                { icon: FaXTwitter, url: personalInfo.socials.twitter, label: 'Twitter' },
+                { icon: FaInstagram, url: personalInfo.socials.instagram, label: 'Instagram' },
+              ].map((social, index) => (
+                <motion.a
+                  key={social.label}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-full bg-gray-200 dark:bg-white/10 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 + index * 0.08, type: 'spring', stiffness: 300, damping: 20 }}
+                  whileHover={{ y: -3, scale: 1.15 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <social.icon size={20} />
+                </motion.a>
+              ))}
             </div>
           </div>
 
@@ -95,7 +105,7 @@ const Footer = () => {
         <div className="pt-8 border-t border-gray-200/50 dark:border-white/5 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 dark:text-gray-400">
           <p>&copy; {currentYear} Harsh. All rights reserved.</p>
           <p className="mt-2 md:mt-0 flex items-center">
-            Made with <span className="inline-block text-red-500 mx-1 hover:scale-150 transition-transform duration-300 cursor-default">❤️</span> by Harsh
+            Made with <span className="heartbeat text-red-500 mx-1 cursor-default">❤️</span> by Harsh
           </p>
         </div>
       </div>

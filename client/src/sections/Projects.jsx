@@ -27,7 +27,7 @@ import {
 } from "react-icons/si";
 import { FaAws, FaCloud } from "react-icons/fa";
 import { FiImage } from "react-icons/fi";
-import { fadeInUp, staggerContainer } from "../utils/animations";
+import { fadeInUp, staggerContainer, staggerContainerFast, blurIn } from "../utils/animations";
 import Tilt from "../components/ui/Tilt";
 
 /**
@@ -125,22 +125,28 @@ const Projects = () => {
                 {/* Image Side — subtle 3D tilt + shine sweep on hover */}
                 <div className="w-full lg:w-1/2">
                   <Tilt maxTilt={5}>
-                    <div className="relative aspect-video rounded-xl overflow-hidden group shadow-2xl shine-sweep">
-                      {project.image ? (
-                        <img
-                          src={project.image}
-                          alt={project.title}
-                          loading="lazy"
-                          className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
-                        />
-                      ) : (
-                        <div className="w-full h-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
-                          <span className="text-2xl font-bold text-gray-300/50">
-                            {project.title}
-                          </span>
-                        </div>
-                      )}
-                      <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300" />
+                    <div className="animated-border">
+                      <div className="relative aspect-video rounded-xl overflow-hidden group shadow-2xl shine-sweep">
+                        {project.image ? (
+                          <motion.img
+                            src={project.image}
+                            alt={project.title}
+                            loading="lazy"
+                            className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                            initial={{ scale: 1.1, opacity: 0 }}
+                            whileInView={{ scale: 1, opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8, ease: 'easeOut' }}
+                          />
+                        ) : (
+                          <div className="w-full h-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
+                            <span className="text-2xl font-bold text-gray-300/50">
+                              {project.title}
+                            </span>
+                          </div>
+                        )}
+                        <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300" />
+                      </div>
                     </div>
                   </Tilt>
                 </div>
@@ -165,17 +171,24 @@ const Projects = () => {
                   </p>
 
                   {project.features && project.features.length > 0 && (
-                    <ul className="space-y-1.5">
+                    <motion.ul
+                      className="space-y-1.5"
+                      variants={staggerContainerFast}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true, margin: '-50px' }}
+                    >
                       {project.features.slice(0, 5).map((feature, i) => (
-                        <li
+                        <motion.li
                           key={i}
+                          variants={blurIn}
                           className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400"
                         >
                           <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-purple-500 shrink-0" />
                           <span>{feature}</span>
-                        </li>
+                        </motion.li>
                       ))}
-                    </ul>
+                    </motion.ul>
                   )}
 
                   {/* Tech Stack Grid with Icons */}

@@ -4,6 +4,7 @@ import { skills } from '../data/skills';
 import SectionHeading from '../components/common/SectionHeading';
 import AnimatedSection from '../components/common/AnimatedSection';
 import Marquee from '../components/ui/Marquee';
+import { blurIn } from '../utils/animations';
 
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState('Programming Languages');
@@ -61,17 +62,20 @@ const Skills = () => {
                 <motion.div
                   key={`${skill.name}-${index}`}
                   layout
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  className="bg-white dark:bg-[#1a1a1a] rounded-xl p-4 border border-gray-200 dark:border-white/10 flex flex-col items-center justify-center gap-3 hover:border-blue-500/50 hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all cursor-pointer group"
+                  initial={{ opacity: 0, scale: 0.8, filter: 'blur(8px)' }}
+                  animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+                  exit={{ opacity: 0, scale: 0.8, filter: 'blur(8px)' }}
+                  transition={{ duration: 0.4, delay: index * 0.04 }}
+                  whileHover={{ scale: 1.08, y: -4 }}
+                  className="bg-white dark:bg-[#1a1a1a] rounded-xl p-4 border border-gray-200 dark:border-white/10 flex flex-col items-center justify-center gap-3 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.25)] hover-pulse-glow transition-all cursor-pointer group"
                 >
-                  <div className="text-gray-600 dark:text-gray-400 group-hover:text-blue-500 transition-all duration-300 group-hover:scale-110 group-hover:-rotate-6 flex items-center justify-center h-12 w-12">
-                    {/* Safely clone the element to pass the size prop if applicable */}
+                  <motion.div
+                    className="text-gray-600 dark:text-gray-400 group-hover:text-blue-500 transition-colors duration-300 flex items-center justify-center h-12 w-12"
+                    whileHover={{ rotate: 360, scale: 1.15 }}
+                    transition={{ duration: 0.6, ease: 'easeInOut' }}
+                  >
                     {React.isValidElement(skill.icon) ? React.cloneElement(skill.icon, { size: 36 }) : skill.icon}
-                  </div>
+                  </motion.div>
                   <span className="text-sm font-medium text-gray-800 dark:text-gray-200 text-center">
                     {skill.name}
                   </span>

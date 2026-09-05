@@ -48,10 +48,17 @@ const About = () => {
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <motion.div variants={fadeInUp}>
-                  <Card className="h-full flex flex-col justify-center items-start gap-3 p-5 bg-white/50 dark:bg-white/5 backdrop-blur-md">
-                    <div className="text-blue-500">
+                  <Card className="h-full flex flex-col justify-center items-start gap-3 p-5 bg-white/50 dark:bg-white/5 backdrop-blur-md hover-pulse-glow">
+                    <motion.div
+                      className="text-blue-500"
+                      initial={{ scale: 0, rotate: -20 }}
+                      whileInView={{ scale: 1, rotate: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ type: 'spring', stiffness: 260, damping: 15, delay: 0.1 }}
+                      whileHover={{ rotate: -10, scale: 1.2 }}
+                    >
                       <FaGraduationCap size={24} />
-                    </div>
+                    </motion.div>
                     <div>
                       <h4 className="font-semibold text-gray-900 dark:text-white text-sm uppercase tracking-wider mb-1">Education</h4>
                       <p className="text-sm font-medium text-gray-800 dark:text-gray-200">
@@ -65,10 +72,17 @@ const About = () => {
                 </motion.div>
 
                 <motion.div variants={fadeInUp}>
-                  <Card className="h-full flex flex-col justify-center items-start gap-3 p-5 bg-white/50 dark:bg-white/5 backdrop-blur-md">
-                    <div className="text-purple-500">
+                  <Card className="h-full flex flex-col justify-center items-start gap-3 p-5 bg-white/50 dark:bg-white/5 backdrop-blur-md hover-pulse-glow">
+                    <motion.div
+                      className="text-purple-500"
+                      initial={{ scale: 0, rotate: -20 }}
+                      whileInView={{ scale: 1, rotate: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ type: 'spring', stiffness: 260, damping: 15, delay: 0.15 }}
+                      whileHover={{ rotate: -10, scale: 1.2 }}
+                    >
                       <FaBullseye size={24} />
-                    </div>
+                    </motion.div>
                     <div>
                       <h4 className="font-semibold text-gray-900 dark:text-white text-sm uppercase tracking-wider mb-1">Career Objective</h4>
                       <p className="text-sm font-medium text-gray-800 dark:text-gray-200 line-clamp-2">
@@ -79,10 +93,17 @@ const About = () => {
                 </motion.div>
 
                 <motion.div variants={fadeInUp}>
-                  <Card className="h-full flex flex-col justify-center items-start gap-3 p-5 bg-white/50 dark:bg-white/5 backdrop-blur-md">
-                    <div className="text-green-500">
+                  <Card className="h-full flex flex-col justify-center items-start gap-3 p-5 bg-white/50 dark:bg-white/5 backdrop-blur-md hover-pulse-glow">
+                    <motion.div
+                      className="text-green-500"
+                      initial={{ scale: 0, rotate: -20 }}
+                      whileInView={{ scale: 1, rotate: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ type: 'spring', stiffness: 260, damping: 15, delay: 0.2 }}
+                      whileHover={{ rotate: -10, scale: 1.2 }}
+                    >
                       <FaCode size={24} />
-                    </div>
+                    </motion.div>
                     <div>
                       <h4 className="font-semibold text-gray-900 dark:text-white text-sm uppercase tracking-wider mb-1">Current Focus</h4>
                       <p className="text-sm font-medium text-gray-800 dark:text-gray-200">
@@ -93,10 +114,17 @@ const About = () => {
                 </motion.div>
 
                 <motion.div variants={fadeInUp}>
-                  <Card className="h-full flex flex-col justify-center items-start gap-3 p-5 bg-white/50 dark:bg-white/5 backdrop-blur-md">
-                    <div className="text-red-500">
+                  <Card className="h-full flex flex-col justify-center items-start gap-3 p-5 bg-white/50 dark:bg-white/5 backdrop-blur-md hover-pulse-glow">
+                    <motion.div
+                      className="text-red-500"
+                      initial={{ scale: 0, rotate: -20 }}
+                      whileInView={{ scale: 1, rotate: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ type: 'spring', stiffness: 260, damping: 15, delay: 0.25 }}
+                      whileHover={{ rotate: -10, scale: 1.2 }}
+                    >
                       <FaMapMarkerAlt size={24} />
-                    </div>
+                    </motion.div>
                     <div>
                       <h4 className="font-semibold text-gray-900 dark:text-white text-sm uppercase tracking-wider mb-1">Location</h4>
                       <p className="text-sm font-medium text-gray-800 dark:text-gray-200">

@@ -43,6 +43,13 @@ const Education = () => {
               className="absolute left-6 -translate-x-[3px] w-[8px] h-[8px] rounded-full bg-purple-400 shadow-[0_0_12px_rgba(168,85,247,0.9)] z-10"
               style={{ top: glowTop }}
             />
+            {/* Pulsing ring around the glow head */}
+            <motion.div
+              className="absolute left-6 -translate-x-[7px] w-[16px] h-[16px] rounded-full border-2 border-purple-400/50 z-10"
+              style={{ top: glowTop }}
+              animate={{ scale: [1, 1.8, 1], opacity: [0.6, 0, 0.6] }}
+              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            />
 
             {/* Education entries */}
             <div className="space-y-10">
@@ -77,7 +84,7 @@ const Education = () => {
                   </motion.div>
 
                   {/* Card */}
-                  <div className="flex-1 bg-gray-100 dark:bg-[#1e1e30]/80 rounded-xl p-6 border border-gray-200 dark:border-purple-500/10 backdrop-blur-sm hover:border-purple-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/5 group">
+                  <div className="flex-1 bg-gray-100 dark:bg-[#1e1e30]/80 rounded-xl p-6 border border-gray-200 dark:border-purple-500/10 backdrop-blur-sm hover:border-purple-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:-translate-y-1 group">
                     {/* Duration badge */}
                     <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white text-sm font-semibold shadow-md shadow-pink-500/20">
                       <FiCalendar className="text-xs" />
