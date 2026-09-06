@@ -2,6 +2,7 @@ export const projects = [
   {
     id: 1,
     title: "AgentFlow-AI",
+    category: "AI Platform",
     duration: "July 2026 - Aug 2026",
     description:
       "A scalable Multi-Agent AI Platform built on a microservices architecture that intelligently routes user requests to specialized AI agents for coding, document generation, image analysis, web search, and conversational AI. It integrates RAG, vector search, and cloud deployment to deliver fast, context-aware responses.",
@@ -39,6 +40,7 @@ export const projects = [
   {
     id: 2,
     title: "Ecommerce Shopping Website",
+    category: "E-Commerce",
     duration: "Dec 2025 - March 2026",
     description:
       "A full-stack MERN e-commerce platform featuring secure authentication, online payments, product management, and a dedicated admin dashboard for managing users, products, and customer orders.",
@@ -69,6 +71,7 @@ export const projects = [
   {
     id: 3,
     title: "NovaChat - AI Chatbot & Image Generator",
+    category: "AI Chatbot",
     duration: "June 2026",
     description:
       "A full-stack AI-powered chatbot and image generation platform inspired by ChatGPT, featuring conversational AI, AI image generation, secure authentication, subscription-based credits, and persistent chat history.",
@@ -101,6 +104,7 @@ export const projects = [
   {
     id: 4,
     title: "Get Me A Chai",
+    category: "Crowdfunding",
     duration: "May 2026",
     description:
       "A premium crowdfunding platform that enables developers, designers, and content creators to receive direct support from their audience through secure online payments. The platform provides personalized creator pages, OAuth authentication, Razorpay integration, and a real-time supporter leaderboard.",
@@ -131,6 +135,7 @@ export const projects = [
   {
     id: 5,
     title: "Personal Portfolio Website",
+    category: "Portfolio",
     duration: "Oct 2026",
     description:
       "A modern, highly interactive personal portfolio website showcasing my skills, experience, and projects. Built with cutting-edge web technologies and a focus on sleek animations, full responsiveness, and seamless user experience.",

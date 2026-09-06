@@ -133,3 +133,35 @@ export const countUp = (end, duration = 1500, onUpdate) => {
   rafId = requestAnimationFrame(step);
   return () => cancelAnimationFrame(rafId);
 };
+
+// --- Timeline station animation variants ---
+
+export const slideInFromLeft = {
+  hidden: { opacity: 0, x: -80, filter: "blur(6px)" },
+  visible: {
+    opacity: 1,
+    x: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
+  },
+};
+
+export const slideInFromRight = {
+  hidden: { opacity: 0, x: 80, filter: "blur(6px)" },
+  visible: {
+    opacity: 1,
+    x: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
+  },
+};
+
+export const scaleInStation = {
+  hidden: { opacity: 0, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { type: "spring", stiffness: 260, damping: 20, delay: 0.15 },
+  },
+};
+

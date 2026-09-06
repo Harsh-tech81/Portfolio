@@ -554,4 +554,387 @@
   .border-flash-enter {
     animation: borderFlash 0.8s ease-out forwards;
   }
+
+  /* ===== Railway Timeline Styles ===== */
+
+  /* Main timeline container */
+  .railway-timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Central vertical track */
+  .railway-track {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    transform: translateX(-50%);
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgba(59, 130, 246, 0.15) 5%,
+      rgba(59, 130, 246, 0.15) 95%,
+      transparent
+    );
+    border-radius: 2px;
+  }
+
+  .dark .railway-track {
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgba(59, 130, 246, 0.1) 5%,
+      rgba(59, 130, 246, 0.1) 95%,
+      transparent
+    );
+  }
+
+  /* Animated glow line overlay on the track */
+  .railway-glow-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    transform: translateX(-50%);
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      var(--color-primary) 10%,
+      var(--color-secondary) 50%,
+      var(--color-primary) 90%,
+      transparent
+    );
+    opacity: 0.6;
+    border-radius: 1px;
+    filter: blur(0.5px);
+  }
+
+  /* Ladder rungs along the track */
+  .railway-rungs {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 28px;
+    transform: translateX(-50%);
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 18px,
+      rgba(59, 130, 246, 0.08) 18px,
+      rgba(59, 130, 246, 0.08) 20px
+    );
+    pointer-events: none;
+  }
+
+  .dark .railway-rungs {
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 18px,
+      rgba(59, 130, 246, 0.06) 18px,
+      rgba(59, 130, 246, 0.06) 20px
+    );
+  }
+
+  /* Station row — the horizontal row for each project */
+  .station-row {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    padding: 2rem 0;
+  }
+
+  .station-row.left-card {
+    flex-direction: row;
+  }
+
+  .station-row.right-card {
+    flex-direction: row-reverse;
+  }
+
+  /* Station node — the concentric circle dots on the timeline */
+  .station-node {
+    position: absolute;
+    left: 50%;
+    top: 3rem;
+    transform: translateX(-50%);
+    z-index: 10;
+  }
+
+  .station-node-outer {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(59, 130, 246, 0.08);
+    box-shadow: 0 0 16px rgba(59, 130, 246, 0.3), 0 0 32px rgba(59, 130, 246, 0.1);
+    transition: all 0.4s ease;
+  }
+
+  .dark .station-node-outer {
+    background: rgba(59, 130, 246, 0.06);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4), 0 0 40px rgba(59, 130, 246, 0.15);
+  }
+
+  .station-node-inner {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    box-shadow: 0 0 8px var(--color-primary);
+  }
+
+  .station-row:hover .station-node-outer {
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 24px rgba(139, 92, 246, 0.5), 0 0 48px rgba(139, 92, 246, 0.2);
+  }
+
+  .station-row:hover .station-node-inner {
+    background: var(--color-secondary);
+    box-shadow: 0 0 12px var(--color-secondary);
+  }
+
+
+  /* Station card — glassmorphic project card */
+  .station-card {
+    width: 46%;
+    position: relative;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    padding: 1.75rem;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  }
+
+  .dark .station-card {
+    background: rgba(20, 20, 20, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  }
+
+  .station-card:hover {
+    border-color: rgba(59, 130, 246, 0.3);
+    box-shadow: 0 8px 40px rgba(59, 130, 246, 0.08), 0 0 0 1px rgba(59, 130, 246, 0.1);
+    transform: translateY(-4px);
+  }
+
+  .dark .station-card:hover {
+    border-color: rgba(59, 130, 246, 0.4);
+    box-shadow: 0 8px 40px rgba(59, 130, 246, 0.12), 0 0 0 1px rgba(59, 130, 246, 0.2);
+  }
+
+  /* Station card side positioning */
+  .station-row.left-card .station-card {
+    margin-right: auto;
+  }
+
+  .station-row.right-card .station-card {
+    margin-left: auto;
+  }
+
+  /* Station number pill */
+  .station-number {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+    color: var(--color-primary);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+  }
+
+  .dark .station-number {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.15));
+    border: 1px solid rgba(59, 130, 246, 0.25);
+  }
+
+  /* Category icon badge */
+  .station-icon-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 0.75rem;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.15));
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    color: var(--color-primary);
+    font-size: 1.125rem;
+    transition: all 0.3s ease;
+  }
+
+  .dark .station-icon-badge {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(139, 92, 246, 0.12));
+    border: 1px solid rgba(59, 130, 246, 0.2);
+  }
+
+  .station-card:hover .station-icon-badge {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.25));
+    border-color: rgba(59, 130, 246, 0.4);
+    transform: scale(1.05);
+  }
+
+  /* Tech tag pill in timeline cards */
+  .tech-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0.25rem 0.625rem;
+    border-radius: 0.375rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    background: rgba(59, 130, 246, 0.06);
+    color: var(--color-primary);
+    border: 1px solid rgba(59, 130, 246, 0.12);
+    transition: all 0.25s ease;
+  }
+
+  .dark .tech-pill {
+    background: rgba(59, 130, 246, 0.08);
+    border-color: rgba(59, 130, 246, 0.15);
+  }
+
+  .tech-pill:hover {
+    background: rgba(59, 130, 246, 0.12);
+    border-color: rgba(59, 130, 246, 0.3);
+    transform: translateY(-1px);
+  }
+
+  /* Explore project link */
+  .explore-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .explore-link:hover {
+    color: var(--color-secondary);
+    gap: 0.75rem;
+  }
+
+  .explore-link .arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .explore-link:hover .arrow {
+    transform: translateX(4px);
+  }
+
+  /* Scroll-tracking glow dot */
+  .train-indicator {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-secondary-light);
+    box-shadow: 0 0 12px rgba(168, 85, 247, 0.9);
+    z-index: 15;
+  }
+
+  /* End-of-line marker */
+  .end-of-line {
+    text-align: center;
+    padding: 2rem 0 0;
+    position: relative;
+  }
+
+  .end-of-line::before {
+    content: "";
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--color-primary);
+    background: var(--bg-color);
+    margin: 0 auto 1rem;
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.3);
+  }
+
+  .end-of-line-text {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    opacity: 0.5;
+  }
+
+  /* ===== Railway Timeline — Mobile Responsive ===== */
+
+  @media (max-width: 1024px) {
+    .railway-track,
+    .railway-glow-line {
+      left: 20px;
+    }
+
+    .railway-rungs {
+      left: 20px;
+    }
+
+    .station-row,
+    .station-row.left-card,
+    .station-row.right-card {
+      flex-direction: column;
+      padding-left: 52px;
+    }
+
+    .station-node {
+      left: 20px;
+      top: 2rem;
+    }
+
+    .station-connector {
+      display: none;
+    }
+
+    .station-card,
+    .station-row.left-card .station-card,
+    .station-row.right-card .station-card {
+      width: 100%;
+      margin: 0;
+    }
+
+    .train-indicator {
+      left: 20px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .station-card {
+      padding: 1.25rem;
+    }
+
+    .station-icon-badge {
+      width: 36px;
+      height: 36px;
+      font-size: 0.9rem;
+    }
+  }
 }
