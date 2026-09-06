@@ -1,5 +1,3 @@
-
-
 # 🚀 Harsh Kumar — Full Stack Developer Portfolio
 
 A premium, modern, and highly interactive personal portfolio website built with the **MERN stack**.  
@@ -17,23 +15,22 @@ Designed to showcase projects, skills, education, coding profiles, certification
 
 > **🔗 [https://portfolio-client-swart-phi.vercel.app](https://portfolio-client-swart-phi.vercel.app)**
 
-
 ## ✨ Features
 
-| Category | Details |
-|---|---|
-| 🎨 **Modern UI/UX** | Glassmorphism, animated gradients, floating elements, and a premium loading screen |
-| 🌓 **Dynamic Theming** | Flawless Light & Dark mode support built for Tailwind CSS v4 |
-| 🌌 **3D & Interactive** | Three.js particles + Spline 3D robot in Hero, custom cursor with spring physics |
-| 🎞️ **60+ Animations** | Blur-in reveals, clip-path wipes, rotating gradient borders, spring physics, staggered entrances, animated counters, floating labels, SVG draw animations, and more |
-| 🧲 **Micro-Interactions** | Magnetic buttons, 3D tilt cards, icon rotation on hover, pulse glow effects, heartbeat animations |
-| 📬 **Contact Form** | Floating label inputs, glowing focus states, animated SVG checkmark on success, SMTP backend |
-| ⚡ **Performance** | Lazy loading via React `Suspense`, viewport-gated Spline, CSS `will-change`, GPU-friendly transforms |
-| 📱 **Responsive Design** | Pixel-perfect layouts across desktop, tablet, and mobile with mobile-specific fallbacks |
-| 🔍 **Scroll Spy Navigation** | Active section highlighting in the navbar as the user scrolls |
-| 🔝 **Scroll to Top** | Floating button with gradient glow for seamless navigation |
-| 📊 **Scroll Progress Bar** | Spring-physics progress indicator at the top of the page |
-| ♿ **Accessibility** | Full `prefers-reduced-motion` support — all animations gracefully disabled |
+| Category                     | Details                                                                                                                                                             |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 🎨 **Modern UI/UX**          | Glassmorphism, animated gradients, floating elements, and a premium loading screen                                                                                  |
+| 🌓 **Dynamic Theming**       | Flawless Light & Dark mode support built for Tailwind CSS v4                                                                                                        |
+| 🌌 **3D & Interactive**      | Three.js particles + Spline 3D robot in Hero, custom cursor with spring physics                                                                                     |
+| 🎞️ **60+ Animations**        | Blur-in reveals, clip-path wipes, rotating gradient borders, spring physics, staggered entrances, animated counters, floating labels, SVG draw animations, and more |
+| 🧲 **Micro-Interactions**    | Magnetic buttons, 3D tilt cards, icon rotation on hover, pulse glow effects, heartbeat animations                                                                   |
+| 📬 **Contact Form**          | Floating label inputs, glowing focus states, animated SVG checkmark on success, SMTP backend                                                                        |
+| ⚡ **Performance**           | Lazy loading via React `Suspense`, viewport-gated Spline, CSS `will-change`, GPU-friendly transforms                                                                |
+| 📱 **Responsive Design**     | Pixel-perfect layouts across desktop, tablet, and mobile with mobile-specific fallbacks                                                                             |
+| 🔍 **Scroll Spy Navigation** | Active section highlighting in the navbar as the user scrolls                                                                                                       |
+| 🔝 **Scroll to Top**         | Floating button with gradient glow for seamless navigation                                                                                                          |
+| 📊 **Scroll Progress Bar**   | Spring-physics progress indicator at the top of the page                                                                                                            |
+| ♿ **Accessibility**         | Full `prefers-reduced-motion` support — all animations gracefully disabled                                                                                          |
 
 ---
 
@@ -56,28 +53,28 @@ The portfolio is divided into the following interactive sections:
 
 ### Frontend
 
-| Technology | Purpose |
-|---|---|
-| [React 19](https://react.dev/) + [Vite 8](https://vitejs.dev/) | Fast, modern UI framework with optimized builds |
-| [Tailwind CSS v4](https://tailwindcss.com/) | Utility-first styling with custom dark mode variants |
-| [Framer Motion / Motion](https://motion.dev/) | 60+ animations — scroll-triggered reveals, spring physics, staggered entrances, layout animations |
-| [React Three Fiber](https://docs.pmnd.rs/react-three-fiber) + [Drei](https://github.com/pmndrs/drei) | 3D instanced particles with mouse parallax in Hero |
-| [Spline](https://spline.design/) | Interactive 3D robot model in Hero (lazy-loaded, viewport-gated) |
-| [React Router v7](https://reactrouter.com/) | Client-side routing and navigation |
-| [React Icons](https://react-icons.github.io/react-icons/) | Extensive icon library for UI elements |
-| [React Type Animation](https://www.npmjs.com/package/react-type-animation) | Typing effect in the Hero section |
-| [GSAP](https://gsap.com/) | Additional animation capabilities |
-| [clsx](https://www.npmjs.com/package/clsx) + [tailwind-merge](https://www.npmjs.com/package/tailwind-merge) | Conditional class name utilities |
+| Technology                                                                                                  | Purpose                                                                                           |
+| ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| [React 19](https://react.dev/) + [Vite 8](https://vitejs.dev/)                                              | Fast, modern UI framework with optimized builds                                                   |
+| [Tailwind CSS v4](https://tailwindcss.com/)                                                                 | Utility-first styling with custom dark mode variants                                              |
+| [Framer Motion / Motion](https://motion.dev/)                                                               | 60+ animations — scroll-triggered reveals, spring physics, staggered entrances, layout animations |
+| [React Three Fiber](https://docs.pmnd.rs/react-three-fiber) + [Drei](https://github.com/pmndrs/drei)        | 3D instanced particles with mouse parallax in Hero                                                |
+| [Spline](https://spline.design/)                                                                            | Interactive 3D robot model in Hero (lazy-loaded, viewport-gated)                                  |
+| [React Router v7](https://reactrouter.com/)                                                                 | Client-side routing and navigation                                                                |
+| [React Icons](https://react-icons.github.io/react-icons/)                                                   | Extensive icon library for UI elements                                                            |
+| [React Type Animation](https://www.npmjs.com/package/react-type-animation)                                  | Typing effect in the Hero section                                                                 |
+| [GSAP](https://gsap.com/)                                                                                   | Additional animation capabilities                                                                 |
+| [clsx](https://www.npmjs.com/package/clsx) + [tailwind-merge](https://www.npmjs.com/package/tailwind-merge) | Conditional class name utilities                                                                  |
 
 ### Backend
 
-| Technology | Purpose |
-|---|---|
-| [Node.js](https://nodejs.org/) + [Express.js](https://expressjs.com/) | Server logic and API endpoints |
-| [Nodemailer](https://nodemailer.com/) | Handling contact form emails via SMTP |
-| [Express Rate Limit](https://www.npmjs.com/package/express-rate-limit) | Protecting the API from spam |
-| [CORS](https://www.npmjs.com/package/cors) + [dotenv](https://www.npmjs.com/package/dotenv) | Security and environment variables |
-| [Nodemon](https://www.npmjs.com/package/nodemon) | Development hot-reload |
+| Technology                                                                                  | Purpose                               |
+| ------------------------------------------------------------------------------------------- | ------------------------------------- |
+| [Node.js](https://nodejs.org/) + [Express.js](https://expressjs.com/)                       | Server logic and API endpoints        |
+| [Nodemailer](https://nodemailer.com/)                                                       | Handling contact form emails via SMTP |
+| [Express Rate Limit](https://www.npmjs.com/package/express-rate-limit)                      | Protecting the API from spam          |
+| [CORS](https://www.npmjs.com/package/cors) + [dotenv](https://www.npmjs.com/package/dotenv) | Security and environment variables    |
+| [Nodemon](https://www.npmjs.com/package/nodemon)                                            | Development hot-reload                |
 
 ---
 
@@ -85,42 +82,42 @@ The portfolio is divided into the following interactive sections:
 
 The portfolio uses a layered animation architecture for maximum visual impact while maintaining 60fps performance:
 
-| Layer | Technology | Examples |
-|---|---|---|
-| **CSS Keyframes** | Vanilla CSS | Shimmer text, floating elements, heartbeat, gradient rotation, mouse scroll indicator, marquee |
-| **Motion Variants** | Framer Motion | `fadeInUp`, `blurIn`, `rotateIn`, `clipRevealLeft`, `slideInWithBounce`, `scaleIn` |
-| **Scroll-Linked** | `useScroll` + `useTransform` | Hero parallax, education timeline progress, scroll progress bar |
-| **Spring Physics** | `useSpring` + `useMotionValue` | Custom cursor, magnetic buttons, 3D tilt cards, scroll-to-top |
-| **Interactive** | `whileHover` / `whileTap` | Icon 360° rotation, card lift, button scale, social link bounce |
-| **Viewport-Gated** | `whileInView` + `IntersectionObserver` | Section reveals, animated counters, gradient underlines, clip-path wipes |
-| **Layout Animations** | `layoutId` + `AnimatePresence` | Skill tab slider, form status messages |
-| **3D / WebGL** | Three.js + Spline | Particle system with mouse tracking, interactive 3D robot model |
+| Layer                 | Technology                             | Examples                                                                                       |
+| --------------------- | -------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| **CSS Keyframes**     | Vanilla CSS                            | Shimmer text, floating elements, heartbeat, gradient rotation, mouse scroll indicator, marquee |
+| **Motion Variants**   | Framer Motion                          | `fadeInUp`, `blurIn`, `rotateIn`, `clipRevealLeft`, `slideInWithBounce`, `scaleIn`             |
+| **Scroll-Linked**     | `useScroll` + `useTransform`           | Hero parallax, education timeline progress, scroll progress bar                                |
+| **Spring Physics**    | `useSpring` + `useMotionValue`         | Custom cursor, magnetic buttons, 3D tilt cards, scroll-to-top                                  |
+| **Interactive**       | `whileHover` / `whileTap`              | Icon 360° rotation, card lift, button scale, social link bounce                                |
+| **Viewport-Gated**    | `whileInView` + `IntersectionObserver` | Section reveals, animated counters, gradient underlines, clip-path wipes                       |
+| **Layout Animations** | `layoutId` + `AnimatePresence`         | Skill tab slider, form status messages                                                         |
+| **3D / WebGL**        | Three.js + Spline                      | Particle system with mouse tracking, interactive 3D robot model                                |
 
 ### Custom Animation Utilities (`utils/animations.js`)
 
-| Variant | Effect |
-|---|---|
-| `fadeInUp` / `fadeInDown` | Vertical slide + fade |
-| `blurIn` | Blur-to-clear with vertical slide |
-| `rotateIn` | Rotation + scale spring entry |
-| `clipRevealLeft` | Left-to-right clip-path wipe |
-| `slideInWithBounce` | Horizontal slide with spring overshoot |
-| `staggerContainer` / `staggerContainerFast` | Parent container for staggered children |
-| `countUp()` | Animated number counter with ease-out cubic |
+| Variant                                     | Effect                                      |
+| ------------------------------------------- | ------------------------------------------- |
+| `fadeInUp` / `fadeInDown`                   | Vertical slide + fade                       |
+| `blurIn`                                    | Blur-to-clear with vertical slide           |
+| `rotateIn`                                  | Rotation + scale spring entry               |
+| `clipRevealLeft`                            | Left-to-right clip-path wipe                |
+| `slideInWithBounce`                         | Horizontal slide with spring overshoot      |
+| `staggerContainer` / `staggerContainerFast` | Parent container for staggered children     |
+| `countUp()`                                 | Animated number counter with ease-out cubic |
 
 ### Custom CSS Animations (`styles/index.css`)
 
-| Class | Effect |
-|---|---|
-| `.text-shimmer` | Animated gradient text |
-| `.shine-sweep` | Diagonal light sweep on hover |
-| `.animated-border` | Rotating conic-gradient border |
+| Class                | Effect                                  |
+| -------------------- | --------------------------------------- |
+| `.text-shimmer`      | Animated gradient text                  |
+| `.shine-sweep`       | Diagonal light sweep on hover           |
+| `.animated-border`   | Rotating conic-gradient border          |
 | `.section-underline` | Gradient underline that draws on scroll |
-| `.hover-pulse-glow` | Soft pulsing indigo glow on hover |
-| `.heartbeat` | Continuous heartbeat animation |
-| `.input-focus-glow` | Glowing blue ring on form focus |
-| `.float-label` | CSS-only floating label system |
-| `.draw-check-path` | SVG checkmark stroke animation |
+| `.hover-pulse-glow`  | Soft pulsing indigo glow on hover       |
+| `.heartbeat`         | Continuous heartbeat animation          |
+| `.input-focus-glow`  | Glowing blue ring on form focus         |
+| `.float-label`       | CSS-only floating label system          |
+| `.draw-check-path`   | SVG checkmark stroke animation          |
 
 > All animations respect `prefers-reduced-motion` and are disabled for users who prefer reduced motion.
 
@@ -168,16 +165,16 @@ Portfolio/
 
 All portfolio content is modular and isolated in `client/src/data/`, making it easy to update the website without touching any UI code:
 
-| File | Content |
-|---|---|
-| `personalInfo.js` | Name, bio, titles, social links, contact info, resume URL |
-| `skills.jsx` | Skills grouped by category (Frontend, Backend, AI/ML, Architecture, etc.) with custom icons |
-| `projects.js` | Project showcase — tech stacks, descriptions, features, and GitHub/Live links |
-| `certifications.js` | Hackathon achievements, certifications, and badges |
-| `codingProfiles.jsx` | Competitive programming stats (LeetCode, CodeChef, Codeforces, GFG) with ratings |
-| `education.js` | Academic history with grades and duration |
-| `experience.js` | Work experience (currently a placeholder for future entries) |
-| `navLinks.js` | Navigation menu items and section anchors |
+| File                 | Content                                                                                     |
+| -------------------- | ------------------------------------------------------------------------------------------- |
+| `personalInfo.js`    | Name, bio, titles, social links, contact info, resume URL                                   |
+| `skills.jsx`         | Skills grouped by category (Frontend, Backend, AI/ML, Architecture, etc.) with custom icons |
+| `projects.js`        | Project showcase — tech stacks, descriptions, features, and GitHub/Live links               |
+| `certifications.js`  | Hackathon achievements, certifications, and badges                                          |
+| `codingProfiles.jsx` | Competitive programming stats (LeetCode, CodeChef, Codeforces, GFG) with ratings            |
+| `education.js`       | Academic history with grades and duration                                                   |
+| `experience.js`      | Work experience (currently a placeholder for future entries)                                |
+| `navLinks.js`        | Navigation menu items and section anchors                                                   |
 
 ---
 
@@ -191,12 +188,14 @@ All portfolio content is modular and isolated in `client/src/data/`, making it e
 ### Installation
 
 1. **Clone the repository:**
+
    ```bash
    git clone https://github.com/Harsh-tech81/Portfolio.git
    cd Portfolio
    ```
 
 2. **Install Frontend Dependencies:**
+
    ```bash
    cd client
    npm install
@@ -244,20 +243,22 @@ EMAIL_TO=your_email@gmail.com
 You need to run both the frontend and backend servers concurrently.
 
 **Terminal 1 — Frontend:**
+
 ```bash
 cd client
 npm run dev
 ```
 
 **Terminal 2 — Backend:**
+
 ```bash
 cd server
 npm run dev
 ```
 
-| Service | URL |
-|---|---|
-| Frontend | `http://localhost:5173` |
+| Service     | URL                     |
+| ----------- | ----------------------- |
+| Frontend    | `http://localhost:5173` |
 | Backend API | `http://localhost:5000` |
 
 > API requests from the client are automatically proxied to the backend via Vite configuration.
@@ -279,13 +280,13 @@ The output will be generated in the `dist/` directory, ready to be deployed to p
 
 ## 🗂️ Featured Projects
 
-| # | Project | Tech Stack | Links |
-|---|---|---|---|
-| 1 | **AgentFlow-AI** — Multi-Agent AI Platform with RAG, vector search, and microservices | React, Redux, Node.js, Express, MongoDB, LangChain, LangGraph, Redis, Qdrant, Docker, AWS | [GitHub](https://github.com/Harsh-tech81/Multi-Agent-AI-Platform) |
-| 2 | **Ecommerce Shopping Website** — Full-stack e-commerce with Razorpay payments and admin dashboard | React, Node.js, Express, MongoDB, Razorpay, Cloudinary | [GitHub](https://github.com/Harsh-tech81/Ecommerce-Shopping-Website) · [Live (Client)](https://splendorous-marzipan-2ace59.netlify.app) · [Live (Admin)](https://bejewelled-sunshine-44d5ba.netlify.app) |
-| 3 | **NovaChat** — AI Chatbot & Image Generator with Stripe subscriptions | React, Node.js, Express, MongoDB, Gemini API, Stripe, ImageKit | [GitHub](https://github.com/Harsh-tech81/NovaChat) · [Live](https://nova-chat-rouge.vercel.app) |
-| 4 | **Get Me A Chai** — Crowdfunding platform with OAuth and Razorpay donations | Next.js, React, Tailwind CSS, MongoDB, NextAuth.js, Razorpay | [GitHub](https://github.com/Harsh-tech81/Get-Me-A-Chai) |
-| 5 | **Personal Portfolio** — This website! | React, Tailwind CSS, Framer Motion, Three.js, Node.js, Express | [GitHub](https://github.com/Harsh-tech81/Portfolio) |
+| #   | Project                                                                                           | Tech Stack                                                                                | Links                                                                                                                                                                                                    |
+| --- | ------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | **AgentFlow-AI** — Multi-Agent AI Platform with RAG, vector search, and microservices             | React, Redux, Node.js, Express, MongoDB, LangChain, LangGraph, Redis, Qdrant, Docker, AWS | [GitHub](https://github.com/Harsh-tech81/Multi-Agent-AI-Platform)                                                                                                                                        |
+| 2   | **Ecommerce Shopping Website** — Full-stack e-commerce with Razorpay payments and admin dashboard | React, Node.js, Express, MongoDB, Razorpay, Cloudinary                                    | [GitHub](https://github.com/Harsh-tech81/Ecommerce-Shopping-Website) · [Live (Client)](https://splendorous-marzipan-2ace59.netlify.app) · [Live (Admin)](https://bejewelled-sunshine-44d5ba.netlify.app) |
+| 3   | **NovaChat** — AI Chatbot & Image Generator with Stripe subscriptions                             | React, Node.js, Express, MongoDB, Gemini API, Stripe, ImageKit                            | [GitHub](https://github.com/Harsh-tech81/NovaChat) · [Live](https://nova-chat-rouge.vercel.app)                                                                                                          |
+| 4   | **Get Me A Chai** — Crowdfunding platform with OAuth and Razorpay donations                       | Next.js, React, Tailwind CSS, MongoDB, NextAuth.js, Razorpay                              | [GitHub](https://github.com/Harsh-tech81/Get-Me-A-Chai)                                                                                                                                                  |
+| 5   | **Personal Portfolio** — This website!                                                            | React, Tailwind CSS, Framer Motion, Three.js, Node.js, Express                            | [GitHub](https://github.com/Harsh-tech81/Portfolio)                                                                                                                                                      |
 
 ---
 
@@ -302,12 +303,12 @@ The output will be generated in the `dist/` directory, ready to be deployed to p
 
 ## 💻 Coding Profiles
 
-| Platform | Username | Max Rating |
-|---|---|---|
-| [LeetCode](https://leetcode.com/u/Harsh_kr-123) | Harsh_kr-123 | 1656 |
-| [CodeChef](https://www.codechef.com/users/harshkumar12) | harshkumar12 | 1416 |
-| [Codeforces](https://codeforces.com/profile/harshkr.221104) | harshkr.221104 | 1010 |
-| [GeeksforGeeks](https://www.geeksforgeeks.org/profile/harshkrrrpu) | harshkrrrpu | — |
+| Platform                                                           | Username       | Max Rating |
+| ------------------------------------------------------------------ | -------------- | ---------- |
+| [LeetCode](https://leetcode.com/u/Harsh_kr-123)                    | Harsh_kr-123   | 1656       |
+| [CodeChef](https://www.codechef.com/users/harshkumar12)            | harshkumar12   | 1416       |
+| [Codeforces](https://codeforces.com/profile/harshkr.221104)        | harshkr.221104 | 1015       |
+| [GeeksforGeeks](https://www.geeksforgeeks.org/profile/harshkrrrpu) | harshkrrrpu    | —          |
 
 ---
 
@@ -331,18 +332,18 @@ This project is open-source and available under the [MIT License](LICENSE).
 
 ## 📬 Contact
 
-| Channel | Link |
-|---|---|
-| 📧 Email | [harshkr.221104@gmail.com](mailto:harshkr.221104@gmail.com) |
+| Channel     | Link                                                             |
+| ----------- | ---------------------------------------------------------------- |
+| 📧 Email    | [harshkr.221104@gmail.com](mailto:harshkr.221104@gmail.com)      |
 | 💼 LinkedIn | [Harsh Kumar](https://www.linkedin.com/in/harsh-kumar-1ba21731a) |
-| 🐙 GitHub | [Harsh-tech81](https://github.com/Harsh-tech81) |
-| 🐦 Twitter | [HarshKumar55518](https://x.com/HarshKumar55518) |
+| 🐙 GitHub   | [Harsh-tech81](https://github.com/Harsh-tech81)                  |
+| 🐦 Twitter  | [HarshKumar55518](https://x.com/HarshKumar55518)                 |
 
 ---
 
 <div align="center">
 
-*Made with ❤️ by [Harsh Kumar](https://github.com/Harsh-tech81)*
+_Made with ❤️ by [Harsh Kumar](https://github.com/Harsh-tech81)_
 
 ⭐ **Star this repo if you found it useful!** ⭐
 

@@ -22,7 +22,7 @@ export const codingProfiles = [
     color: "#1F8ACB",
     bgColor: "rgba(31,138,203,0.1)",
     icon: SiCodeforces,
-    maxRating: "1010",
+    maxRating: "1015",
   },
   {
     platform: "CodeChef",
