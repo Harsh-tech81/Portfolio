@@ -30,7 +30,7 @@ const AnimatedCounter = ({ value, color }) => {
 /**
  * Animated badge component with shimmer, glow pulse and entrance animation.
  */
-const AnimatedBadge = ({ badge, badgeIcon, badgeColor, badgeBg }) => {
+const AnimatedBadge = ({ badge, badgeIcon, badgeImage, badgeColor, badgeBg }) => {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.5, y: 10 }}
@@ -77,19 +77,34 @@ const AnimatedBadge = ({ badge, badgeIcon, badgeColor, badgeBg }) => {
           }}
         />
 
-        {/* Badge icon with bounce */}
-        <motion.span
-          className="text-sm xl:text-base"
-          animate={{ rotate: [0, -10, 10, -5, 0] }}
-          transition={{
-            duration: 1.5,
-            repeat: Infinity,
-            repeatDelay: 4,
-            ease: 'easeInOut',
-          }}
-        >
-          {badgeIcon}
-        </motion.span>
+        {/* Badge icon — image or emoji (only if provided) */}
+        {badgeImage ? (
+          <motion.img
+            src={badgeImage}
+            alt={badge}
+            className="w-4 h-4 xl:w-5 xl:h-5 object-contain relative z-10"
+            animate={{ rotate: [0, -8, 8, -4, 0] }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              repeatDelay: 4,
+              ease: 'easeInOut',
+            }}
+          />
+        ) : badgeIcon ? (
+          <motion.span
+            className="text-sm xl:text-base"
+            animate={{ rotate: [0, -10, 10, -5, 0] }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              repeatDelay: 4,
+              ease: 'easeInOut',
+            }}
+          >
+            {badgeIcon}
+          </motion.span>
+        ) : null}
 
         <span className="relative z-10">{badge}</span>
       </div>
@@ -159,18 +174,13 @@ const CodingProfiles = () => {
                         <p className="text-xs xl:text-sm font-medium text-gray-700 dark:text-gray-300 bg-white/50 dark:bg-black/20 px-2.5 py-1 rounded-full border border-gray-200 dark:border-gray-700/50 whitespace-nowrap flex items-center gap-1.5">
                           Max Rating: <AnimatedCounter value={profile.maxRating} color={profile.color} />
                           {profile.badge && (
-                            <span className="inline-flex items-center ml-0.5">
-                              <span
-                                className="inline-block w-1 h-1 rounded-full mx-1 opacity-40"
-                                style={{ backgroundColor: profile.color }}
-                              />
-                              <AnimatedBadge
-                                badge={profile.badge}
-                                badgeIcon={profile.badgeIcon}
-                                badgeColor={profile.badgeColor}
-                                badgeBg={profile.badgeBg}
-                              />
-                            </span>
+                            <AnimatedBadge
+                              badge={profile.badge}
+                              badgeIcon={profile.badgeIcon}
+                              badgeImage={profile.badgeImage}
+                              badgeColor={profile.badgeColor}
+                              badgeBg={profile.badgeBg}
+                            />
                           )}
                         </p>
                       </div>
