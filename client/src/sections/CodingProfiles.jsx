@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { motion, useInView } from 'motion/react';
+import { motion, useInView, AnimatePresence } from 'motion/react';
 import { codingProfiles } from '../data/codingProfiles';
 import SectionHeading from '../components/common/SectionHeading';
 import AnimatedSection from '../components/common/AnimatedSection';
@@ -21,9 +21,79 @@ const AnimatedCounter = ({ value, color }) => {
   }, [isInView, value]);
 
   return (
-    <span ref={ref} style={{ color }}>
+    <span ref={ref} style={{ color, fontWeight: 700 }}>
       {display}
     </span>
+  );
+};
+
+/**
+ * Animated badge component with shimmer, glow pulse and entrance animation.
+ */
+const AnimatedBadge = ({ badge, badgeIcon, badgeColor, badgeBg }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.5, y: 10 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      transition={{ type: 'spring', stiffness: 300, damping: 20, delay: 0.8 }}
+      className="relative inline-flex items-center gap-1.5"
+    >
+      {/* Pulsing glow behind the badge */}
+      <motion.div
+        className="absolute inset-0 rounded-full blur-md pointer-events-none"
+        style={{ backgroundColor: badgeColor }}
+        animate={{
+          opacity: [0.15, 0.35, 0.15],
+          scale: [1, 1.15, 1],
+        }}
+        transition={{
+          duration: 2.5,
+          repeat: Infinity,
+          ease: 'easeInOut',
+        }}
+      />
+
+      {/* Badge pill */}
+      <div
+        className="relative overflow-hidden flex items-center gap-1.5 px-3 py-1 rounded-full text-xs xl:text-sm font-bold border"
+        style={{
+          backgroundColor: badgeBg,
+          borderColor: `${badgeColor}40`,
+          color: badgeColor,
+        }}
+      >
+        {/* Shimmer sweep overlay */}
+        <motion.div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: `linear-gradient(105deg, transparent 40%, ${badgeColor}20 45%, ${badgeColor}35 50%, ${badgeColor}20 55%, transparent 60%)`,
+          }}
+          animate={{ x: ['-100%', '200%'] }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            repeatDelay: 2,
+            ease: 'easeInOut',
+          }}
+        />
+
+        {/* Badge icon with bounce */}
+        <motion.span
+          className="text-sm xl:text-base"
+          animate={{ rotate: [0, -10, 10, -5, 0] }}
+          transition={{
+            duration: 1.5,
+            repeat: Infinity,
+            repeatDelay: 4,
+            ease: 'easeInOut',
+          }}
+        >
+          {badgeIcon}
+        </motion.span>
+
+        <span className="relative z-10">{badge}</span>
+      </div>
+    </motion.div>
   );
 };
 
@@ -82,13 +152,31 @@ const CodingProfiles = () => {
                     <p className="text-gray-500 dark:text-gray-400 mb-2 relative z-10 w-full truncate text-sm xl:text-base" title={`@${profile.username}`}>
                       @{profile.username}
                     </p>
+
+                    {/* Rating row with badge */}
                     {profile.maxRating ? (
-                      <p className="text-xs xl:text-sm font-medium text-gray-700 dark:text-gray-300 mb-6 relative z-10 bg-white/50 dark:bg-black/20 px-2.5 py-1 rounded-full border border-gray-200 dark:border-gray-700/50 whitespace-nowrap">
-                        Max Rating: <AnimatedCounter value={profile.maxRating} color={profile.color} />
-                      </p>
+                      <div className="flex flex-col items-center gap-1.5 mb-4 relative z-10">
+                        <p className="text-xs xl:text-sm font-medium text-gray-700 dark:text-gray-300 bg-white/50 dark:bg-black/20 px-2.5 py-1 rounded-full border border-gray-200 dark:border-gray-700/50 whitespace-nowrap flex items-center gap-1.5">
+                          Max Rating: <AnimatedCounter value={profile.maxRating} color={profile.color} />
+                          {profile.badge && (
+                            <span className="inline-flex items-center ml-0.5">
+                              <span
+                                className="inline-block w-1 h-1 rounded-full mx-1 opacity-40"
+                                style={{ backgroundColor: profile.color }}
+                              />
+                              <AnimatedBadge
+                                badge={profile.badge}
+                                badgeIcon={profile.badgeIcon}
+                                badgeColor={profile.badgeColor}
+                                badgeBg={profile.badgeBg}
+                              />
+                            </span>
+                          )}
+                        </p>
+                      </div>
                     ) : (
                       // Equal spacer to keep layout aligned
-                      <div className="h-[26px] mb-6" />
+                      <div className="h-[26px] mb-4" />
                     )}
                     
 
@@ -117,3 +205,4 @@ const CodingProfiles = () => {
 };
 
 export default CodingProfiles;
+

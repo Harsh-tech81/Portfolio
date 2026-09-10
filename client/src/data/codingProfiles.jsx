@@ -13,7 +13,11 @@ export const codingProfiles = [
     color: "#FFA116",
     bgColor: "rgba(255,161,22,0.1)",
     icon: SiLeetcode,
-    maxRating:"1656",
+    maxRating: "1656",
+    badge: "Knight",
+    badgeIcon: "♞",
+    badgeColor: "#FFA116",
+    badgeBg: "rgba(255,161,22,0.15)",
   },
   {
     platform: "Codeforces",
@@ -32,6 +36,10 @@ export const codingProfiles = [
     bgColor: "rgba(91,70,56,0.1)",
     icon: SiCodechef,
     maxRating: "1416",
+    badge: "2★",
+    badgeIcon: "★",
+    badgeColor: "#5B4638",
+    badgeBg: "rgba(91,70,56,0.15)",
   },
   {
     platform: "GeeksforGeeks",
