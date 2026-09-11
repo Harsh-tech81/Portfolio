@@ -657,50 +657,7 @@
     flex-direction: row-reverse;
   }
 
-  /* Station node — the concentric circle dots on the timeline */
-  .station-node {
-    position: absolute;
-    left: 50%;
-    top: 3rem;
-    transform: translateX(-50%);
-    z-index: 10;
-  }
-
-  .station-node-outer {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    border: 2px solid var(--color-primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(59, 130, 246, 0.08);
-    box-shadow: 0 0 16px rgba(59, 130, 246, 0.3), 0 0 32px rgba(59, 130, 246, 0.1);
-    transition: all 0.4s ease;
-  }
-
-  .dark .station-node-outer {
-    background: rgba(59, 130, 246, 0.06);
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4), 0 0 40px rgba(59, 130, 246, 0.15);
-  }
-
-  .station-node-inner {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: var(--color-primary);
-    box-shadow: 0 0 8px var(--color-primary);
-  }
-
-  .station-row:hover .station-node-outer {
-    border-color: var(--color-secondary);
-    box-shadow: 0 0 24px rgba(139, 92, 246, 0.5), 0 0 48px rgba(139, 92, 246, 0.2);
-  }
-
-  .station-row:hover .station-node-inner {
-    background: var(--color-secondary);
-    box-shadow: 0 0 12px var(--color-secondary);
-  }
+  /* Station node — REMOVED (balls no longer rendered) */
 
 
   /* Station card — glassmorphic project card */
@@ -708,6 +665,7 @@
     width: 46%;
     position: relative;
     border-radius: 1rem;
+    overflow: hidden;
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
@@ -732,6 +690,22 @@
   .dark .station-card:hover {
     border-color: rgba(59, 130, 246, 0.4);
     box-shadow: 0 8px 40px rgba(59, 130, 246, 0.12), 0 0 0 1px rgba(59, 130, 246, 0.2);
+  }
+
+  /* Gradient accent bar at top of station card */
+  .station-card-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary), var(--color-accent));
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+  }
+
+  .station-card:hover .station-card-accent {
+    opacity: 1;
   }
 
   /* Station card side positioning */
@@ -845,36 +819,13 @@
     transform: translateX(4px);
   }
 
-  /* Scroll-tracking glow dot */
-  .train-indicator {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: var(--color-secondary-light);
-    box-shadow: 0 0 12px rgba(168, 85, 247, 0.9);
-    z-index: 15;
-  }
+  /* Train indicator — REMOVED (glow dot no longer rendered) */
 
   /* End-of-line marker */
   .end-of-line {
     text-align: center;
     padding: 2rem 0 0;
     position: relative;
-  }
-
-  .end-of-line::before {
-    content: "";
-    display: block;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    border: 2px solid var(--color-primary);
-    background: var(--bg-color);
-    margin: 0 auto 1rem;
-    box-shadow: 0 0 12px rgba(59, 130, 246, 0.3);
   }
 
   .end-of-line-text {
@@ -886,32 +837,23 @@
     opacity: 0.5;
   }
 
-  /* ===== Railway Timeline — Mobile Responsive ===== */
-
   @media (max-width: 1024px) {
+    /* Hide the center track on tablet/mobile — use left border accent instead */
     .railway-track,
     .railway-glow-line {
-      left: 20px;
+      left: 4px;
+      width: 2px;
     }
 
     .railway-rungs {
-      left: 20px;
+      display: none;
     }
 
     .station-row,
     .station-row.left-card,
     .station-row.right-card {
       flex-direction: column;
-      padding-left: 52px;
-    }
-
-    .station-node {
-      left: 20px;
-      top: 2rem;
-    }
-
-    .station-connector {
-      display: none;
+      padding-left: 24px;
     }
 
     .station-card,
@@ -920,15 +862,26 @@
       width: 100%;
       margin: 0;
     }
-
-    .train-indicator {
-      left: 20px;
-    }
   }
 
   @media (max-width: 640px) {
+    /* Hide the track entirely on small screens for cleaner look */
+    .railway-track,
+    .railway-glow-line {
+      display: none;
+    }
+
+    .station-row,
+    .station-row.left-card,
+    .station-row.right-card {
+      padding-left: 0;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
     .station-card {
       padding: 1.25rem;
+      border-radius: 0.75rem;
     }
 
     .station-icon-badge {

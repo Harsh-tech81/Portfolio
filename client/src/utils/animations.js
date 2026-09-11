@@ -137,21 +137,19 @@ export const countUp = (end, duration = 1500, onUpdate) => {
 // --- Timeline station animation variants ---
 
 export const slideInFromLeft = {
-  hidden: { opacity: 0, x: -80, filter: "blur(6px)" },
+  hidden: { opacity: 0, x: -80 },
   visible: {
     opacity: 1,
     x: 0,
-    filter: "blur(0px)",
     transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
   },
 };
 
 export const slideInFromRight = {
-  hidden: { opacity: 0, x: 80, filter: "blur(6px)" },
+  hidden: { opacity: 0, x: 80 },
   visible: {
     opacity: 1,
     x: 0,
-    filter: "blur(0px)",
     transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
   },
 };

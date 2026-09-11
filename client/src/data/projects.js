@@ -51,8 +51,6 @@ export const projects = [
       "Product, category, and inventory management",
       "Shopping cart and wishlist functionality",
       "Order placement and order tracking",
-      "Responsive UI for desktop and mobile devices",
-      "Secure checkout and user profile management",
     ],
     techStack: [
       "React",
@@ -81,8 +79,6 @@ export const projects = [
       "Persistent chat history and conversation management",
       "Credit-based subscription system with Stripe Checkout",
       "Secure payment processing using Stripe Webhooks",
-      "Automatic credit management after successful payments",
-      "Responsive and modern UI built with Tailwind CSS",
       "Real-time image upload, storage, and delivery using ImageKit",
     ],
     techStack: [
@@ -112,11 +108,7 @@ export const projects = [
       "Google and GitHub OAuth authentication using NextAuth.js",
       "Personalized creator profiles with custom avatar, cover image, and bio",
       "Secure crowdfunding and donation system powered by Razorpay",
-      "Real-time Top 10 supporter leaderboard based on donation amount",
       "Creator dashboard to manage profile details and payment gateway credentials",
-      "Dynamic user pages with Next.js App Router",
-      "React Server Actions for optimized backend operations",
-      "Responsive UI built with Tailwind CSS",
     ],
     techStack: [
       "Next.js",
