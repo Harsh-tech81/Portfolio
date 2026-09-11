@@ -564,53 +564,84 @@
     margin: 0 auto;
   }
 
-  /* Central vertical track */
+  /* Central vertical track (faint — like Education) */
   .railway-track {
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    transform: translateX(-50%);
-    background: linear-gradient(
-      to bottom,
-      transparent,
-      rgba(59, 130, 246, 0.15) 5%,
-      rgba(59, 130, 246, 0.15) 95%,
-      transparent
-    );
-    border-radius: 2px;
-  }
-
-  .dark .railway-track {
-    background: linear-gradient(
-      to bottom,
-      transparent,
-      rgba(59, 130, 246, 0.1) 5%,
-      rgba(59, 130, 246, 0.1) 95%,
-      transparent
-    );
-  }
-
-  /* Animated glow line overlay on the track */
-  .railway-glow-line {
     position: absolute;
     left: 50%;
     top: 0;
     bottom: 0;
     width: 2px;
     transform: translateX(-50%);
-    background: linear-gradient(
-      to bottom,
-      transparent,
-      var(--color-primary) 10%,
-      var(--color-secondary) 50%,
-      var(--color-primary) 90%,
-      transparent
-    );
-    opacity: 0.6;
-    border-radius: 1px;
-    filter: blur(0.5px);
+    background: rgba(59, 130, 246, 0.12);
+    border-radius: 2px;
+  }
+
+  .dark .railway-track {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  /* Scroll-driven progress line (fills as you scroll — like Education) */
+  .railway-progress-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    transform: translateX(-50%);
+    transform-origin: top;
+    background: linear-gradient(to bottom, #ec4899, #a855f7, #3b82f6);
+    border-radius: 2px;
+  }
+
+  /* Glow head that travels down the track with scroll */
+  .railway-glow-head {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #c084fc;
+    box-shadow: 0 0 12px rgba(168, 85, 247, 0.9);
+    z-index: 15;
+  }
+
+  /* Pulsing ring around the glow head */
+  .railway-glow-ring {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid rgba(168, 85, 247, 0.5);
+    z-index: 15;
+  }
+
+  /* Station dot — gradient circle with icon on the track for each project */
+  .station-dot {
+    position: absolute;
+    left: 50%;
+    top: 2.5rem;
+    transform: translateX(-50%);
+    z-index: 10;
+  }
+
+  .station-dot-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #a855f7, #3b82f6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(139, 92, 246, 0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .station-row:hover .station-dot-circle {
+    transform: scale(1.1);
+    box-shadow: 0 4px 24px rgba(139, 92, 246, 0.5);
   }
 
   /* Ladder rungs along the track */
@@ -656,8 +687,6 @@
   .station-row.right-card {
     flex-direction: row-reverse;
   }
-
-  /* Station node — REMOVED (balls no longer rendered) */
 
 
   /* Station card — glassmorphic project card */
@@ -819,8 +848,6 @@
     transform: translateX(4px);
   }
 
-  /* Train indicator — REMOVED (glow dot no longer rendered) */
-
   /* End-of-line marker */
   .end-of-line {
     text-align: center;
@@ -838,11 +865,18 @@
   }
 
   @media (max-width: 1024px) {
-    /* Hide the center track on tablet/mobile — use left border accent instead */
+    /* Move track to left edge on tablet/mobile (like Education) */
     .railway-track,
-    .railway-glow-line {
-      left: 4px;
-      width: 2px;
+    .railway-progress-line {
+      left: 20px;
+    }
+
+    .railway-glow-head {
+      left: 20px;
+    }
+
+    .railway-glow-ring {
+      left: 20px;
     }
 
     .railway-rungs {
@@ -853,7 +887,17 @@
     .station-row.left-card,
     .station-row.right-card {
       flex-direction: column;
-      padding-left: 24px;
+      padding-left: 52px;
+    }
+
+    .station-dot {
+      left: 20px;
+      top: 1.5rem;
+    }
+
+    .station-dot-circle {
+      width: 36px;
+      height: 36px;
     }
 
     .station-card,
@@ -865,20 +909,6 @@
   }
 
   @media (max-width: 640px) {
-    /* Hide the track entirely on small screens for cleaner look */
-    .railway-track,
-    .railway-glow-line {
-      display: none;
-    }
-
-    .station-row,
-    .station-row.left-card,
-    .station-row.right-card {
-      padding-left: 0;
-      padding-top: 1rem;
-      padding-bottom: 1rem;
-    }
-
     .station-card {
       padding: 1.25rem;
       border-radius: 0.75rem;
@@ -888,6 +918,11 @@
       width: 36px;
       height: 36px;
       font-size: 0.9rem;
+    }
+
+    .station-dot-circle {
+      width: 32px;
+      height: 32px;
     }
   }
 }

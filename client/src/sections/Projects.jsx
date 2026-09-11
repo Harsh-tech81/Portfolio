@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
+import { motion, useScroll, useSpring, useTransform, AnimatePresence } from "motion/react";
 import { projects } from "../data/projects";
 import SectionHeading from "../components/common/SectionHeading";
 import AnimatedSection from "../components/common/AnimatedSection";
@@ -132,6 +132,19 @@ const StationCard = ({ project, index, stationNum }) => {
       whileInView="visible"
       viewport={{ once: true, margin: "-80px" }}
     >
+      {/* Station dot on the track — gradient circle with icon (like Education) */}
+      <motion.div
+        className="station-dot"
+        initial={{ scale: 0, rotate: -30 }}
+        whileInView={{ scale: 1, rotate: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ type: "spring", stiffness: 260, damping: 15, delay: 0.15 }}
+      >
+        <div className="station-dot-circle">
+          <CategoryIcon className="text-white" size={18} />
+        </div>
+      </motion.div>
+
       {/* Card */}
       <motion.div
         className="station-card"
@@ -354,15 +367,41 @@ const StationCard = ({ project, index, stationNum }) => {
   );
 };
 
-/** Railway Timeline wrapper for featured projects — no balls, just clean track + cards */
+/** Railway Timeline wrapper for featured projects — with scroll-following glow ball like Education */
 const RailwayTimeline = ({ featuredProjects }) => {
   const timelineRef = useRef(null);
 
+  // Scroll-driven progress line (exactly like Education section)
+  const { scrollYProgress } = useScroll({
+    target: timelineRef,
+    offset: ["start 80%", "end 55%"],
+  });
+  const lineScale = useSpring(scrollYProgress, { stiffness: 90, damping: 25 });
+  const glowTop = useTransform(lineScale, [0, 1], ["0%", "100%"]);
+
   return (
     <div ref={timelineRef} className="railway-timeline mt-16">
-      {/* The track */}
+      {/* Faint track */}
       <div className="railway-track" />
-      <div className="railway-glow-line" />
+
+      {/* Progress line — fills with scroll (gradient like Education) */}
+      <motion.div
+        className="railway-progress-line"
+        style={{ scaleY: lineScale }}
+      />
+
+      {/* Glow head that travels down the timeline */}
+      <motion.div
+        className="railway-glow-head"
+        style={{ top: glowTop }}
+      />
+      {/* Pulsing ring around the glow head */}
+      <motion.div
+        className="railway-glow-ring"
+        style={{ top: glowTop }}
+        animate={{ scale: [1, 1.8, 1], opacity: [0.6, 0, 0.6] }}
+        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+      />
 
       {/* Station cards */}
       {featuredProjects.map((project, index) => (
@@ -374,7 +413,7 @@ const RailwayTimeline = ({ featuredProjects }) => {
         />
       ))}
 
-      {/* End-of-line text marker (no dot) */}
+      {/* End-of-line marker */}
       <motion.div
         className="end-of-line"
         initial={{ opacity: 0 }}
