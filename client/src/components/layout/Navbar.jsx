@@ -93,15 +93,16 @@ const Navbar = ({ activeSection }) => {
           </div>
 
           {/* Desktop Navigation — visible only on lg (1024px+) */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-3 xl:space-x-6">
             {navLinks.map((link) => (
               <a
                 key={link.id}
                 href={link.path}
                 onClick={(e) => handleNavClick(e, link.path)}
-                className="relative group py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                className="relative group py-2 text-xs xl:text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors whitespace-nowrap"
               >
-                {link.name}
+                <span className="hidden xl:inline">{link.name}</span>
+                <span className="xl:hidden">{link.shortName || link.name}</span>
                 <motion.span
                   className="absolute bottom-0 left-0 w-full h-[2px] bg-blue-600 dark:bg-blue-400 origin-left"
                   initial={{ scaleX: 0 }}

@@ -1,6 +1,41 @@
 export const projects = [
   {
     id: 1,
+    title: "PlaceAI — AI-Powered Campus Placement Portal",
+    category: "Agentic AI Platform",
+    duration: "Aug 2026 - Oct 2026",
+    description:
+      "A production-grade, multi-agent campus placement and recruitment portal engineered to replace legacy keyword-matching systems with true semantic intelligence. Built with Next.js 16, React 19, LangGraph.js, Qdrant Vector Database, BullMQ, and Redis. PlaceAI analyzes candidate PDF resumes, GitHub repositories, and job requisitions to deliver objective match evaluations, gap analyses, and live adaptive mock interview rooms.",
+    features: [
+      "LangGraph Multi-Agent Evaluation Engine (Supervisor, Extractor, Evaluator, and Feedback agents)",
+      "Semantic PDF resume vectorization into 768-dimensional Qdrant vector collections",
+      "GitHub repository ingestion extracting verified code signals, top languages, and architecture summaries",
+      "Interactive AI Mock Interview Room with real-time Speech-to-Text and adaptive rubric scoring (0-10)",
+      "Objective candidate-to-job match dossier (0-100%) with highlighted strengths and identified skill gaps",
+      "Recruiter dashboard with applicant leaderboard, inline PDF resume viewer, and 1-click hiring pipeline",
+      "Dual AI architecture supporting OpenRouter (Gemini 2.0 Flash, DeepSeek) & Google AI Studio with local fallbacks",
+      "High-performance asynchronous background processing via BullMQ workers and Redis SSE streaming",
+    ],
+    techStack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "LangGraph",
+      "Qdrant",
+      "Redis",
+      "MongoDB",
+      "BullMQ",
+      "Tailwind CSS",
+      "OpenRouter",
+      "Google Gemini API",
+    ],
+    image: "/placeai.svg",
+    liveUrl: "https://ai-campus-placement-portal.vercel.app",
+    githubUrl: "https://github.com/Harsh-tech81/AI-Campus-Placement-Portal",
+    featured: true,
+  },
+  {
+    id: 2,
     title: "AgentFlow-AI",
     category: "AI Platform",
     duration: "July 2026 - Aug 2026",
@@ -38,7 +73,7 @@ export const projects = [
   },
 
   {
-    id: 2,
+    id: 3,
     title: "Ecommerce Shopping Website",
     category: "E-Commerce",
     duration: "Dec 2025 - March 2026",
@@ -67,7 +102,7 @@ export const projects = [
     featured: true,
   },
   {
-    id: 3,
+    id: 4,
     title: "NovaChat - AI Chatbot & Image Generator",
     category: "AI Chatbot",
     duration: "June 2026",
@@ -98,7 +133,7 @@ export const projects = [
     featured: true,
   },
   {
-    id: 4,
+    id: 5,
     title: "Get Me A Chai",
     category: "Crowdfunding",
     duration: "May 2026",
@@ -125,7 +160,7 @@ export const projects = [
     featured: false,
   },
   {
-    id: 5,
+    id: 6,
     title: "Personal Portfolio Website",
     category: "Portfolio",
     duration: "Oct 2026",

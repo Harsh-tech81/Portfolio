@@ -24,6 +24,7 @@ import {
   SiLanggraph,
   SiLangchain,
   SiGooglegemini,
+  SiTypescript,
 } from "react-icons/si";
 import { FaAws, FaCloud, FaRobot, FaShoppingCart, FaComments, FaHandHoldingHeart, FaLaptopCode } from "react-icons/fa";
 import { FiImage } from "react-icons/fi";
@@ -67,12 +68,16 @@ const techIconMap = {
   ImageKit: FiImage,
   "Framer Motion": SiReact,
   "Three.js": FiCode,
+  TypeScript: SiTypescript,
+  BullMQ: SiRedis,
+  OpenRouter: FaRobot,
 };
 
 /**
  * Maps project category to icon component.
  */
 const categoryIconMap = {
+  "Agentic AI Platform": FaRobot,
   "AI Platform": FaRobot,
   "E-Commerce": FaShoppingCart,
   "AI Chatbot": FaComments,
@@ -114,6 +119,7 @@ const StationCard = ({ project, index, stationNum }) => {
   const CategoryIcon = categoryIconMap[project.category] || FiCode;
   const [showAllTech, setShowAllTech] = useState(false);
   const [showMore, setShowMore] = useState(false);
+  const [imgError, setImgError] = useState(false);
   const MAX_VISIBLE_TECH = 4;
   const MAX_VISIBLE_FEATURES = 3;
   const allTech = project.techStack || [];
@@ -190,13 +196,22 @@ const StationCard = ({ project, index, stationNum }) => {
         {/* Embedded Project Image Preview */}
         {project.image && (
           <div className="relative rounded-xl overflow-hidden mb-4 border border-gray-200 dark:border-white/8 group/img">
-            <div className="aspect-[16/9] overflow-hidden bg-gray-100 dark:bg-white/5">
-              <img
-                src={project.image}
-                alt={project.title}
-                loading="lazy"
-                className="w-full h-full object-contain transition-transform duration-500 group-hover/img:scale-105"
-              />
+            <div className="aspect-[16/9] overflow-hidden bg-gray-100 dark:bg-white/5 flex items-center justify-center">
+              {!imgError ? (
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  loading="lazy"
+                  onError={() => setImgError(true)}
+                  className="w-full h-full object-contain transition-transform duration-500 group-hover/img:scale-105"
+                />
+              ) : (
+                <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-blue-600/20 via-purple-600/20 to-pink-600/20 p-6 text-center">
+                  <CategoryIcon className="text-4xl text-blue-500 dark:text-blue-400 mb-2" />
+                  <span className="text-sm font-semibold text-gray-800 dark:text-gray-200">{project.title}</span>
+                  <span className="text-xs text-gray-500 mt-1">Preview Image Placeholder</span>
+                </div>
+              )}
             </div>
             {/* Hover overlay with quick links */}
             <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] opacity-0 group-hover/img:opacity-100 transition-all duration-300 flex items-center justify-center gap-3">

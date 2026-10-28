@@ -42,10 +42,11 @@ The portfolio is divided into the following interactive sections:
 2. **👤 About** — 3D tilt profile image, spring bounce-in icons, pulse-glow info cards, staggered interest tags with blur reveal
 3. **🎓 Education** — Scroll-drawing timeline with gradient progress line, pulsing glow dot tracker, spring-animated graduation cap icons, hover-lift cards
 4. **🛠️ Skills** — Animated `layoutId` category tabs, blur-to-clear card transitions, 360° icon rotation on hover, pulse-glow cards, infinite skill marquee with pause-on-hover
-5. **💼 Projects** — Rotating conic-gradient borders on featured images, staggered feature list reveals, 3D tilt + shine-sweep on images, tech stack icon grid with hover effects
-6. **💻 Coding Profiles** — Animated number counters (count up from 0), platform-colored glow rings, spring-animated visit buttons with colored box shadows
-7. **🏆 Certifications** — Clip-path left-to-right image reveal, glassmorphism Quick View overlay on hover, hover-lift with spring physics
-8. **📧 Contact** — Floating label inputs, glowing focus ring, animated SVG checkmark draw on success, drifting gradient orb backgrounds
+5. **💼 Projects** — Rotating conic-gradient borders on featured images, staggered feature list reveals, 3D tilt + shine-sweep on images, tech stack icon grid with hover effects (featuring PlaceAI, AgentFlow-AI, and more)
+6. **🤝 Positions of Responsibility** — Tilt cards with gradient accent headers, club badges, duration tags, key technical contributions, and skills pills
+7. **💻 Coding Profiles** — Animated number counters (count up from 0), platform-colored glow rings, spring-animated visit buttons with colored box shadows
+8. **🏆 Certifications** — Clip-path left-to-right image reveal, glassmorphism Quick View overlay on hover, hover-lift with spring physics
+9. **📧 Contact** — Floating label inputs, glowing focus ring, animated SVG checkmark draw on success, drifting gradient orb backgrounds
 
 ---
 

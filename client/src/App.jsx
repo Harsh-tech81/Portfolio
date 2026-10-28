@@ -14,8 +14,8 @@ import Hero from './sections/Hero';
 import About from './sections/About';
 import Education from './sections/Education';
 import Skills from './sections/Skills';
-// import Experience from './sections/Experience';
 import Projects from './sections/Projects';
+import Responsibilities from './sections/Responsibilities';
 import CodingProfiles from './sections/CodingProfiles';
 import Certifications from './sections/Certifications';
 import Contact from './sections/Contact';
@@ -26,8 +26,8 @@ const sectionIds = [
   'about',
   'education',
   'skills',
-  // 'experience',
   'projects',
+  'responsibility',
   'coding-profiles',
   'certifications',
   'contact',
@@ -114,8 +114,8 @@ function App() {
           <About />
           <Education />
           <Skills />
-          {/* <Experience /> */}
           <Projects />
+          <Responsibilities />
           <CodingProfiles />
           <Certifications />
           <Contact />

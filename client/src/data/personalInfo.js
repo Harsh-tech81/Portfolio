@@ -29,7 +29,7 @@ export const personalInfo = {
       "Seeking opportunities to build impactful software using Full Stack Development, AI, and Cloud technologies while continuously learning and contributing to innovative products.",
     interests: [
       "Full Stack Development",
-      "Artificial Intelligence",
+      "Agentic AI",
       "Generative AI",
       "Cloud Computing",
       "System Design",

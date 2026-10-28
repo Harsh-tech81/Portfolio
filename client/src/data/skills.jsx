@@ -58,8 +58,11 @@ import {
   FaProjectDiagram,
   FaCubes,
   FaSitemap,
+  FaRobot,
 } from "react-icons/fa";
 import { VscVscode } from "react-icons/vsc";
+import { TbSql } from "react-icons/tb";
+import { BsStars } from "react-icons/bs";
 
 export const skills = [
   {
@@ -67,6 +70,7 @@ export const skills = [
     icon: <SiJavascript />,
     skills: [
       { name: "JavaScript", icon: <SiJavascript /> },
+      { name: "TypeScript", icon: <SiTypescript /> },
       { name: "Python", icon: <SiPython /> },
       { name: "Java", icon: <FaJava /> },
       { name: "C++", icon: <SiCplusplus /> },
@@ -103,11 +107,12 @@ export const skills = [
     category: "Databases",
     icon: <SiMongodb />,
     skills: [
+      { name: "SQL", icon: <TbSql /> },
       { name: "MongoDB", icon: <SiMongodb /> },
+      // { name: "PostgreSQL", icon: <SiPostgresql /> },
       { name: "MySQL", icon: <SiMysql /> },
       { name: "Redis", icon: <SiRedis /> },
-      {name:"Vector Database",icon:<FaDatabase/>}
-      // { name: "Qdrant Vector DB", icon: <FaDatabase /> },
+      { name: "Vector Database", icon: <FaDatabase /> },
     ],
   },
   {
@@ -117,7 +122,7 @@ export const skills = [
       { name: "Docker", icon: <FaDocker /> },
       { name: "CI/CD", icon: <SiGithubactions /> }, // Using GitHub actions as a proxy for CI/CD
       { name: "GitHub Actions", icon: <SiGithubactions /> },
-      { name: "Nginx", icon: <SiNginx /> },
+      // { name: "Nginx", icon: <SiNginx /> },
     ],
   },
   {
@@ -149,11 +154,12 @@ export const skills = [
     category: "AI / ML",
     icon: <SiTensorflow />,
     skills: [
+      { name: "Agentic AI", icon: <FaRobot /> },
+      { name: "Generative AI", icon: <BsStars /> },
       { name: "LangChain", icon: <SiLangchain /> },
       { name: "LangGraph", icon: <SiLanggraph /> },
       { name: "RAG", icon: <FaDatabase /> },
-      // { name: "Groq", icon: <FaMicrochip /> },
-      { name: "Vector Search", icon: <FaSearch /> },
+      // { name: "Vector Search", icon: <FaSearch /> },
     ],
   },
   {
