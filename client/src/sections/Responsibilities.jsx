@@ -4,7 +4,7 @@ import { responsibilities } from '../data/responsibilities';
 import SectionHeading from '../components/common/SectionHeading';
 import AnimatedSection from '../components/common/AnimatedSection';
 import Card from '../components/common/Card';
-import { FiCalendar, FiMapPin, FiExternalLink, FiCheckCircle } from 'react-icons/fi';
+import { FiCalendar, FiMapPin, FiCheckCircle } from 'react-icons/fi';
 import { FaUsers, FaCodeBranch, FaAward, FaLaptopCode } from 'react-icons/fa';
 import { fadeInUp, staggerContainer } from '../utils/animations';
 
@@ -16,11 +16,11 @@ const getOrgIcon = (type) => {
 
 const Responsibilities = () => {
   return (
-    <section id="responsibility" className="py-20 relative bg-gray-50/50 dark:bg-transparent transition-colors duration-300">
+    <section id="achievements" className="py-24 relative bg-gray-50/50 dark:bg-transparent transition-colors duration-300 scroll-mt-24">
       <div className="container mx-auto px-4 md:px-6 max-w-6xl">
         <SectionHeading
-          title="Positions of Responsibility"
-          subtitle="Leadership roles, technical club contributions & open source community engagement"
+          title="Achievements"
+          subtitle="Technical club member at WDC NITP, GSSoC’25 contributor & open-source community engagement"
         />
 
         <AnimatedSection variants={staggerContainer} className="mt-14">
@@ -97,10 +97,10 @@ const Responsibilities = () => {
                       )}
                     </div>
 
-                    {/* Bottom Section: Technologies & External Link */}
-                    <div className="pt-4 border-t border-gray-100 dark:border-white/5 mt-auto">
-                      {item.technologies && item.technologies.length > 0 && (
-                        <div className="flex flex-wrap gap-1.5 mb-3">
+                    {/* Bottom Section: Technologies */}
+                    {item.technologies && item.technologies.length > 0 && (
+                      <div className="pt-4 border-t border-gray-100 dark:border-white/5 mt-auto">
+                        <div className="flex flex-wrap gap-1.5">
                           {item.technologies.map((tech, i) => (
                             <span
                               key={i}
@@ -110,22 +110,8 @@ const Responsibilities = () => {
                             </span>
                           ))}
                         </div>
-                      )}
-
-                      {item.link && (
-                        <div className="flex justify-end pt-1">
-                          <a
-                            href={item.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
-                          >
-                            <span>Learn More</span>
-                            <FiExternalLink size={12} />
-                          </a>
-                        </div>
-                      )}
-                    </div>
+                      </div>
+                    )}
                   </Card>
                 </motion.div>
               );

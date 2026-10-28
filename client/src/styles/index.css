@@ -395,16 +395,22 @@
     }
   }
 
+  /* Global scroll margin for sections so headers have clean breathing room under fixed navbar */
+  section {
+    scroll-margin-top: 5.5rem;
+  }
+
   /* ===== NEW: Section heading animated gradient underline ===== */
   .section-underline {
     position: relative;
     display: inline-block;
+    padding-bottom: 4px;
   }
 
   .section-underline::after {
     content: "";
     position: absolute;
-    bottom: -6px;
+    bottom: -8px;
     left: 0;
     width: 100%;
     height: 3px;

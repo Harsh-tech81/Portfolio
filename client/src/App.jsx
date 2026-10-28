@@ -27,7 +27,7 @@ const sectionIds = [
   'education',
   'skills',
   'projects',
-  'responsibility',
+  'achievements',
   'coding-profiles',
   'certifications',
   'contact',
