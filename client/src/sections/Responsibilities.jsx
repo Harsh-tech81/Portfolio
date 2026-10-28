@@ -36,14 +36,14 @@ const Responsibilities = () => {
                 >
                   <Card
                     tilt
-                    className="w-full flex flex-col justify-between p-6 sm:p-8 rounded-2xl border border-gray-200/80 dark:border-white/10 hover:border-blue-500/40 dark:hover:border-blue-500/40 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 group relative overflow-hidden bg-white dark:bg-[#12121a]/90 backdrop-blur-md"
+                    className="w-full flex flex-col justify-between pt-7 sm:pt-9 p-6 sm:p-8 rounded-2xl border border-gray-200/80 dark:border-white/10 hover:border-blue-500/40 dark:hover:border-blue-500/40 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 group relative overflow-hidden bg-white dark:bg-[#12121a]/90 backdrop-blur-md"
                   >
                     {/* Top gradient highlight strip */}
                     <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-80 group-hover:opacity-100 transition-opacity" />
 
-                    <div>
+                    <div className="pt-2 sm:pt-3">
                       {/* Top Badges Row */}
-                      <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
+                      <div className="flex flex-wrap items-center justify-between gap-2 mb-5">
                         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
                           {getOrgIcon(item.type)}
                           <span>{item.type}</span>
