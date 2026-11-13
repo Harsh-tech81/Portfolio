@@ -59,6 +59,6 @@ export const certifications = [
     date: "Aug 2026",
     image: "/grid.png",
     credentialUrl:
-      "https://drive.google.com/file/d/1vpCVyGWUqU_58d3YtqTsJpCmPvnu1DN3/view?usp=drive_link",
+      "https://drive.google.com/file/d/1vMxs-nFyuhA8ilh_OgpE2-KX_bY88Ir4/view?usp=sharing",
   },
 ];
